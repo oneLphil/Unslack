@@ -6,7 +6,7 @@ Start Date: Tuesday Jan 30, 2018
 Location: Online
 <!--- Established a product and discussed goals of the product. (NOT needed here) --->
 
-End Date: Tuesday Feb 6, 2018 Thursday February 8, 2018
+End Date: Thursday February 8, 2018
 Location: Online
 <!--- Assigned roles to the team. --->
 
@@ -43,7 +43,7 @@ Decide which medium/platform is best for the solution
 Decide on the core extension features
 Design how the extension will look like and function
 Decide on languages to use for a google chrome extension
-Decide on using a server to store database with java on how to store data
+Decide on how to store data
 Decide on a points and reward system implementation
 
 #### Artifacts
