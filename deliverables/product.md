@@ -20,6 +20,12 @@ The scoring works similar to Reddit karma or Stack Overflow points, where it’s
 
 *Figure 1: Example table of how users would be ranked. Users would be able to access this table to check rankings.* 
 
+ 
+![alt text][trackr]
+
+[trackr]: https://github.com/csc301-winter-2018/project-team-02/blob/master/deliverables/images/trackrScreen.png "Screenshot of Trackr"
+*Figure 2: Screenshot of [Trackr](https://github.com/srikarg/Trackr), a Chrome extrension that currently exists that only tracks web usage. Ideally our application would also be able to display user-friendly graphics such as these.*
+
 
 ## Q2: Who are your target users?
 
@@ -49,11 +55,11 @@ Users would choose this product because they believe that the social aspect will
 
 There are several alternatives in terms of controlling website usage and traffic, including:
 
-* https://github.com/srikarg/Trackr to track online behaviour
+* [Trackr](https://github.com/srikarg/Trackr), which tracks online behaviour
 
-* https://github.com/matchu/Strict-Workflow 
+* [StayFocused](https://chrome.google.com/webstore/detail/stayfocusd/laankejkbhbdhmipfmgcngdelahlfoji?hl=en), which block certain sites for a period of time defined by the user
 
-* stayfocused https://chrome.google.com/webstore/detail/stayfocusd/laankejkbhbdhmipfmgcngdelahlfoji?hl=en to block sites for a period of time. 
+* [Strict Workflow](https://github.com/matchu/Strict-Workflow), which implements the pomodoro time management technique that blocks sites for 25 minute intervals with 5 minute breaks
 
 Our implementation differs in the sense that we focus on enabling groups to form contracts with each other. The contract would contain details as follows:
 1. Deeming which websites should be controlled (i.e. blocked, limited access, etc.)
@@ -70,20 +76,32 @@ Our main differences can be summarized as:
 
 ## Highlights
 
-|Decision 1: Focus the design of the application on using social accountability to motivate users to stop wasting time.|
+### Decision 1: Productivity focus vs social accountability focus
+|Options|
 |-------|
 |*Option 1*: Create an application that suggests good habits to an individual user. This design focus would allow us to spend more time personalizing a user’s experience possibly including machine learning, scheduling, guidance and motivation.|
 |*Option 2*: Create an application that uses peer pressure to enforce good habits. Peer pressure is a method of motivating someone’s behavior in other aspects of life, but people are not always among their peers and subject to peer pressure. There is no application currently in circulation that leverages peer pressure to encourage productivity.|
-|**Decided on Option 2 because** applications that motivate good behavior by interacting with individuals already exist. Leveraging socialization to motivate good behavior is a fresh approach to the problem of wasting time on the internet. By trying to solve this problem with social accountability, we are likely to add value to this problem space.|
+
+**Result: Option 2** 
+* Decided to focus the design of the application on using social accountability to motivate users to stop wasting time.
+* Applications that motivate good behavior by interacting with individuals already exist. Leveraging socialization to motivate good behavior is a fresh approach to the problem of wasting time on the internet. By trying to solve this problem with social accountability, we are likely to add value to this problem space.|
  
-|Decision 2: We decided to avoid making something too complex and involved (and open to security issues) such as cross-client actions such as blocking websites for other users.|
+### Decision 2: Passive vs interactive application
+|Options|
 |-------|
 |*Option 1*: Define our minimum viable product as an interactive application where users can do things like intercept other users HTML requests and do things to annoy or encourage them.|
 |*Option 2*: Define our minimum viable product as a passive application which shows how you rank against other people.|
-|**Decided on option 2 because** it allows us to commit to something less complex than creating what would amount to a new social network with features that are more intricate than current social networks. Implementing many of the discussed interactive features would open up the application to security problems and we would be working on issues that are beyond the scope of our problem space.|
 
-|Decision 3: We decided to set up some kind of point system which will be used to rank people and potentially make the points exchangeable for in-app rewards|
+**Result: Option 2** 
+* Decided to avoid making something too complex and involved (and open to security issues) such as cross-client actions such as blocking websites for other users.
+* Option 2 also allows us to commit to something less complex than creating what would amount to a new social network with features that are more intricate than current social networks. Implementing many of the discussed interactive features would open up the application to security problems and we would be working on issues that are beyond the scope of our problem space.|
+
+### Decision 3: Gamification
+|Options|
 |-------|
 |*Option 1*: Having no game aspect to the application.|
 |*Option 2*: Having a game aspect to the application|
-|**Decided on option 2 because** gamifying the application makes people more likely to engage in the behavior we’re trying to encourage. Gamifying a productivity application also differentiates our productivity application from other applications already available.|
+
+**Result: Option 2**
+* Decided to set up some kind of point system which will be used to rank people and potentially make the points exchangeable for in-app rewards
+* Gamifying the application makes people more likely to engage in the behavior we’re trying to encourage. Gamifying a productivity application also differentiates our productivity application from other applications already available.|
