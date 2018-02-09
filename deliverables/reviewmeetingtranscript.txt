@@ -1,0 +1,79 @@
+Kevin: We wrote in Decision 3 that we would have a rewards system and rankings. What are we going to do about the rewards?
+Phillip: we can do trophy/badges for now?
+Steve: I think one of the reward ideas was to give time that's not counted as well, but that can be an additional feature
+Kevin: Sounds like a good idea tho
+Kevin: One way to reward users and keep balance inside their agreements
+Alana: Yeah it sounds good
+Kevin: Ok I've copied down the template requirements inside each of the iteration google docs
+we need to talk about these details in this current review meeting
+so we can write somehting down for this review meeting lol
+Phillip: did we plan to discuss how the extension should look?
+oh I guess you are writing we did not get to that part
+doesnt that go into review and not plan ?
+in the review we have to say whether or not we completed these goals for this iteration in relation to the product
+Kevin:
+Decide what problem we will try to solve and design a solution to the problem
+
+Decide which medium/platform is best for the solution
+
+Decide on the core extension features
+
+Design how the extension will look like and function
+
+Decide on languages to use for a google chrome extension
+
+Decide on using a server to store database with java
+
+Decide on a points and reward system implementation
+
+Phillip: I think the 2nd last one should be in the review
+that kinda goes into we decided to use java for server
+so the iteration-01-plan is meant for us to describe all the goals we want to achieve for this iteration
+and the itearation -01-review is meant for us to write down whether or not we achieved those goals mentioned in the iteration-01-plan at the end of our review meeting
+Kevin: ya
+"Decide on using a server to store database with java" is a decision not a plan though
+David: It's also gramatical spaghetti
+Kevin: we already accomplished that goal by saying that we are going to use a server
+we need to change up the wording of these goals
+Phillip: ya so it should go into the review section
+Kevin: it's in both the review and plan
+we're just gonna copy and paste all those goals cuz we finished them
+and for this current meeting we're also gonna have to talk about our goals for the next meeting
+Alana: Goals for the next meeting could be starting to discuss the architecture of the project, or maybe deciding on some UI/UX aspects?
+Kevin: Sounds like a plan
+maybe do some CRC cards
+David: crc cards are a huge waste of time
+Phillip: is there an online UML tool we can all share and work on?
+Alana: They make good artifacts though
+Phillip: ya thats what I was thinking haha
+artifacts
+Alana: As “proof”
+Kevin: just to be clear on what we are doing for this current review meeting now
+## Meeting Highlights
+
+Going into the next iteration, our main insights are:
+
+ * 2 - 4 items
+
+ * Short (no more than one short paragraph per item)
+
+ * High-level concepts that should guide your work for the next iteration.
+
+ * These concepts should help you decide on where to focus your efforts.
+
+ * Can be related to product and/or process.
+ 
+David: we should definitely plan our architecture and software
+but crc cards are way too much imo
+planning high level stuff is important, but making crc cards for anything not-high level is pointless work
+Alana: Hm then we could try to meet in person and draw some high level diagrams and stuff on a whiteboard and take a picture like Adam suggested
+Or someone could just jot it down on paper
+And like we submit that as an artifact
+Steve: Yeah, that's what I was thinking, some kind of high-level design diagram
+Kevin: yea let's set that as our artifact for architecture planning
+we should research on the javascript stacks as part of the software aspect right?
+Phillip: that would probably go under our planning session for iteration-2
+it would be one of our tasks
+I'm gona head to class now, I will connect to chat once I get there
+Steve: I transcripted the planning meeting, so we can use that for an artifact
+Alana: Awesome!
