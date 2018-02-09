@@ -1,0 +1,92 @@
+Steven: The TA seemed to like the idea of gamifying it somehow
+Reminder, 30 min Group Meeting at 7:30 PM.
+Omid: id pref someone else to add some details, like adding incentives or some type of accountibility
+Omid: cuz i cant think of any
+Kevin: I was thinking tho what would you guys think of this idea:
+David: well the basic idea for that has been a leaderboard of you and your friends
+Omid: oh cool like a gameficiation
+Kevin: We allow the user to form contracts with their friends. The app would be more focused on the social accountability aspect as a result. Basically the user would form these contracts that specify the amount of work they are going to do, what kind of work, and how long they will be working on them. It will be more of a checklist and at the end of the deadline for the contract, everyone has to show evidence that they completed each part. Otherwise, nobody can receive productivity points or marks, for a given contract.
+David: ok, but what's the point of the points/marks?
+Kevin: Gives the user a measure of how productive they are by the number of completed contracts or the amount of grade percentage the thing they are working on is worth
+David: kinda kills the web tracking aspect then, no?
+Steven: Might be able to add some kind of reward system - badges, letting you go to a blocked website for a bit, etc.
+Steven: You would use the points to claim the rewards
+Alana: Yeah, it does kill it, though maybe we can somehow integrate it?
+Alana: the points to claim rewards sounds good
+David: maybe something like, the best person in your group every week get's x points
+David: which are rewards for being good, ie; allowed to be a little unproductive with no penalty
+Alana: that's pretty good, though when using the points, then you wouldn't be able to gain points though right
+Steven: Hides the unproductive activity from your team mates even (assuming you can look at each other's stats)
+Steven: Yeah I don't think you can get and spend points at the same time
+David: I don't think you need to hide it or anything, it's just like, '1 hour of discounted netflix time' or something
+Alana: and then when you use the points then you'd slip down the leaderboard
+Alana: i guess that makes sense
+David: any other opinions?
+Kevin: This seems good for now
+Steven: On the iteration plan md that we have to do, it asks to define everyone's roles and responibilities
+Kevin: Can we talk about the productivity aspect also?
+Kevin: As in, what exactly is being unproductive, it's kinda difficult to classify it with the type of website (i.e. talking to a friend about an assignment on FB when you have listed fb as unproductive)
+David: let the users classify it
+David: workflow can be like this
+David: make group ->invite friends -> define bad sites -> all agree
+Steven: Yeah that works.
+Alana: what happens with that semi-productive case?
+Steven: You could also set up some kind of default setting that would block common time sinks
+Philip: or have a default set of sites
+Steven: yeah
+David: we could bundle some, like 'social media', 'videos', etc
+Alana: should we have some type of grey area?
+David: like, it's unproductive if it's over x time?
+Steven: We're using facebook for communication now. Maybe there's a way to log time spent as unproductive if the user has no unread notifications
+Steven: But over X time actually seems like it would make a better fix than that
+Philip: would we block the user from accessing these sites if they spend over the amount of time or just deduct score?
+Steven: You could have different settings: Ban this set of websites, deduct score, neutral, etc.
+David: isn't the whole point that we deter unproductivity through the social aspect? if they can't be bad, they can't score poorly
+Steven: That's true
+David: maybe given them a popup or something, but we shouldn't block a site
+Philip: maybe the user can have a setting to block the site, but they can unblock it anytime
+Alana: maybe some type of annoying popup that starts timing up how long you've been on, or like some type of live-ish update on how your score is decreasing
+Philip: along with the pop-ups
+Steven: It could notify you when you've moved up or down a rank as well
+Philip: would we implement a message system where users in the group can give positive/negative feedback to each other?
+Philip: or can notify other group members when u are being unproductive?
+Steven: What if with your rewards points you could play to dial-up sound in someone else's computer when they're on youtube or something
+Philip: so for rewards, you can annoy other group members when they are unproductive
+Omid: My initial idea was a user tracking his online behavior by tracking his time on a daily/weekly/monthly basis. And by continuous feedback improve his own self discipline on sites he would visit
+Alana: right, which is good, but Adam really wanted us to focus on the social accountability aspect to make the idea unique
+Omid: but i understand the importance of adding social aspect by adding a leaderboard
+Omid: So make contracts with friends/family
+Omid: then check each others progress?
+Kevin: Is that enough tho? Like just looking at each other's stats?
+Steven: It could have a status under their contact which says something like "currently watching netflix"
+Philip: I think it should be "currently being unproductive"
+Omid: right so it would show what that person is doing right now. Maybe the guardian could block that site remotely?
+Omid: since they formed contracts
+Alana: I feel like blocking is abit too extreme..?
+David: so the thing with making this super networked is that it a) opens up security issues and b) makes it a lot harder and c) makes your browser a lot slower
+Philip: I feel like letting other people know exactly what site you are on is kinda iffy
+Omid: I suppose but we already do that with social networking sites...
+Omid: not to mention its to the users discretion when they join the contract
+Omid: so they would be fine iwht sharing their online activity
+Omid: otherwise accountability would be hard..besides a point system which is hard to implement
+David: constant updates will be a huge pain in the ass to implement. we can just use aggregated data from every day/week/month
+Steven: Omid added links to code for projects that track internet activity. We should probably look at how extensive their implementations are before committing to something complex
+In the project file
+Omid: those 2 extensions i linked just block site access and track time spent on sites
+Omid: sothe challenege would be sharing your online activity with friends
+David: ^yeah, that's the easy part really. the social bit is as hard as we want to make it
+David: if we do live updates, this will be hell. if we allow users to block each other over the web, there will 100% be vulnerabilities with that
+David: let's keep it simple with a daily/weekly/monthly leaderboard system, with accounting happening locally. every period, you send your data to a server, it aggregates everyone's stuff and creates the ranking
+Steven: We can deny that as the minimum viable product
+Steven: *define
+Alana: is this pretty similar to ours? https://www.rescuetime.com/features
+Alana: but ours will have a group contract
+David: that looks like a desktop app, so it also looks at your email client and stuff
+Steven: It would have a social aspect and be free
+Steven: And yeah, this would be a browser extension
+Steven: I don't think there's an identical app out there
+Omid: allright lets go with @David Collard idea, since he raises valid points. Just add your ranking implementation to the doc
+Kevin: Can anyone edit the product.md?
+David: no, it's view only @Omid Raj
+Omid: oh mb lol
+Omid: ok should be good now
