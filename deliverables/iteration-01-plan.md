@@ -99,8 +99,6 @@ List/describe the artifacts you will produce in order to organize your team.
 
 ## Product
 
-_This entire section is mandatory._
-
 #### Goals and tasks
 
  * Describe your goals for this iteration and the tasks that you will have to complete in order to achieve these goals.
