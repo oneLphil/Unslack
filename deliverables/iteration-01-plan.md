@@ -1,4 +1,4 @@
-# Name: Rank and improve me
+# BROWSER PRODUCTIVITY APP
 
 ## Iteration 01
 
@@ -16,34 +16,50 @@ Location: Online
 Weekly scrum meetings on tuesday evenings. 
 
 #### Roles & responsibilities 
-Omid - product owner & server
-David - server
+
+Omid - Product Owner & Server
+
+David - Server
+
 Graeme - Extension
-Philip - server
+
+Philip - Server
+
 Kevin - Extension
+
 Alana - Extension, Scrum Master
+
 Steven - Extension
 
 #### Events
+
 Tuesday Jan 30, 2018: discussed problem and solutions.
+
 Tuesday Feb 6, 2018: assigned roles to the team.
 
 #### Artifacts
+
 We keep track of what needs to be done using a google sheet.
+
 Tasks are prioritized based on how important tasks are to be done and assigned by the scrum master.
 
 
-(MANDATORY)
-## Product
+## Product (MANDATORY)
 
 #### Goals and tasks that will have to be met and completed
 
 Decide what problem we will try to solve and design a solution to the problem
+
 Decide which medium/platform is best for the solution
+
 Decide on the core extension features
+
 Design how the extension will look like and function
+
 Decide on languages to use for a google chrome extension
+
 Decide on how to store data
+
 Decide on a points and reward system implementation
 
 #### Artifacts
@@ -51,6 +67,7 @@ Decide on a points and reward system implementation
 Transcript of the planning meeting
 
 Build a new tab page where the extension will be displayed to the user.
+
 Design how a users ranked among their peers and how they will improve their habits.
 
 
