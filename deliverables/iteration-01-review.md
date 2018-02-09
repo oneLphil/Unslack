@@ -8,6 +8,10 @@ Location: Online
 
 ## Product - Review (MANDATORY)
 
+#### Artifacts
+
+[planning meeting transcript](https://github.com/csc301-winter-2018/project-team-02/blob/master/deliverables/Planning%20meeting%20transcript) and [reviewmeetingtranscript.txt](https://github.com/csc301-winter-2018/project-team-02/blob/master/deliverables/reviewmeetingtranscript.txt)
+
 #### Goals and/or tasks that were met/completed:
 
 Decide what problem we will try to solve and design a solution to the problem
