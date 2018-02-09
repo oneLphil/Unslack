@@ -20,6 +20,7 @@ The scoring works similar to Reddit karma or Stack Overflow points, where it’s
 
 *Figure 1: Example table of how users would be ranked. Users would be able to access this table to check rankings.* 
 
+
  
 ![alt text][trackr]
 
@@ -57,7 +58,7 @@ There are several alternatives in terms of controlling website usage and traffic
 
 * [Trackr](https://github.com/srikarg/Trackr), which tracks online behaviour
 
-* [StayFocused](https://chrome.google.com/webstore/detail/stayfocusd/laankejkbhbdhmipfmgcngdelahlfoji?hl=en), which block certain sites for a period of time defined by the user
+* [StayFocused](https://chrome.google.com/webstore/detail/stayfocusd/laankejkbhbdhmipfmgcngdelahlfoji?hl=en), which blocks certain sites for a period of time defined by the user
 
 * [Strict Workflow](https://github.com/matchu/Strict-Workflow), which implements the pomodoro time management technique that blocks sites for 25 minute intervals with 5 minute breaks
 
