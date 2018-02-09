@@ -38,7 +38,7 @@ Tuesday Feb 6, 2018: assigned roles to the team.
 
 #### Artifacts
 
-We keep track of what needs to be done using a google sheet.
+We keep track of what needs to be done using a [google sheet](https://docs.google.com/spreadsheets/d/1ajw3LIwteQi22y41BEbxs2iEJRXVpJFRMebe3P11nT4/edit#gid=0).
 
 Tasks are prioritized based on how important tasks are to be done and assigned by the scrum master.
 
