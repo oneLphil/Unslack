@@ -44,7 +44,7 @@ We keep track of what needs to be done using a google sheet.
 Tasks are prioritized based on how important tasks are to be done and assigned by the scrum master.
 
 
-## Product (MANDATORY)
+## Product
 
 #### Goals and tasks that will have to be met and completed
 
@@ -64,11 +64,11 @@ Decide on a points and reward system implementation
 
 #### Artifacts
 
-Transcript of the planning meeting
+[Transcript of the planning meeting](https://github.com/csc301-winter-2018/project-team-02/blob/master/deliverables/Planning%20meeting%20transcript)
 
-Build a new tab page where the extension will be displayed to the user.
+Found an example of how we roughly want the extension to be displayed to the user, similar to [Trackr](https://github.com/srikarg/Trackr). (See [Figure 2 of product.md](https://github.com/csc301-winter-2018/project-team-02/blob/master/deliverables/product.md))
 
-Design how a users ranked among their peers and how they will improve their habits.
+Design how a users ranked among their peers and how they will improve their habits. (See [Figure 1 of product.md](https://github.com/csc301-winter-2018/project-team-02/blob/master/deliverables/product.md))
 
 
 --------------------------------------------------------------------------------------------------------------------------------
