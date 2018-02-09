@@ -32,8 +32,9 @@ Weekly scrum meetings on tuesday evenings.
 
 #### Artifacts
 
-* We keep track of what needs to be done using a [google sheet](https://docs.google.com/spreadsheets/d/1ajw3LIwteQi22y41BEbxs2iEJRXVpJFRMebe3P11nT4/edit#gid=0).
+* We keep track of what needs to be done using a [Google Sheet](https://docs.google.com/spreadsheets/d/1ajw3LIwteQi22y41BEbxs2iEJRXVpJFRMebe3P11nT4/edit#gid=0).
 * Tasks are prioritized based on how important tasks are to be done and assigned by the scrum master.
+* Tasks assignments to team members are recorded using the Google Sheet. As a team we will decide on individual assignments based on the priority of tasks, and the interest and/or capability of individuals
 
 
 ## Product
