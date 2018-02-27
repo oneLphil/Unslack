@@ -5,17 +5,17 @@ import java.net.Socket;
 
 import org.junit.jupiter.api.Test;
 
-import messaging.PortManager;
+import messaging.SocketManager;
 
-public class PortManagerTest {
+public class SocketManagerTest {
 
-	public PortManager createPortManager() throws IOException {
-		return new PortManager();
+	public SocketManager createPortManager() throws IOException {
+		return new SocketManager();
 	}
 	
 	@Test
 	public void connectAndCloseSocket() throws Exception {
-		PortManager pm = createPortManager();
+		SocketManager pm = createPortManager();
 		Socket us = new Socket("localhost", 9999);
 		us.close();
 	}
@@ -23,7 +23,7 @@ public class PortManagerTest {
 	@Test 
 	public void openAPort() throws Exception {
 		Thread.sleep(1000);
-		PortManager pm = createPortManager();
+		SocketManager pm = createPortManager();
 		//Thread.sleep(1000);
 		//pm.shutDownPorts();
 	}

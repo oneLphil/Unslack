@@ -8,14 +8,14 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class PortManager {
+public class SocketManager {
 	
-	final public int DEFAULT_PORT = 9999;
+	final public static int DEFAULT_PORT = 9999;
 
 	private ServerSocket serverSocket;
 	private Socket clientSocket;
 	
-	public PortManager() throws IOException {
+	public SocketManager() throws IOException {
 		try {
 			serverSocket = new ServerSocket(DEFAULT_PORT);
 		}catch(IOException e) {
@@ -38,7 +38,7 @@ public class PortManager {
 		out.println("test");
 		String input;
 		
-		while((input = in.readLine()) != null && !out.checkError()) {
+		while((input = in.readLine()) != null) {
 			System.out.println(input);
 			out.println("hello");
 		}
