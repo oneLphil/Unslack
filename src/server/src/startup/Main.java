@@ -17,7 +17,7 @@ public class Main {
 			e.printStackTrace();
 		}
 		try {
-			pm.shutDownPorts();
+			pm.shutDownSocketManager();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

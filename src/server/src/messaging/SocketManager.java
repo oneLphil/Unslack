@@ -1,21 +1,25 @@
 package messaging;
 
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SocketManager {
 	
 	final public static int DEFAULT_PORT = 9999;
 
 	private ServerSocket serverSocket;
-	private Socket clientSocket;
+	//private Socket clientSocket;
+	private List<Thread> ActiveConnections;
 	
 	public SocketManager() throws IOException {
+		// keep track of threads
+		ActiveConnections = new ArrayList<Thread>();
+		
+		// setup server socket
 		try {
 			serverSocket = new ServerSocket(DEFAULT_PORT);
 		}catch(IOException e) {
@@ -24,33 +28,31 @@ public class SocketManager {
 			return;
 		}
 		
+		// accept a new connection and spawn a new thread to handle it
 		try {
-			clientSocket = serverSocket.accept();
+			Socket clientSocket = serverSocket.accept();
+			ClientConnection cc = new ClientConnection(clientSocket);
+			Thread thread = new Thread(cc);
+			thread.start();
+			ActiveConnections.add(thread);
 		} catch (IOException e) {
-			System.out.println("PortManager could not accept any messages on default port");
+			System.out.println("PortManager could not accept a message on the default port");
 			System.out.println(e);
 			return;
 		}
-		
-		BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-		PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
-		
-		out.println("test");
-		String input;
-		
-		while((input = in.readLine()) != null) {
-			System.out.println(input);
-			out.println("hello");
+
+		// terminate SocketManager only when all threads have terminated
+		for (Thread t : ActiveConnections){
+			try {
+				t.join();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
-		System.out.println("client closed");
-		out.close();
-		in.close();
-		clientSocket.close();
 		serverSocket.close();
 	}
 	
-	public void shutDownPorts() throws Exception {
-		clientSocket.close();
+	public void shutDownSocketManager() throws Exception {
 		serverSocket.close();
 	}
 	
