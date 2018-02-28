@@ -9,9 +9,10 @@
 # Development Notes
 
 1. If Angular 5 is new to you, read and try the tutorials: https://angular.io/guide/quickstart
-2. Make branches off of this branch (chrome-ext-base-gui) to make your own changes
+2. Make branches off of this branch (chrome-ext-base-gui) to make your own changes (follow this: https://stackoverflow.com/questions/4470523/create-a-branch-in-git-from-another-branch)
 (This makes it so that if we need to revert back, it's easier to prevent everyone else's code from changing)
 3. Pull request to this branch (chrome-ext-base-gui) when you are confident
+
 
 # Other tips
 
