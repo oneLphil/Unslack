@@ -7,6 +7,7 @@ chrome.runtime.onMessage.addListener(
       //console.log(firstHref);
 
       // This line is new!
+      console.log("inside content.js");
       chrome.runtime.sendMessage({"message": "open_new_tab"});
     }
   }

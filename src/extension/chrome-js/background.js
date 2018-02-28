@@ -6,6 +6,7 @@ chrome.browserAction.onClicked.addListener(function(tab) {
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     var activeTab = tabs[0];
     chrome.tabs.sendMessage(activeTab.id, {"message": "clicked_browser_action"});
+    console.log("clicked_browser_action");
   });
 });
 
@@ -13,7 +14,8 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     if( request.message === "open_new_tab" ) {
-      chrome.tabs.create({"url": "hello.html"});
+      console.log("creating!");
+      chrome.tabs.create({"url": "google.ca"});
     }
   }
 );
