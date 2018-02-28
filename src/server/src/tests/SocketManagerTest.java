@@ -1,10 +1,6 @@
 package tests;
 
 import java.io.IOException;
-import java.net.Socket;
-
-import org.junit.jupiter.api.Test;
-
 import messaging.SocketManager;
 
 public class SocketManagerTest {

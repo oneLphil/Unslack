@@ -10,17 +10,17 @@ public class Main {
 		System.out.println("Server starting up");
 		
 		// instantiate the SocketManager
-		SocketManager pm = null;
+		SocketManager sm = null;
 		
 		try {
-			pm = new SocketManager();
+			sm = new SocketManager();
 		} catch (IOException e) {
 			System.out.println("Error occured with port initialization");
 			e.printStackTrace();
 		}
 		
 		// start the SocketManager
-		Thread socketManagerThread = new Thread(pm);
+		Thread socketManagerThread = new Thread(sm);
 		socketManagerThread.start();
 		
 		// TODO: get rid of this for production
@@ -33,7 +33,7 @@ public class Main {
 		
 		try {
 			// shut down the SocketManager
-			pm.shutDownSocketManager();
+			sm.shutDownSocketManager();
 			// join the SocketManager thread
 			socketManagerThread.join();
 		} catch (Exception e) {
