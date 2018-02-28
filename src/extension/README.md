@@ -12,7 +12,11 @@
 2. Make branches off of this branch (chrome-ext-base-gui) to make your own changes (follow this: https://stackoverflow.com/questions/4470523/create-a-branch-in-git-from-another-branch)
 (This makes it so that if we need to revert back, it's easier to prevent everyone else's code from changing)
 3. Pull request to this branch (chrome-ext-base-gui) when you are confident
+4. If you want to check out the angular app without a node test server then do:
 
+ng build --prod --base-href ./
+
+and it will build a new folder "extension/dist" which will contain the production-grade "index.html".
 
 # Other tips
 
