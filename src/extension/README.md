@@ -1,10 +1,21 @@
-# Extension
+
+# Setup steps
+
+1. Install node according to this: https://angular.io/guide/quickstart
+2. Git clone this repo, cd into the extensions folder, and do "git checkout chrome-ext-base-gui"
+3. Execute "npm install" to install all the dependencies and setup the environment
+4. Run "ng serve" to start the webserver (so changes you make to the app can be viewed instantly)
+
+# Development Notes
+
+1. If Angular 5 is new to you, read and try the tutorials: https://angular.io/guide/quickstart
+2. Make branches off of this branch (chrome-ext-base-gui) to make your own changes
+(This makes it so that if we need to revert back, it's easier to prevent everyone else's code from changing)
+3. Pull request to this branch (chrome-ext-base-gui) when you are confident
+
+# Other tips
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.1.
-
-## Before running
-
-Execute "npm install" to install all the dependencies.
 
 ## Development server
 
