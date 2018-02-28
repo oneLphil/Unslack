@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 // Slacker
 import { AppComponent } from './app.component';
 import { SlackerComponent } from './slacker/slacker.component';
+import { ChartsComponent } from './charts/charts.component';
+import { RoomComponent } from './room/room.component';
 
 // Chart component
 
@@ -18,6 +20,8 @@ import { SlackerComponent } from './slacker/slacker.component';
   declarations: [
     AppComponent,
     SlackerComponent,
+    ChartsComponent,
+    RoomComponent
   ],
   imports: [
     BrowserModule,
