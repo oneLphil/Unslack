@@ -1,14 +1,20 @@
-
 <h2>My Slacker Group</h2>
+
 <ul class="slackers">
-  <li *ngFor="let slacker of slackers"
+  <!--<li *ngFor="let slacker of slackers"
   [class.selected]="slacker === selectedSlacker"
-  (click)="onSelect(slacker)">
-    <span class="badge">{{slacker.id}}</span> {{slacker.name}}
+  (click)="onSelect(slacker)">-->
+  <li *ngFor="let slacker of slackers">
+    <a routerLink="/detail/{{slacker.id}}">
+      <span class="badge">{{slacker.id}}</span> {{slacker.name}}
+    </a>
   </li>
 </ul>
-<!--*ngIf is an if statement for selected hero when it exists//-->
-<div  *ngIf="selectedHero">
+
+<app-slacker-detail [slacker]="selectedSlacker"></app-slacker-detail>
+
+<!--<div *ngIf="selectedSlacker">
+
   <h2>{{ selectedSlacker.name | uppercase }} Details</h2>
   <div><span>id: </span>{{selectedSlacker.id}}</div>
   <div>
@@ -16,7 +22,8 @@
       <input [(ngModel)]="selectedSlacker.name" placeholder="name">
     </label>
   </div>
-</div>
+
+</div> //-->
 
 <!-- Example code for displaying 1 slacker
 
