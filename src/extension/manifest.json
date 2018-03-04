@@ -10,11 +10,11 @@
       "matches": [
         "<all_urls>"
       ],
-      "js": ["./charts/jquery-3.3.1.min.js", "./chrome-js/content.js"]
+      "js": ["./node_modules/jquery/dist/jquery.min.js", "./chrome-js/content.js"]
     }
   ],
   "browser_action": {
-    "default_icon": "./charts/pac.png",
+    "default_icon": "./chrome-assets/pac.png",
     "default_popup": "popup.html"
   }
 }
