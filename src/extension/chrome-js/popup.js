@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
         (function () {
             var ln = links[i];
             var location = ln.href;
+            console.log("indomcontentloaded");
             ln.onclick = function () {
                 chrome.tabs.create({active: true, url: location});
             };
