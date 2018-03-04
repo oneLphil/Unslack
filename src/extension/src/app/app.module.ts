@@ -1,33 +1,40 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
+// Import routes modules to do routing on this domain
+import { AppRoutingModule } from './app-routing.module';
 
 // Slacker
 import { AppComponent } from './app.component';
 import { SlackerComponent } from './slacker/slacker.component';
 import { ChartsComponent } from './charts/charts.component';
 import { RoomComponent } from './room/room.component';
-
-// Chart component
-
-// Room Creation Component
-
-// Room Joining Component
-
-// Tracking Component
+import { SlackerDetailComponent } from './slacker-detail/slacker-detail.component';
+import { MessagesComponent } from './messages/messages.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+// Services
+import { SlackerService } from './slacker.service';
+import { MessageService } from './message.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     SlackerComponent,
     ChartsComponent,
-    RoomComponent
+    RoomComponent,
+    SlackerDetailComponent,
+    MessagesComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    SlackerService,
+    MessageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
