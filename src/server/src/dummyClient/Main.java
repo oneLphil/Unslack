@@ -1,13 +1,14 @@
 package dummyClient;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.OutputStreamWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-import messaging.SocketManager;
+import networking.SocketManager;
 
 public class Main {
 
@@ -16,18 +17,22 @@ public class Main {
 		int port = SocketManager.DEFAULT_PORT;
 		Socket socket = new Socket("localhost", port);
 		BufferedReader bf = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-		PrintWriter pw = new PrintWriter(socket.getOutputStream());
+		//PrintWriter pw = new PrintWriter(socket.getOutputStream());
+		
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 		
 		System.out.println("Client startup sucessful");
 		
-		pw.println("hello world");
+		bw.write("[{\"MessageType\":\"createRoom\"},]");
+		bw.flush();
+		socket.shutdownOutput();
 		
 		System.out.println("message sent to server");
-
+		
 		System.out.println("Server sent: " + bf.readLine());
 		
 		// clean up
-		pw.close();
+		//bw.close();
 		bf.close();
 		socket.close();
 		

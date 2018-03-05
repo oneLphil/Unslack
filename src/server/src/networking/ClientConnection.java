@@ -1,10 +1,12 @@
-package messaging;
+package networking;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+
+import messaging.MessageParser;
 
 public class ClientConnection implements Runnable{
 
@@ -22,6 +24,7 @@ public class ClientConnection implements Runnable{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		System.out.println("thread end");
 	}
 	
 	private void readMessage() throws IOException {
@@ -34,13 +37,22 @@ public class ClientConnection implements Runnable{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		out.println("message was recieved");
+
+		// handle reading the message
 		String input;
+		String message = "";
 		
 		while((input = in.readLine()) != null) {
-			System.out.println(input);
+			message += input;
 		}
+		
+		System.out.println(message);
+		
+		// handle the message execution
+		String responseMessage = MessageParser.handleMessage(message);
+		
+		out.println(responseMessage);
+		
 		System.out.println("client closed");
 		out.close();
 		in.close();

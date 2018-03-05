@@ -1,7 +1,8 @@
 package tests;
 
 import java.io.IOException;
-import messaging.SocketManager;
+
+import networking.SocketManager;
 
 public class SocketManagerTest {
 
