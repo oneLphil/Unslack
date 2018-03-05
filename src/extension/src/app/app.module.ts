@@ -15,6 +15,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 // Services
 import { SlackerService } from './slacker.service';
 import { MessageService } from './message.service';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MessageService } from './message.service';
     RoomComponent,
     SlackerDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    LeaderboardComponent
   ],
   imports: [
     BrowserModule,
