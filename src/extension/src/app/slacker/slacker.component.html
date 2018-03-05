@@ -1,18 +1,32 @@
-<h2>My Slacker Group</h2>
+<br/>
+<mat-card style="width: 50%;">
+  <mat-card-header><h2>My Slacker Group</h2></mat-card-header>
 
-<ul class="slackers">
-  <!--<li *ngFor="let slacker of slackers"
-  [class.selected]="slacker === selectedSlacker"
-  (click)="onSelect(slacker)">-->
-  <li *ngFor="let slacker of slackers">
-    <a routerLink="/detail/{{slacker.id}}">
-      <span class="badge">{{slacker.id}}</span> {{slacker.name}}
-    </a>
-  </li>
-</ul>
+  <!--<ul class="slackers">-->
+    <!--<li *ngFor="let slacker of slackers"
+    [class.selected]="slacker === selectedSlacker"
+    (click)="onSelect(slacker)">-->
+    <!--<li *ngFor="let slacker of slackers">
+      <a routerLink="/detail/{{slacker.id}}">
+        <span class="badge">{{slacker.id}}</span> {{slacker.name}}
+      </a>
+    </li>
+  </ul>-->
+  <mat-card-content>
+    <div>
+      <mat-nav-list class="slackers">
+        <mat-list-item *ngFor="let slacker of slackers">
+          <a matLine routerLink="/detail/{{slacker.id}}">
+            <span class="badge">{{slacker.id}}</span> {{slacker.name}}
+          </a>
+        </mat-list-item>
+      </mat-nav-list>
+    </div>
 
-<app-slacker-detail [slacker]="selectedSlacker"></app-slacker-detail>
 
+    <app-slacker-detail [slacker]="selectedSlacker"></app-slacker-detail>
+</mat-card-content>
+</mat-card>
 <!--<div *ngIf="selectedSlacker">
 
   <h2>{{ selectedSlacker.name | uppercase }} Details</h2>
