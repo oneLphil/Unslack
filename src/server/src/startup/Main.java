@@ -2,7 +2,7 @@ package startup;
 
 import java.io.IOException;
 
-import messaging.SocketManager;
+import networking.SocketManager;
 
 public class Main {
 

@@ -1,9 +1,10 @@
-package messaging;
+package networking;
 
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -54,6 +55,7 @@ public class SocketManager implements Runnable {
 	public void run() {
 		// loop until main process signals shutdown
 		while (!terminateProcess) {
+			
 			// accept a new connection and spawn a new thread to handle it
 			try {
 				Socket clientSocket = serverSocket.accept();
@@ -65,12 +67,27 @@ public class SocketManager implements Runnable {
 				Calendar cal = Calendar.getInstance();
 				SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
 				System.err.println("SocketManager did not accept a message on the default port at:" + sdf.format(cal.getTime()));
-			} catch (IOException e) {
+			} catch (SocketException e) {
+				System.err.println("SocketManager shutdown probably began while accepting. Normal behaviour.");
+				e.printStackTrace();
+			}catch (IOException e) {
 				System.err.println("SocketManager experienced fault in run()");
 				e.printStackTrace();
 				return;
 			}
+			
+			// clean up threads which have terminated
+			// prevents horrible memory leaks
+			for (Thread t : ActiveConnections) {
+				if(!t.isAlive()) {
+					try {
+						t.join();
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+			
 		}
 	}
-	
 }
