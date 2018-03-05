@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Person } from './person';
+import { SCORES } from './temp-scores'
 
 @Component({
   selector: 'app-leaderboard',
@@ -6,6 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./leaderboard.component.css']
 })
 export class LeaderboardComponent implements OnInit {
+
+  selectedPerson: Person;
+  people = SCORES;
+
+  onSelect(hero: Peson): void {
+    this.selectedPerson = person;
+  }
 
   constructor() { }
 
