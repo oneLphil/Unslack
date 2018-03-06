@@ -1,0 +1,132 @@
+=== Intro and General Implementation ===
+This file is intended to outline the full spec of all messages our client-server
+will use. Our current connection protocol requires that the client first open a
+socket, then pass their message in .json format through said socket as a string.
+**Once that message has been sent and flushed, the client should close their
+outgoing connection on the socket.**
+
+All messages must contain this basic general header so the message may be
+identified:
+  {
+    "MessageType":<message type>                                        # string
+  }
+
+Generally speaking, message names are a short spartan description of their
+behaviour followed by 'request' or 'response' to indicate whether the client or
+server ought to be sending them respectively. The message type parameter is not
+strictly required for the client, but for our sanity, I consider it a good idea
+to include.
+
+Many messages also carry the potential of error, should something on the server
+side or the user itself failed. We will have a generic error message of the
+following form, dedicated to such circumstances. It can be modified on a case-by
+-case basis to fit our needs.
+
+  {
+    "MessageType":"Error",
+    "ErrorMessage":<the error which occured>,                           # string
+    "SourceMessageType":<the type of message which caused the error>    # string
+  }
+
+=== Create Room ===
+This message is to be sent when the user intends to create a brand-new room. It
+requires them to submit a userid/username, and will return their room id.
+
+The send message is formatted as follows:
+  {
+    "MessageType":"CreateRoomRequest",
+    "UserName":<user's name>                                            # string
+  }
+
+The response message is formatted as follows:
+  {
+    "MessageType":"CreateRoomResponse",
+    "RoomId":<room id>                                                  # string
+  }
+
+=== Change Room Settings ===
+This message is sent when the user intends to change some parameter of an
+existing room.
+
+The send message is formatted as follows:
+  {
+    "MessageType":"ChangeRoomSettingsRequest",
+    "RoomId":<room id>,                                                 # string
+    "WebsiteSettings": [<website>:<weight>, ...],  # list of website strings
+                                                   # mapped to numerical weights
+  }
+
+The response message is formatted as follows:
+  {
+    "MessageType":"ChangeRoomSettingsResponse"
+  }
+
+=== Get Room Settings ===
+This message is sent when the user needs an updated set of rules for their room.
+
+The send message is formatted as follows:
+  {
+    "MessageType":"GetRoomSettingsRequest",
+    "RoomId":<room id>                                                  # string
+  }
+
+The response message is formatted as follows:
+  {
+    "MessageType":"GetRoomSettingsResponse",
+    "WebsiteSettings": [<website>:<weight>, ...],      # list of website strings
+                                                       # mapped to weights
+    "Users": [<user name>, ...]                        # list of user names
+  }
+
+=== Join Room ===
+This message is sent when a user tries to join an existing room. Note that if
+the user gives a name already in the given room, we will return an error. After
+sending this message, the client ought to send messages requesting room data.
+
+The send message is formatted as follows:
+  {
+    "MessageType":"JoinRoomRequest",
+    "RoomId":<room id>,                                                 # string
+    "UserId":<user's name>                                              # string
+  }
+
+The response message is formatted as follows:
+  {
+    "MessageType":"JoinRoomResponse"
+  }
+
+=== Send Browsing Data ===
+This message is sent periodically to give the user's data for scoring.
+
+The send message is formatted as follows:
+  {
+    "MessageType":"SendDataRequest",
+    "RoomId":<room id>,                                                 # string
+    "UserId":<user's name>,                                             # string
+    "History": [ [<website>,<time>], ...],      # list of website strings
+                                                # paired with time spent (int?)
+    "LastSubmitTime":<time stamp>                 # last time the user submitted
+  }
+
+The response message is formatted as follows:
+  {
+    "MessageType":"SendDataResponse"
+  }
+
+=== Get Leaderboard Data ===
+This message is sent periodically to get the room's scores.
+
+The send message is formatted as follows:
+  {
+    "MessageType":"GetLeaderboardRequest",
+    "RoomId":<room id>                                                  # string
+  }
+
+The response message is formatted as follows:
+  {
+    "MessageType":"GetLeaderboardResponse",
+    "LastDay": [ [<user name>, <score>], ...],    # All a list of username-score
+    "LastWeek": [ [<user name>, <score>], ...],   # pairs, sorted in order of
+    "LastMonth": [ [<user name>, <score>], ...]   # best or worst score for the
+                                                  # period.
+  }
