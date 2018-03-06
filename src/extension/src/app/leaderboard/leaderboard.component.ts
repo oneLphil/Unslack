@@ -12,7 +12,7 @@ export class LeaderboardComponent implements OnInit {
   selectedPerson: Person;
   people = SCORES;
 
-  onSelect(hero: Peson): void {
+  onSelect(person: Person): void {
     this.selectedPerson = person;
   }
 
