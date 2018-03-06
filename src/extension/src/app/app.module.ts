@@ -1,6 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
+import { HttpClientModule } from '@angular/common/http';
+
+// testing purposes
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService }  from './in-memory-data.service';
 
 // Import routes modules to do routing on this domain
 import { AppRoutingModule } from './app-routing.module';
@@ -23,6 +28,7 @@ import { MaterialModule } from './material';
 // Services
 import { SlackerService } from './slacker.service';
 import { MessageService } from './message.service';
+import { RoomService} from './room.service'
 
 @NgModule({
   declarations: [
@@ -39,11 +45,21 @@ import { MessageService } from './message.service';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule,
+
+    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
+    // and returns simulated server responses.
+    // Remove it when a real server is ready to receive requests.
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    )
   ],
   providers: [
     SlackerService,
-    MessageService
+    MessageService,
+    RoomService,
+    InMemoryDataService
   ],
   bootstrap: [AppComponent]
 })
