@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
+
 // Import routes modules to do routing on this domain
 import { AppRoutingModule } from './app-routing.module';
 
@@ -12,6 +13,13 @@ import { RoomComponent } from './room/room.component';
 import { SlackerDetailComponent } from './slacker-detail/slacker-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+
+// Highcharts
+import { HighchartsChartComponent } from '../../node_modules/highcharts-angular/src/app/highcharts-chart.component';
+
+// Material
+import { MaterialModule } from './material';
+
 // Services
 import { SlackerService } from './slacker.service';
 import { MessageService } from './message.service';
@@ -26,12 +34,14 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
     SlackerDetailComponent,
     MessagesComponent,
     DashboardComponent,
+    HighchartsChartComponent,
     LeaderboardComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MaterialModule
   ],
   providers: [
     SlackerService,

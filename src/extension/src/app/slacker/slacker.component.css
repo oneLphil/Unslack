@@ -1,5 +1,5 @@
 /* HeroesComponent's private CSS styles */
-.selected {
+/*.selected {
   background-color: #CFD8DC !important;
   color: white;
 }
@@ -31,7 +31,7 @@
 .slackers .text {
   position: relative;
   top: -3px;
-}
+}*/
 .slackers .badge {
   display: inline-block;
   font-size: small;

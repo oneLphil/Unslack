@@ -5,13 +5,15 @@ import { RouterModule, Routes } from '@angular/router';
 
 // Import components to reference in the view
 import { SlackerComponent } from './slacker/slacker.component';
-import { DashboardComponent }   from './dashboard/dashboard.component';
-import { SlackerDetailComponent }  from './slacker-detail/slacker-detail.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SlackerDetailComponent } from './slacker-detail/slacker-detail.component';
+import { ChartsComponent } from './charts/charts.component';
 
 const routes: Routes = [
   { path: 'slackers', component: SlackerComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: 'charts', component: ChartsComponent },
   { path: 'detail/:id', component: SlackerDetailComponent }
 ];
 
