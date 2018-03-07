@@ -23,6 +23,10 @@ export class RoomService {
     // Todo: send the message _after_ fetching the room
     this.messageService.add(`roomService: fetched room id=${id}`);
     return of(ROOMS.find(room => room.id === id));
+  }
+
+
+
 /*
 RoomServices provides an HTTP service interface with a server.
 Allows for other services and components to access room data from the server.
