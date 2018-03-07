@@ -8,11 +8,6 @@ import { SlackerService } from '../slacker.service';
   styleUrls: ['./slacker.component.css']
 })
 export class SlackerComponent implements OnInit {
-  /*
-  slacker1: Slacker = {
-    id: 1,
-    name: 'Alana'
-  };*/
 
   slackers: Slacker[];
   selectedSlacker: Slacker;
@@ -20,17 +15,12 @@ export class SlackerComponent implements OnInit {
   /* slackerService is a singleton instance of SlackerService
   */
   constructor(private slackerService: SlackerService) {
-
   }
 
   // this runs upon a lifecycle
   // https://angular.io/guide/lifecycle-hooks
   ngOnInit() {
     this.getSlackers();
-  }
-
-  onSelect(slacker: Slacker): void {
-    this.selectedSlacker = slacker;
   }
 
   /* Subscribe is needed to do async; wait until server responds
