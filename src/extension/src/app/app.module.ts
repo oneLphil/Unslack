@@ -32,6 +32,8 @@ import { SlackerService } from './slacker.service';
 import { RoomService } from './room.service';
 import { MessageService } from './message.service';
 import { ChartsService } from './charts.service';
+import { RoomDetailComponent } from './room-detail/room-detail.component';
+import { TableComponent } from './table/table.component';
 
 
 @NgModule({
@@ -44,7 +46,9 @@ import { ChartsService } from './charts.service';
     MessagesComponent,
     DashboardComponent,
     HighchartsChartComponent,
-    LeaderboardComponent
+    LeaderboardComponent,
+    RoomDetailComponent,
+    TableComponent
     //DashtableComponent
   ],
   imports: [

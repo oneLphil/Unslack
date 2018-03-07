@@ -2,14 +2,14 @@ import { Websites } from './websites';
 
 export const WEBSITES: Websites = {
   tracked: [
-  'https://facebook.com',
-  'https://google.com',
-  'https://linkedin.com',
-  'https://myspace.com',
-  'https://instagram.com',
-  'https://snapchat.com',
-  'https://yahoo.com',
-  'https://youtube.com',
-  'https://pornhub.com'
+  ['https://facebook.com', 1],
+  ['https://google.com', 1],
+  ['https://linkedin.com', 1],
+  ['https://myspace.com', 1],
+  ['https://instagram.com', 1],
+  ['https://snapchat.com', 1],
+  ['https://yahoo.com', 1],
+  ['https://youtube.com', 1],
+  ['https://pornhub.com', 1]
   ]
 };

@@ -43,7 +43,7 @@ export class ChartsComponent implements OnInit {
     },
     series: [{
       name: 'Time Spent (hrs) per Website',
-      data: [
+      data: this.chartsService.getWebsitesData().tracked;/*[
           ['facebook.com', 8],
           ['teach.cs.utoronto.ca', 3],
           ['youtube.com', 1],
@@ -53,18 +53,13 @@ export class ChartsComponent implements OnInit {
           ['workopolis.com', 4],
           ['reddit.com', 1],
           ['urbanoutfitters.com', 1]
-      ]
+      ]*/
   }]
   };
   updateFlag = false;
   chartCallback = function (chart) { console.log('callback!'); };
 
-  getWebsitesData(): void {
-    this.websitesData = this.chartsService.getWebsitesData();
-  }
-
   ngOnInit() {
-    this.getWebsitesData();
   }
 
 }
