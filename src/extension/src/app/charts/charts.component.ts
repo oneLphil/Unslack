@@ -52,9 +52,8 @@ export class ChartsComponent implements OnInit {
       ]
   }]
   };
-
-  chartCallback = function (chart) {console.log("callback!")};
   updateFlag = false;
+  chartCallback = function (chart) { console.log('callback!'); };
 
   ngOnInit() {
   }
