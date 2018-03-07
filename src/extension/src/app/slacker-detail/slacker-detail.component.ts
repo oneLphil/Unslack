@@ -30,4 +30,13 @@ export class SlackerDetailComponent implements OnInit {
       .subscribe(slacker => this.slacker = slacker);
   }
 
+  goBack(): void {
+    this.location.back();
+  }
+
+  save(): void {
+   this.slackerService.updateSlacker(this.slacker)
+     .subscribe(() => this.goBack());
+  }
+
 }

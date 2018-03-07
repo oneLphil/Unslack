@@ -8,12 +8,15 @@ import { SlackerComponent } from './slacker/slacker.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SlackerDetailComponent } from './slacker-detail/slacker-detail.component';
 import { ChartsComponent } from './charts/charts.component';
+import { RoomComponent } from './room/room.component';
 
+// This maps the link path to the UI components
 const routes: Routes = [
   { path: 'slackers', component: SlackerComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'charts', component: ChartsComponent },
+  { path: 'room', component: RoomComponent },
   { path: 'detail/:id', component: SlackerDetailComponent }
 ];
 

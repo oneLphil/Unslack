@@ -27,8 +27,14 @@ export class AppComponent implements OnInit {
         label: 'Sample Charts',
         link: './charts',
         index: 2
+<<<<<<< HEAD
       }, {
         label: 'Room Info',
+=======
+      },
+      {
+        label: 'Rooms',
+>>>>>>> 398f2e8688e9d52492d96fcae167f3103b0e96ea
         link: './room',
         index: 3
       }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <br/>
 <mat-card style="width: 50%;">
   <mat-card-header><h2>Slackers in Room Name</h2></mat-card-header>
@@ -44,3 +45,25 @@
   </label>
 </div>
 //-->
+=======
+<h2>My Heroes</h2>
+<ul class="rooms">
+  <li *ngFor="let room of rooms"
+    [class.selected]="room === selectedRoom"
+    (click)="onSelect(room)">
+    <span class="badge">{{room.id}}</span> {{room.name}}
+  </li>
+</ul>
+
+<div *ngIf="selectedRoom">
+
+  <h2>{{ selectedRoom.name | uppercase }} Details</h2>
+  <div><span>id: </span>{{selectedRoom.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedRoom.name" placeholder="name">
+    </label>
+  </div>
+
+</div>
+>>>>>>> 398f2e8688e9d52492d96fcae167f3103b0e96ea

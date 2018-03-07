@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Room } from '../room';
 import { RoomService } from '../room.service';
+import { ROOMS } from '../mock-rooms';
 
 @Component({
   selector: 'app-room',
   templateUrl: './room.component.html',
   styleUrls: ['./room.component.css']
 })
+
+
 export class RoomComponent implements OnInit {
 
   rooms: Room[];
@@ -33,5 +36,6 @@ export class RoomComponent implements OnInit {
   getRooms(): void {
     this.roomService.getRooms().subscribe(room => this.rooms = room);
   }
+
 
 }
