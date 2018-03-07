@@ -32,6 +32,12 @@ import { SlackerService } from './slacker.service';
 import { RoomService } from './room.service';
 import { MessageService } from './message.service';
 import { ChartsService } from './charts.service';
+import { LeaderboardService } from './leaderboard.service';
+
+import { MatTableModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 
 @NgModule({
@@ -53,6 +59,10 @@ import { ChartsService } from './charts.service';
     AppRoutingModule,
     MaterialModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule
 
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
@@ -65,7 +75,8 @@ import { ChartsService } from './charts.service';
     SlackerService,
     MessageService,
     RoomService,
-    ChartsService
+    ChartsService,
+    LeaderboardService
     //InMemoryDataService
 
   ],

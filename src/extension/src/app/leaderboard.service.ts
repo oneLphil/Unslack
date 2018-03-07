@@ -8,7 +8,7 @@ import { of } from 'rxjs/observable/of';
 import { DATA } from './leaderboard/userdata';
 
 @Injectable()
-export class UserService {
+export class LeaderboardService {
   //private serviceUrl = 'http://www.teach.cs.toronto.edu/~stroudgr/scores.json';
 
   constructor(private http: HttpClient) { }

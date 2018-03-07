@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../leaderboard.service';
+import { LeaderboardService } from '../leaderboard.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import {DataSource} from '@angular/cdk/collections';
@@ -18,7 +18,7 @@ export class LeaderboardComponent implements OnInit {
 
   dataSource = new MatTableDataSource(DATA);
   displayedColumns = ['id', 'name', 'score', 'info'];
-  constructor(private userService: UserService) { }
+  constructor(private leaderboardService: LeaderboardService) { }
 
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
