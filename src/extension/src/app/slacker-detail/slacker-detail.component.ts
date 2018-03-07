@@ -14,6 +14,7 @@ import { SlackerService } from '../slacker.service';
 
 export class SlackerDetailComponent implements OnInit {
   @Input() slacker: Slacker;
+
   constructor(
     private route: ActivatedRoute,
     private slackerService: SlackerService,
@@ -24,6 +25,11 @@ export class SlackerDetailComponent implements OnInit {
     this.getSlacker();
   }
 
+  getSlacker(): void {
+    this.slacker = this.slackerService.getSlacker();
+      //.subscribe(slacker => this.slacker = slacker);
+  }
+  /*
   getSlacker(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.slackerService.getSlacker(id)
@@ -37,6 +43,6 @@ export class SlackerDetailComponent implements OnInit {
   save(): void {
    this.slackerService.updateSlacker(this.slacker)
      .subscribe(() => this.goBack());
-  }
+  }*/
 
 }

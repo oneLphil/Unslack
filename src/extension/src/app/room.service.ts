@@ -14,16 +14,35 @@ export class RoomService {
 
   constructor(private messageService: MessageService) { }
 
+  getRooms(): Room[] {
+    this.messageService.add('RoomService: fetched rooms');
+    return ROOMS;
+  }
+
+  getRoom(id: number): Room {
+    // Todo: send the message _after_ fetching the room
+    this.log(`fetched room id=${id}`);
+    return this.getRooms().find(room => room.id === id);
+  }
+
+  // Log a SlackerService message with the MessageService
+  private log(message: string) {
+    this.messageService.add('RoomService: ' + message);
+  }
+
+
+//=============================================================Future
+  /*
   getRooms(): Observable<Room[]> {
     this.messageService.add('RoomService: fetched rooms');
     return of(ROOMS);
   }
 
-  getRoom(id: number): Observable<Room> {
+  getRoom(id: number): ObservableRoom> {
     // Todo: send the message _after_ fetching the room
     this.messageService.add(`roomService: fetched room id=${id}`);
     return of(ROOMS.find(room => room.id === id));
-  }
+  }*/
 
 
 
@@ -135,5 +154,5 @@ export class RoomService {
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };*/
-  }
+
 }

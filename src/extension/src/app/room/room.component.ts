@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Room } from '../room';
 import { RoomService } from '../room.service';
-import { ROOMS } from '../mock-rooms';
 
 @Component({
   selector: 'app-room',
@@ -34,7 +33,7 @@ export class RoomComponent implements OnInit {
   /* Subscribe is needed to do async; wait until server responds
   */
   getRooms(): void {
-    this.roomService.getRooms().subscribe(room => this.rooms = room);
+    this.roomService.getRooms();//.subscribe(room => this.rooms = room);
   }
 
 

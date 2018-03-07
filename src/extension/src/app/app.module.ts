@@ -18,6 +18,7 @@ import { RoomComponent } from './room/room.component';
 import { SlackerDetailComponent } from './slacker-detail/slacker-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 
 // Highcharts
 import { HighchartsChartComponent } from '../../node_modules/highcharts-angular/src/app/highcharts-chart.component';
@@ -29,9 +30,6 @@ import { MaterialModule } from './material';
 import { SlackerService } from './slacker.service';
 import { RoomService } from './room.service';
 import { MessageService } from './message.service';
-
-import { RoomService} from './room.service'
-import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 
 
 @NgModule({

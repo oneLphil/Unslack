@@ -9,7 +9,6 @@ import { SlackerService } from '../slacker.service';
 })
 export class SlackerComponent implements OnInit {
 
-  slackers: Slacker[];
   selectedSlacker: Slacker;
 
   /* slackerService is a singleton instance of SlackerService
@@ -20,13 +19,6 @@ export class SlackerComponent implements OnInit {
   // this runs upon a lifecycle
   // https://angular.io/guide/lifecycle-hooks
   ngOnInit() {
-    this.getSlackers();
-  }
-
-  /* Subscribe is needed to do async; wait until server responds
-  */
-  getSlackers(): void {
-    this.slackerService.getSlackers().subscribe(slackers => this.slackers = slackers);
   }
 
 

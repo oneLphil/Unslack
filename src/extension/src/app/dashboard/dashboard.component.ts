@@ -9,17 +9,9 @@ import { Slacker } from '../slacker';
 })
 export class DashboardComponent implements OnInit {
 
-  slackers: Slacker[] = [];
-
   constructor(private slackerService: SlackerService) { }
 
   ngOnInit() {
-    this.getSlackers();
-  }
-
-  getSlackers(): void {
-    this.slackerService.getSlackers()
-      .subscribe(slackers => this.slackers = slackers.slice(1, 5));
   }
 
 }

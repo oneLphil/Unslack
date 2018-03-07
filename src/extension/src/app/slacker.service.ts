@@ -11,7 +11,7 @@ myUsage : UsageChart
 
 import { Injectable } from '@angular/core';
 import { Slacker } from './slacker';
-//import { SLACKERS } from './mock-slackers';
+import { SLACKER } from './mock-slacker';
 
 import { MessageService } from './message.service';
 import { RoomService } from './room.service'
@@ -25,6 +25,19 @@ export class SlackerService {
     private messageService: MessageService,
     private roomService: RoomService
     ) { }
+
+  getSlacker(): Slacker {
+    // Todo: send the message _after_ fetching the slacker
+    this.log(`fetched slacker id=${SLACKER.id}`);
+    // local file version
+    return SLACKER;
+
+  }
+
+  // Log a SlackerService message with the MessageService
+  private log(message: string) {
+    this.messageService.add('SlackerService: ' + message);
+  }
 
   /*
   // Requests an Array of Slackers from RoomService
@@ -41,10 +54,7 @@ export class SlackerService {
 
   }
 
-  // Log a SlackerService message with the MessageService
-  private log(message: string) {
-    this.messageService.add('SlackerService: ' + message);
-  }
+
   */
 
 
