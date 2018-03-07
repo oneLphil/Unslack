@@ -1,4 +1,4 @@
-import { Sumamry } from './summary';
+import { Summary } from './summary';
 
 export const DISPLAY_VALUES: Summary[] = [
   { site: 'www.youtube.com', time: 'Hrs: 1 Min: 37'},
