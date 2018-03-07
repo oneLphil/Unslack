@@ -28,7 +28,10 @@ import { MaterialModule } from './material';
 // Services
 import { SlackerService } from './slacker.service';
 import { MessageService } from './message.service';
+
 import { RoomService} from './room.service'
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
+
 
 @NgModule({
   declarations: [
@@ -39,7 +42,8 @@ import { RoomService} from './room.service'
     SlackerDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    HighchartsChartComponent
+    HighchartsChartComponent,
+    LeaderboardComponent
   ],
   imports: [
     BrowserModule,
