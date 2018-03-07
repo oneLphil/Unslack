@@ -23,7 +23,7 @@ export interface Summary {
   time: string;
 }
 
-const SUMMARY_DATA: Summary {
+const SUMMARY_DATA: Summary[] = {
 [
    { site: 'www.youtube.com', time: 'Hrs: 1 Min: 37'},
    { site: 'www.<domain name>.com', time: 'Hrs: <> Min: <>'},
@@ -38,6 +38,8 @@ const SUMMARY_DATA: Summary {
  ];
 
 }
+
+constructor() {}
 
   selectedSummary: Summary;
   sites = SUMMARY_VALUES;
