@@ -1,14 +1,14 @@
 import { Room } from './room';
 
 export const ROOMS: Room[] = [
-  { id: 11, name: 'Mr. Nice' },
-  { id: 12, name: 'Narco' },
-  { id: 13, name: 'Bombasto' },
-  { id: 14, name: 'Celeritas' },
-  { id: 15, name: 'Magneta' },
-  { id: 16, name: 'RubberMan' },
-  { id: 17, name: 'Dynama' },
-  { id: 18, name: 'Dr IQ' },
-  { id: 19, name: 'Magma' },
-  { id: 20, name: 'Tornado' }
+  { id: 1, name: 'First Room' },
+  { id: 2, name: 'CSC301' },
+  { id: 3, name: 'Room #3' },
+  { id: 4, name: 'Room #4' },
+  { id: 5, name: 'Room #5' },
+  { id: 6, name: 'Room #6' },
+  { id: 7, name: 'Room #7' },
+  { id: 8, name: 'Room #8' },
+  { id: 9, name: 'Room #9' },
+  { id: 10, name: 'Room #10' }
 ];
