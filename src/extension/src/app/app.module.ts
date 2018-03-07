@@ -22,6 +22,7 @@ import { MaterialModule } from './material';
 
 // Services
 import { SlackerService } from './slacker.service';
+import { RoomService } from './room.service';
 import { MessageService } from './message.service';
 
 @NgModule({
@@ -43,7 +44,8 @@ import { MessageService } from './message.service';
   ],
   providers: [
     SlackerService,
-    MessageService
+    MessageService,
+    RoomService
   ],
   bootstrap: [AppComponent]
 })

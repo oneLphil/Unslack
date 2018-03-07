@@ -1,3 +1,46 @@
-<p>
-  room works!
-</p>
+<br/>
+<mat-card style="width: 50%;">
+  <mat-card-header><h2>Slackers in Room Name</h2></mat-card-header>
+  <mat-card-content>
+    <div>
+      <!--Show the slacker scores that belong in the specified Room-->
+      <mat-nav-list class="slackers">
+        <div *ngFor="let slacker of room.">
+          <div class="slackers">
+            <mat-list-item *ngFor="let room of rooms">
+              <a matLine routerLink="/detail/{{slacker.id}}">
+                <span class="badge">{{slacker.id}}</span> {{slacker.name}}
+              </a>
+            </mat-list-item>
+          </div>
+            
+        </div>
+      </mat-nav-list>
+    </div>
+
+
+    <app-slacker-detail [slacker]="selectedSlacker"></app-slacker-detail>
+</mat-card-content>
+</mat-card>
+<!--<div *ngIf="selectedSlacker">
+
+  <h2>{{ selectedSlacker.name | uppercase }} Details</h2>
+  <div><span>id: </span>{{selectedSlacker.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedSlacker.name" placeholder="name">
+    </label>
+  </div>
+
+</div> //-->
+
+<!-- Example code for displaying 1 slacker
+
+<h2>{{ slacker1.name | uppercase }} Details</h2>
+<div><span>id: </span>{{slacker1.id}}</div>
+<div>
+  <label>name:
+    <input [(ngModel)]="slacker1.name" placeholder="name">
+  </label>
+</div>
+//-->

@@ -4,7 +4,7 @@ import { Slacker } from '../slacker';
 // need these since the router creates slacker detail component
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { SlackerService }  from '../slacker.service';
+import { SlackerService } from '../slacker.service';
 
 @Component({
   selector: 'app-slacker-detail',

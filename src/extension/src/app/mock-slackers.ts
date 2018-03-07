@@ -12,4 +12,3 @@ export const SLACKERS: Slacker[] = [
   { id: 19, name: 'Botswana' },
   { id: 20, name: 'anon' }
 ];
-  
