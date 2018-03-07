@@ -12,7 +12,7 @@ import { RoomComponent } from './room/room.component';
 
 // This maps the link path to the UI components
 const routes: Routes = [
-  { path: 'slackers', component: SlackerComponent },
+  { path: 'slacker', component: SlackerComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'charts', component: ChartsComponent },

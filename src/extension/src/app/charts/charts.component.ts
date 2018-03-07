@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MaterialModule } from '../material';
+import { ChartsService } from '../charts.service';
+import { Websites} from '../websites';
 import * as Highcharts from 'highcharts';
 import * as Highcharts3d from 'highcharts/highcharts-3d';
 import * as HighchartsExport from 'highcharts/modules/exporting';
@@ -12,8 +14,10 @@ HighchartsExport(Highcharts);
   styleUrls: ['./charts.component.css']
 })
 export class ChartsComponent implements OnInit {
-
-  constructor() { }
+  websitesData: Websites;
+  constructor(
+    private chartsService: ChartsService
+  ) { }
 
   Highcharts = Highcharts;
   chartConstructor = 'chart';
@@ -55,7 +59,12 @@ export class ChartsComponent implements OnInit {
   updateFlag = false;
   chartCallback = function (chart) { console.log('callback!'); };
 
+  getWebsitesData(): void {
+    this.websitesData = this.chartsService.getWebsitesData();
+  }
+
   ngOnInit() {
+    this.getWebsitesData();
   }
 
 }
