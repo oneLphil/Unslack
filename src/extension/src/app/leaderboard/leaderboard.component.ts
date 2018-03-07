@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Person } from './person';
-import { SCORES } from './temp-scores';
+import { UserService } from '../leaderboard.service';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
+import {DataSource} from '@angular/cdk/collections';
+import { User } from './user.model';
+import {MatTableDataSource} from '@angular/material';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { DATA } from './userdata';
 
 @Component({
   selector: 'app-leaderboard',
@@ -9,14 +16,15 @@ import { SCORES } from './temp-scores';
 })
 export class LeaderboardComponent implements OnInit {
 
-  selectedPerson: Person;
-  people = SCORES;
+  dataSource = new MatTableDataSource(DATA);
+  displayedColumns = ['id', 'name', 'score', 'info'];
+  constructor(private userService: UserService) { }
 
-  onSelect(person: Person): void {
-    this.selectedPerson = person;
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+    this.dataSource.filter = filterValue;
   }
-
-  constructor() { }
 
   ngOnInit() {
   }
