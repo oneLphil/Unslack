@@ -1,5 +1,7 @@
 import { User } from './user.model';
+//import { slacker } from './slacker';
 
+/*NOTE
 export const DATA: User[] = [
   {
     id: 1,
@@ -72,7 +74,94 @@ export const DATA: User[] = [
     info: ":("
   }
 ]
+*/
 
+/**/
+export const DATA: User[] = [
+  {
+    rank: 1,
+    slacker: {
+      id: 0,
+      name: "Leanne Graham",
+      score: 100
+    }
+  },
+  {
+    rank: 2,
+    slacker: {
+      id: 1,
+      name: "Ervin Howell",
+      score: 99
+    }
+  },
+  {
+    rank: 3,
+    slacker: {
+      id: 2,
+      name: "Clementine Bauch",
+      score: 90
+    }
+  },
+  {
+    rank: 4,
+    slacker: {
+      id: 3,
+      name: "Patricia Lebsack",
+      score: 88
+    }
+  },
+  {
+    rank: 5,
+    slacker: {
+      id: 4,
+      name: "Chelsey Dietrich",
+      score: 80
+    }
+  },
+  {
+    rank: 6,
+    slacker: {
+      id: 5,
+      name: "Mrs. Dennis Schulist",
+      score: 71
+    }
+  },
+  {
+    rank: 7,
+    slacker: {
+      id: 0,
+      name: "Kurtis Weissnat",
+      score: 60
+    }
+  },
+  {
+    rank: 8,
+    slacker: {
+      id: 0,
+      name: "Nicholas Runolfsdottir V",
+      score: 50
+    }
+  },
+  {
+    rank: 9,
+    slacker: {
+      id: 0,
+      name: "Glenna Reichert",
+      score: 41
+    }
+  },
+  {
+    rank: 10,
+    slacker: {
+      id: 0,
+      name: "Clementina DuBuque",
+      score: 0
+    }
+  }
+]
+/**/
+
+/*NOTE
 export const DATA2: User[] = [
   {
     id: 1,
@@ -131,5 +220,75 @@ export const DATA2: User[] = [
     info: ""
   }
 ]
+*/
+
+/**/
+export const DATA2: User[] = [
+  {
+    rank: 1,
+    slacker: {
+      id: 1,
+      name: "Graeme Stroud",
+      score: 100
+    }
+  },
+  {
+    rank: 2,
+    slacker: {
+      id: 2,
+      name: "Kevin Chan",
+      score: 99
+    }
+  },
+  {
+    rank: 2,
+    slacker: {
+      id: 3,
+      name: "Alana Man",
+      score: 90
+    }
+  },
+  {
+    rank: 4,
+    slacker: {
+      id: 4,
+      name: "David Colloard",
+      score: 88
+    }
+  },
+  {
+    rank: 5,
+    slacker: {
+      id: 5,
+      name: "Stephen Koza",
+      score: 80
+    }
+  },
+  {
+    rank: 2,
+    slacker: {
+      id: 6,
+      name: "Mrs. Dennis Schulist",
+      score: 71
+    }
+  },
+  {
+    rank: 2,
+    slacker: {
+      id: 7,
+      name: "Phillip Wang",
+      score: 60
+    }
+  },
+  {
+    rank: 2,
+    slacker: {
+      id: 8,
+      name: "Omid Raj",
+      score: 50
+    }
+  }
+]
+/**/
 
 export const ALLBOARDS: User [][] = [DATA, DATA2, DATA, DATA2, DATA, DATA2, DATA, DATA2, DATA, DATA2, DATA, DATA2]

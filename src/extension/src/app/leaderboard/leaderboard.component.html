@@ -1,6 +1,3 @@
-<script>
-angular.element(displayedColumns)[0];
-</script>
 <div>
     <mat-form-field>
       <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
@@ -10,13 +7,28 @@ angular.element(displayedColumns)[0];
 <div>
   <mat-table [dataSource]="dataSource">
 
-    <ng-container matColumnDef="id">
+    <ng-container matColumnDef="rank">
+      <mat-header-cell *matHeaderCellDef> Rank  </mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{user.rank}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{user.slacker.name}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="score">
+      <mat-header-cell *matHeaderCellDef> Score </mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{user.slacker.score}} </mat-cell>
+    </ng-container>
+
+    <!--ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef> Rank  </mat-header-cell>
       <mat-cell *matCellDef="let user"> {{user.id}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef> Score </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
       <mat-cell *matCellDef="let user"> {{user.name}} </mat-cell>
     </ng-container>
 
@@ -28,7 +40,7 @@ angular.element(displayedColumns)[0];
     <ng-container matColumnDef="info">
       <mat-header-cell *matHeaderCellDef> Additional information </mat-header-cell>
       <mat-cell *matCellDef="let user"> {{user.info}} </mat-cell>
-    </ng-container>
+    </ng-container-->
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>

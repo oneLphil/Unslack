@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
 import { LeaderboardService } from '../leaderboard.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
@@ -24,7 +24,8 @@ export class LeaderboardComponent implements OnInit, OnChanges {
 
   //dataSource = new MatTableDataSource(ALLBOARDS[room.id]);
   dataSource : MatTableDataSource<User>;
-  displayedColumns = ['id', 'name', 'score', 'info'];
+  //displayedColumns = ['id', 'name', 'score', 'info'];
+  displayedColumns = ['rank', 'name', 'score'];
   constructor(/*private leaderboardService: LeaderboardService*/) {
 
   }
