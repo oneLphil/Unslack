@@ -71,14 +71,10 @@ import { TableComponent } from './table/table.component';
   providers: [
     SlackerService,
     MessageService,
-<<<<<<< HEAD
-    RoomService
-    // InMemoryDataService
-=======
     RoomService,
     ChartsService
     //InMemoryDataService
->>>>>>> d771c6e009364f50ac99079c2a5d338f2038e1f5
+
 
   ],
   bootstrap: [AppComponent]
