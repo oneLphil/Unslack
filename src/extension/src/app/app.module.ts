@@ -19,6 +19,7 @@ import { SlackerDetailComponent } from './slacker-detail/slacker-detail.componen
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
+//import { DashtableComponent} from './dashtable/dashtable.component';
 
 // Highcharts
 import { HighchartsChartComponent } from '../../node_modules/highcharts-angular/src/app/highcharts-chart.component';
@@ -30,7 +31,11 @@ import { MaterialModule } from './material';
 import { SlackerService } from './slacker.service';
 import { RoomService } from './room.service';
 import { MessageService } from './message.service';
+<<<<<<< HEAD
 import { TimetrackerComponent } from './timetracker/timetracker.component';
+=======
+import { ChartsService } from './charts.service';
+>>>>>>> d771c6e009364f50ac99079c2a5d338f2038e1f5
 
 
 @NgModule({
@@ -45,6 +50,7 @@ import { TimetrackerComponent } from './timetracker/timetracker.component';
     HighchartsChartComponent,
     LeaderboardComponent,
     TimetrackerComponent
+    //DashtableComponent
   ],
   imports: [
     BrowserModule,
@@ -63,8 +69,14 @@ import { TimetrackerComponent } from './timetracker/timetracker.component';
   providers: [
     SlackerService,
     MessageService,
+<<<<<<< HEAD
     RoomService
     // InMemoryDataService
+=======
+    RoomService,
+    ChartsService
+    //InMemoryDataService
+>>>>>>> d771c6e009364f50ac99079c2a5d338f2038e1f5
 
   ],
   bootstrap: [AppComponent]

@@ -20,8 +20,8 @@ export class AppComponent implements OnInit {
         link: './dashboard',
         index: 0
       }, {
-        label: 'Slackers',
-        link: './slackers',
+        label: 'My Slacker Stats',
+        link: './slacker',
         index: 1
       }, {
         label: 'Sample Charts',

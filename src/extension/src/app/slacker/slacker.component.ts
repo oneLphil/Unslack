@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Slacker } from '../slacker';
 import { SlackerService } from '../slacker.service';
+import { SlackerDetailComponent } from '../slacker-detail/slacker-detail'
+
 
 @Component({
   selector: 'app-slacker',

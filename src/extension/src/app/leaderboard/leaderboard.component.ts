@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Person } from './person';
-import { SCORES } from './temp-scores'
+import { SCORES } from './temp-scores';
 
 @Component({
   selector: 'app-leaderboard',
