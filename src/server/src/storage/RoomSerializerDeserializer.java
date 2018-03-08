@@ -1,9 +1,14 @@
 package storage;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.util.Arrays;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 
@@ -23,7 +28,31 @@ public class RoomSerializerDeserializer {
     writer.close();
     
 }
+  /*
+   * Deserialize from input stream to a room
+   */
+  public Room deserialize(InputStream input, int roomId) throws IOException {
+    
+    BufferedReader buf = new BufferedReader(new InputStreamReader(input));
+    Room newRoom = new Room(roomId);
+    String newLine;
+    while ((newLine = buf.readLine()) != null) {
+      if (newLine.contains("Settings")) {
+        readSettings(newRoom, buf);
+      }
+      else if (newLine.contains("User IDs:")) {
+        readUserIds(newRoom, buf);
+      }
+      else if (newLine.contains("ScoreBoard:")) {
+        readScoreboard(newRoom, buf);
+      }
+    }
+    buf.close();
+    
+    return newRoom;
+  }
 
+ 
   /*
    *  helper function that writes settings into output
    */
@@ -31,7 +60,7 @@ public class RoomSerializerDeserializer {
     //write Settings
     writer.write("Settings");
     writer.newLine();
-    writer.write("Unproductive Site:");
+    writer.write("Unproductive Sites:");
     writer.newLine();
     List<String> sites = settings.getUnproductiveSites();
     
@@ -84,4 +113,45 @@ public class RoomSerializerDeserializer {
     }
   }
   
+  /*
+   * Helper function to read settings from buffer
+   */
+  private void readSettings(Room newRoom, BufferedReader buf) throws IOException {
+    String newLine = buf.readLine();
+    if (newLine.contains("Unproductive Sites:")){
+      newLine = buf.readLine();
+      List<String> sites = Arrays.asList(newLine.split(","));
+      for (String site : sites) {
+        newRoom.addUnproductiveSite(site);
+      }
+    }
+  }
+  
+  /*
+   * Helper function to read user ids from buffer
+   */
+  private void readUserIds(Room newRoom, BufferedReader buf) throws IOException {
+    String newLine = buf.readLine();
+    List<String> userIds = Arrays.asList(newLine.split(","));
+    for (String userId : userIds) {
+      newRoom.addUser(Integer.parseInt(userId));
+    }
+  }
+  
+  /*
+   * Helper function to read score entries from buffer
+   */
+  private void readScoreboard(Room newRoom, BufferedReader buf) throws IOException {
+    String newLine;
+    while ((newLine = buf.readLine()) != null){
+      List<String> entry = Arrays.asList(newLine.split(","));
+      int year = Integer.parseInt(entry.get(0));
+      int month = Integer.parseInt(entry.get(1));
+      int day = Integer.parseInt(entry.get(2));
+      int userId = Integer.parseInt(entry.get(3));
+      int score = Integer.parseInt(entry.get(4));
+      GregorianCalendar date = new GregorianCalendar(year, month, day);
+      newRoom.addScoreEntry(date, userId, score);
+    }
+  }
 }

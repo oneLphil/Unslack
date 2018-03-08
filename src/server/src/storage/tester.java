@@ -1,6 +1,7 @@
 package storage;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.GregorianCalendar;
@@ -18,8 +19,16 @@ public class tester {
     
     RoomSerializerDeserializer serializer = new RoomSerializerDeserializer();
     File file = new File("file.txt");
+    FileOutputStream s = new FileOutputStream(file);
+    serializer.serialize(room, s);
+    s.close();
     
-    serializer.serialize(room, new FileOutputStream(file));
+    File file2 = new File("file.txt");
+    Room room2 = serializer.deserialize(new FileInputStream(file2), 1);
+    System.out.println("Room Id: " + room2.getRoomID() + "\n");
+    System.out.println("Users: " + room2.getUsers() + "\n");
+    System.out.println("Settings: " + room2.getSettings().getUnproductiveSites() + "\n");
+    System.out.println("Entries " + room2.getScoreboard() + "\n");
   }
 
 }

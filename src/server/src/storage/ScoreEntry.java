@@ -32,4 +32,9 @@ public class ScoreEntry {
       this.userId == ((ScoreEntry) other).userId &&
       this.score == ((ScoreEntry) other).score;
   }
+  
+  public String toString() {
+    return "Date: " + date.get(1) + "-" + date.get(2) + "-" + date.get(3)
+            + " User Id: " + userId + " Score: " + score;
+  }
 }
