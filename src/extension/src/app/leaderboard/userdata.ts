@@ -72,3 +72,64 @@ export const DATA: User[] = [
     info: ":("
   }
 ]
+
+export const DATA2: User[] = [
+  {
+    id: 1,
+    name: "Graeme Stroud",
+    //username: Bret,
+    score: 100,
+    info: ""
+  },
+  {
+    id: 2,
+    name: "Kevin Chan",
+    //username: Antonette,
+    score: 99,
+    info: "Hi"
+  },
+  {
+    id: 3,
+    name: "Alana Man",
+    //username: Samantha,
+    score: 90,
+    info: "bye"
+  },
+  {
+    id: 4,
+    name: "David Colloard",
+    //username: Karianne,
+    score: 88,
+    info: "Julianne.OConner@kory.org"
+  },
+  {
+    id: 5,
+    name: "Stephen Koza",
+    //username: Kamren,
+    score: 80,
+    info: ""
+  },
+  {
+    id: 6,
+    name: "Mrs. Dennis Schulist",
+    //username: Leopoldo_Corkery,
+    score: 71,
+    info: ""
+  },
+  {
+    id: 7,
+    name: "Phillip Wang",
+    //username: Elwyn.Skiles,
+    score: 60,
+    info: "se7en"
+  },
+  {
+    id: 8,
+    name: "Omid Raj",
+    //username: Maxime_Nienow,
+    score: 50,
+    info: ""
+  }
+]
+
+export const ALLBOARDS: User [][] = [DATA, DATA2, DATA, DATA2, DATA, DATA2, DATA, DATA2, DATA, DATA2, DATA, DATA2]
