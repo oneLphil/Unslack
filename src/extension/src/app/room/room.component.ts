@@ -34,7 +34,7 @@ export class RoomComponent implements OnInit {
   /* Subscribe is needed to do async; wait until server responds
   */
   getRooms(): void {
-    this.roomService.getRooms();//.subscribe(room => this.rooms = room);
+    this.roomService.getRooms(); // .subscribe(room => this.rooms = room);
   }
 
 
