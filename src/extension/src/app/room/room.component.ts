@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Room } from '../room';
 import { RoomService } from '../room.service';
-import { RoomDetailComponent } from '../room-detail/room-detail-component';
+import { RoomDetailComponent } from '../room-detail/room-detail.component';
 
 @Component({
   selector: 'app-room',
