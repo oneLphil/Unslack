@@ -4,8 +4,8 @@ import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { HttpClientModule } from '@angular/common/http';
 
 // testing purposes
-//import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-//import { InMemoryDataService }  from './in-memory-data.service';
+// import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+// import { InMemoryDataService }  from './in-memory-data.service';
 
 // Import routes modules to do routing on this domain
 import { AppRoutingModule } from './app-routing.module';
@@ -30,6 +30,7 @@ import { MaterialModule } from './material';
 import { SlackerService } from './slacker.service';
 import { RoomService } from './room.service';
 import { MessageService } from './message.service';
+import { TimetrackerComponent } from './timetracker/timetracker.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { MessageService } from './message.service';
     MessagesComponent,
     DashboardComponent,
     HighchartsChartComponent,
-    LeaderboardComponent
+    LeaderboardComponent,
+    TimetrackerComponent
   ],
   imports: [
     BrowserModule,
@@ -54,15 +56,15 @@ import { MessageService } from './message.service';
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
-    //HttpClientInMemoryWebApiModule.forRoot(
+    // HttpClientInMemoryWebApiModule.forRoot(
     //  InMemoryDataService, { dataEncapsulation: false }
-    //)
+    // )
   ],
   providers: [
     SlackerService,
     MessageService,
     RoomService
-    //InMemoryDataService
+    // InMemoryDataService
 
   ],
   bootstrap: [AppComponent]
