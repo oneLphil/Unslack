@@ -1,18 +1,17 @@
 
-// NOTE: This is just a slacker. I will delete this after I get the table fully
-// working
+// NOTE: This is just a slacker, but with a rank instead of a score.
+// I still have to figure out searching with slackers so I will keep this
+// class for now, but delete it once I figure slackers out.
 // - Graeme
 import { Slacker } from '../slacker';
 
-/*export interface User {
-    id: number;
-    name: string;
-    score: number;
-    info: string;
-}*/
-
-
 export interface User {
     rank: number;
-    slacker: Slacker
+    name: string;
+    score: number;
 }
+
+/*export interface User {
+    rank: number;
+    slacker: Slacker
+}*/

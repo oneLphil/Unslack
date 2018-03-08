@@ -7,7 +7,8 @@
 <div>
   <mat-table [dataSource]="dataSource">
 
-    <ng-container matColumnDef="rank">
+    <!-- Search doesn't work for this-->
+    <!--ng-container matColumnDef="rank">
       <mat-header-cell *matHeaderCellDef> Rank  </mat-header-cell>
       <mat-cell *matCellDef="let user"> {{user.rank}} </mat-cell>
     </ng-container>
@@ -20,9 +21,9 @@
     <ng-container matColumnDef="score">
       <mat-header-cell *matHeaderCellDef> Score </mat-header-cell>
       <mat-cell *matCellDef="let user"> {{user.slacker.score}} </mat-cell>
-    </ng-container>
+    </ng-container-->
 
-    <!--ng-container matColumnDef="id">
+    <ng-container matColumnDef="rank">
       <mat-header-cell *matHeaderCellDef> Rank  </mat-header-cell>
       <mat-cell *matCellDef="let user"> {{user.id}} </mat-cell>
     </ng-container>
@@ -36,11 +37,6 @@
       <mat-header-cell *matHeaderCellDef> Score </mat-header-cell>
       <mat-cell *matCellDef="let user"> {{user.score}} </mat-cell>
     </ng-container>
-
-    <ng-container matColumnDef="info">
-      <mat-header-cell *matHeaderCellDef> Additional information </mat-header-cell>
-      <mat-cell *matCellDef="let user"> {{user.info}} </mat-cell>
-    </ng-container-->
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>

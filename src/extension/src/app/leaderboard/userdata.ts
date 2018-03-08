@@ -1,7 +1,6 @@
 import { User } from './user.model';
 //import { slacker } from './slacker';
 
-/*NOTE
 export const DATA: User[] = [
   {
     id: 1,
@@ -74,9 +73,9 @@ export const DATA: User[] = [
     info: ":("
   }
 ]
-*/
 
-/**/
+
+/*
 export const DATA: User[] = [
   {
     rank: 1,
@@ -159,9 +158,9 @@ export const DATA: User[] = [
     }
   }
 ]
-/**/
+*/
 
-/*NOTE
+/*NOTE*/
 export const DATA2: User[] = [
   {
     id: 1,
@@ -220,9 +219,9 @@ export const DATA2: User[] = [
     info: ""
   }
 ]
-*/
-
 /**/
+
+/*
 export const DATA2: User[] = [
   {
     rank: 1,
@@ -289,6 +288,6 @@ export const DATA2: User[] = [
     }
   }
 ]
-/**/
+*/
 
 export const ALLBOARDS: User [][] = [DATA, DATA2, DATA, DATA2, DATA, DATA2, DATA, DATA2, DATA, DATA2, DATA, DATA2]
