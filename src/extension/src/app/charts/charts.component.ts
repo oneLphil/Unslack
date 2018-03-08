@@ -43,7 +43,7 @@ export class ChartsComponent implements OnInit {
     },
     series: [{
       name: 'Time Spent (hrs) per Website',
-      data: this.chartsService.getWebsitesData().tracked;/*[
+      data: this.chartsService.getWebsitesData().tracked/*[
           ['facebook.com', 8],
           ['teach.cs.utoronto.ca', 3],
           ['youtube.com', 1],
