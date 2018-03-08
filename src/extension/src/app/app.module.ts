@@ -31,11 +31,8 @@ import { MaterialModule } from './material';
 import { SlackerService } from './slacker.service';
 import { RoomService } from './room.service';
 import { MessageService } from './message.service';
-<<<<<<< HEAD
 import { TimetrackerComponent } from './timetracker/timetracker.component';
-=======
 import { ChartsService } from './charts.service';
->>>>>>> d771c6e009364f50ac99079c2a5d338f2038e1f5
 
 
 @NgModule({
@@ -69,14 +66,9 @@ import { ChartsService } from './charts.service';
   providers: [
     SlackerService,
     MessageService,
-<<<<<<< HEAD
-    RoomService
-    // InMemoryDataService
-=======
     RoomService,
     ChartsService
     //InMemoryDataService
->>>>>>> d771c6e009364f50ac99079c2a5d338f2038e1f5
 
   ],
   bootstrap: [AppComponent]
