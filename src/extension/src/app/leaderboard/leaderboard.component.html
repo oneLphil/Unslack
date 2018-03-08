@@ -7,24 +7,35 @@
 <div>
   <mat-table [dataSource]="dataSource">
 
-    <ng-container matColumnDef="id">
+    <!-- Search doesn't work for this-->
+    <!--ng-container matColumnDef="rank">
+      <mat-header-cell *matHeaderCellDef> Rank  </mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{user.rank}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{user.slacker.name}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="score">
+      <mat-header-cell *matHeaderCellDef> Score </mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{user.slacker.score}} </mat-cell>
+    </ng-container-->
+
+    <ng-container matColumnDef="rank">
       <mat-header-cell *matHeaderCellDef> Rank  </mat-header-cell>
       <mat-cell *matCellDef="let user"> {{user.id}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef> Score </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
       <mat-cell *matCellDef="let user"> {{user.name}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="score">
       <mat-header-cell *matHeaderCellDef> Score </mat-header-cell>
       <mat-cell *matCellDef="let user"> {{user.score}} </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="info">
-      <mat-header-cell *matHeaderCellDef> Additional information </mat-header-cell>
-      <mat-cell *matCellDef="let user"> {{user.info}} </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
