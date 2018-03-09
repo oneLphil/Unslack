@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartsComponent } from '../charts/charts.component';
+import { ChartsService } from '../charts.service';
 
 @Component({
   selector: 'app-timetracker',
@@ -8,7 +8,9 @@ import { ChartsComponent } from '../charts/charts.component';
 })
 export class TimetrackerComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private chartsService: ChartsService
+  ) { }
 
   ngOnInit() {
   }

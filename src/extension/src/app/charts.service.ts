@@ -10,4 +10,9 @@ export class ChartsService {
   getWebsitesData(): Websites {
     return WEBSITES;
   }
+
+  /* General method for
+  getListArrayData(): any[] {
+    return ... server request
+  }*/
 }
