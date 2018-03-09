@@ -19,6 +19,11 @@ export class RoomService {
     return ROOMS;
   }
 
+  getUserRooms(): Room[] {
+    this.messageService.add('RoomService: fetched user rooms');
+    return ROOMS;
+  }
+
   getRoomNameList(): string[] {
     var roomNames = [];
     var roomlist = this.getRooms();

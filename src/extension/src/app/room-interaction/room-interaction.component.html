@@ -1,3 +1,31 @@
-<mat-card-content>
-  room-interaction works!
-</mat-card-content>
+<!--<mat-card-content>
+  Slacker Rooms
+  <div *ngIf="rooms">
+    <mat-nav-list *ngFor="let room of rooms"
+      (click)="popupOnClick(room)">
+      <span class="badge">{{room.id}}</span> {{room.name}}
+    </mat-nav-list>
+  </div>
+</mat-card-content>-->
+<button mat-raised-button (click)="create()">CREATE A ROOM</button>
+
+Slacker Rooms
+<mat-accordion *ngFor="let room of rooms">
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{room.name}}
+      </mat-panel-title>
+      <mat-panel-description>
+        Type your name and age
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    Info about this room goes here.
+    <button mat-raised-button (click)="join(room)">
+      JOIN
+    </button>
+
+  </mat-expansion-panel>
+</mat-accordion>

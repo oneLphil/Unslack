@@ -13,6 +13,7 @@ export class TableComponent implements OnInit, OnChanges {
   @Input() dataSource: any[];
   displayedDataSource: any;
 
+  selectedRoom
   /*columns = [
     { columnDef: 'position', header: 'No.',    cell: (element: Element) => `${element.position}` },
     { columnDef: 'name',     header: 'Name',   cell: (element: Element) => `${element.name}`     },
