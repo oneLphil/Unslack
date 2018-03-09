@@ -1,26 +1,40 @@
+var config = new Config();
+var gsites = new Sites(config);
+
+console.log(gsites.sites);
+
+//var sites = gsites.sites;
+var i = 0;
+var sitesData = new Array();
+for (site in gsites.sites) {
+    i++;
+    sitesData.push([site, gsites.sites[site]]);
+    if (i === 15) { break; }
+}
+
 Highcharts.chart('container', {
     chart: {
-        type: 'pie',
+        type: 'pie'/*,
         options3d: {
             enabled: true,
             alpha: 45
-        }
+        }*/
     },
     title: {
-        text: 'Contents of Highsoft\'s weekly fruit delivery'
+        text: 'Website usage time'
     },
     subtitle: {
-        text: '3D donut in Highcharts'
+        text: 'Top 15 websites visited'
     },
-    plotOptions: {
+    /*plotOptions: {
         pie: {
             innerSize: 100,
             depth: 45
         }
-    },
+    },*/
     series: [{
         name: 'Delivered amount',
-        data: [
+        data: sitesData /*[
             ['Bananas', 8],
             ['Kiwi', 3],
             ['Mixed nuts', 1],
@@ -30,6 +44,6 @@ Highcharts.chart('container', {
             ['Clementines', 4],
             ['Reddish (bag)', 1],
             ['Grapes (bunch)', 1]
-        ]
+        ]*/
     }]
 });

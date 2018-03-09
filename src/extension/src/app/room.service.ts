@@ -19,6 +19,16 @@ export class RoomService {
     return ROOMS;
   }
 
+  getRoomNameList(): string[] {
+    var roomNames = [];
+    var roomlist = this.getRooms();
+    var room;
+    for (room in roomlist) {
+      roomNames.push(room.name);
+    }
+    return roomNames;
+  }
+
   getRoom(id: number): Room {
     // Todo: send the message _after_ fetching the room
     this.log(`fetched room id=${id}`);

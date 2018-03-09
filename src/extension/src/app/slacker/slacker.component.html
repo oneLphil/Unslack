@@ -1,29 +1,8 @@
 <br/>
-
-<mat-grid-list cols="2" rowHeight="2:1">
-  <mat-grid-tile>
-    <mat-card>
-      <mat-card-header><h2>My Slacker Page</h2></mat-card-header>
-      <mat-card-content>
-
-      <app-charts></app-charts>
-      </mat-card-content>
-    </mat-card>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <mat-card>
-      <mat-card-header><h2>My Slacker Page</h2></mat-card-header>
-      <mat-card-content>
-
-      <app-charts></app-charts>
-      </mat-card-content>
-    </mat-card>
-  </mat-grid-tile>
-  <mat-grid-tile>3</mat-grid-tile>
-  <mat-grid-tile>4</mat-grid-tile>
-</mat-grid-list>
-
-
+<div *ngIf="slackerData && slackerChartType" style="float:left">
+    <app-charts [chartType]="slackerChartType" [chartData]="slackerData"></app-charts >
+</div>
+<div style="float:left"><app-table></app-table></div>
 
   <!--<ul class="slackers">-->
     <!--<li *ngFor="let slacker of slackers"

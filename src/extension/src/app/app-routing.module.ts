@@ -9,6 +9,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SlackerDetailComponent } from './slacker-detail/slacker-detail.component';
 import { ChartsComponent } from './charts/charts.component';
 import { RoomComponent } from './room/room.component';
+import { TimetrackerComponent } from './timetracker/timetracker.component';
 
 // This maps the link path to the UI components
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'charts', component: ChartsComponent },
   { path: 'room', component: RoomComponent },
+  { path: 'timetracker', component: TimetrackerComponent },
   { path: 'detail/:id', component: SlackerDetailComponent }
 ];
 

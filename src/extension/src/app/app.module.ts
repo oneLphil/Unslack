@@ -1,11 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { HttpClientModule } from '@angular/common/http';
-
+import { MatTableModule } from '@angular/material/table';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material';
 // testing purposes
-//import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-//import { InMemoryDataService }  from './in-memory-data.service';
+// import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+// import { InMemoryDataService }  from './in-memory-data.service';
 
 // Import routes modules to do routing on this domain
 import { AppRoutingModule } from './app-routing.module';
@@ -31,13 +34,15 @@ import { MaterialModule } from './material';
 import { SlackerService } from './slacker.service';
 import { RoomService } from './room.service';
 import { MessageService } from './message.service';
+import { TimetrackerComponent } from './timetracker/timetracker.component';
 import { ChartsService } from './charts.service';
 import { LeaderboardService } from './leaderboard.service';
 
-import { MatTableModule } from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+
+import { RoomDetailComponent } from './room-detail/room-detail.component';
+import { TableComponent } from './table/table.component';
 
 
 @NgModule({
@@ -50,7 +55,10 @@ import {MatInputModule} from '@angular/material/input';
     MessagesComponent,
     DashboardComponent,
     HighchartsChartComponent,
-    LeaderboardComponent
+    LeaderboardComponent,
+    RoomDetailComponent,
+    TableComponent,
+    TimetrackerComponent
     //DashtableComponent
   ],
   imports: [
@@ -59,17 +67,17 @@ import {MatInputModule} from '@angular/material/input';
     AppRoutingModule,
     MaterialModule,
     HttpClientModule,
-    BrowserAnimationsModule,
     MatTableModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    BrowserAnimationsModule
 
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
-    //HttpClientInMemoryWebApiModule.forRoot(
+    // HttpClientInMemoryWebApiModule.forRoot(
     //  InMemoryDataService, { dataEncapsulation: false }
-    //)
+    // )
   ],
   providers: [
     SlackerService,
@@ -78,6 +86,7 @@ import {MatInputModule} from '@angular/material/input';
     ChartsService,
     LeaderboardService
     //InMemoryDataService
+
 
   ],
   bootstrap: [AppComponent]
