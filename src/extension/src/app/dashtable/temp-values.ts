@@ -1,4 +1,4 @@
-import { Summary } from './summary';
+/*import { Summary } from './summary';
 
 export const DISPLAY_VALUES: Summary[] = [
   { site: 'www.youtube.com', time: 'Hrs: 1 Min: 37'},
@@ -11,4 +11,4 @@ export const DISPLAY_VALUES: Summary[] = [
   { site: 'www.<domain name>.com', time: 'Hrs: <> Min: <>'},
   { site: 'www.<domain name>.com', time: 'Hrs: <> Min: <>'},
   { site: 'www.<domain name>.com', time: 'Hrs: <> Min: <>'}
-];
+];*/

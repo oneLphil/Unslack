@@ -9,24 +9,27 @@
   </style>
   <link rel="stylesheet" href="style.css"/>
   <link rel="stylesheet" href="buttons.css"/>
+  <link rel="popupchart" href="popupchart.css"/>
   <script src="config.js"></script>
   <script src="sites.js"></script>
   <script src="popup.js"></script>
-  <script src="./chrome-js/popup.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <!--<script src="./chrome-js/popup.js"></script>-->
   <script src="./node_modules/highcharts/highcharts.js"></script>
   <script src="./node_modules/highcharts/highcharts-3d.js"></script>
   <script src="./node_modules/highcharts/modules/exporting.js"></script>
 
 </head>
   <body>
-    <div id="button_row">
-      <a id="show" href="javascript:void(0)" class="pure-button">Show All</a>
+    <div id="button_row" style="padding-bottom:20px;">
+      <a id="show" href="javascript:void(0)" class="pure-button">Open Unslack Dashboard</a>
     </div>
-    <div id="container" style="min-height: 500px;min-width: 700px;"></div>
-    <script src="./donut.js"></script>
+    <div id="website-container" class="chart"></div>
+    <script src="./popup-chart.js"></script>
+    <link rel="popupchart" href="popupchart.css"/>
     <div id="lastClear"></div>
     <div id="nextClear"></div>
-    <div>
+    <div style="display:none;">
       <table id="stats">
         <thead>
           <tr>

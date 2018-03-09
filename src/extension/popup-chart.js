@@ -12,7 +12,7 @@ for (site in gsites.sites) {
     if (i === 15) { break; }
 }
 
-Highcharts.chart('container', {
+Highcharts.chart('website-container', {
     chart: {
         type: 'pie'/*,
         options3d: {
@@ -33,7 +33,7 @@ Highcharts.chart('container', {
         }
     },*/
     series: [{
-        name: 'Delivered amount',
+        name: 'Time',
         data: sitesData /*[
             ['Bananas', 8],
             ['Kiwi', 3],
