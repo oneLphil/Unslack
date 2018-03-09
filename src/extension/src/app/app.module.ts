@@ -36,6 +36,10 @@ import { RoomService } from './room.service';
 import { MessageService } from './message.service';
 import { TimetrackerComponent } from './timetracker/timetracker.component';
 import { ChartsService } from './charts.service';
+import { LeaderboardService } from './leaderboard.service';
+
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 import { RoomDetailComponent } from './room-detail/room-detail.component';
 import { TableComponent } from './table/table.component';
@@ -79,8 +83,10 @@ import { TableComponent } from './table/table.component';
     SlackerService,
     MessageService,
     RoomService,
-    ChartsService
-    // InMemoryDataService
+    ChartsService,
+    LeaderboardService
+    //InMemoryDataService
+
 
   ],
   bootstrap: [AppComponent]

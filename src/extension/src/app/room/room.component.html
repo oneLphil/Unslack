@@ -49,22 +49,33 @@
 //-->
 
 <h2>My Rooms</h2>
-<ul class="rooms">
-  <li *ngFor="let room of rooms"
-    [class.selected]="room === selectedRoom"
-    (click)="onSelect(room)">
-    <span class="badge">{{room.id}}</span> {{room.name}}
-  </li>
-</ul>
 
-<div *ngIf="selectedRoom">
+<div style="width: 100%; display: table;">
+  <div style="display: table-row">
 
-  <h2>{{ selectedRoom.name | uppercase }} Details</h2>
-  <div><span>id: </span>{{selectedRoom.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="selectedRoom.name" placeholder="name">
-    </label>
+    <div style="width: 400px; display: table-cell;">
+      <ul class="rooms">
+        <li *ngFor="let room of rooms"
+          [class.selected]="room === selectedRoom"
+          (click)="onSelect(room)">
+        <span class="badge">{{room.id}}</span> {{room.name}}
+        </li>
+      </ul>
+    </div>
+
+    <div style="display: table-cell;">
+      <div *ngIf="selectedRoom">
+
+        <h2>{{ selectedRoom.name | uppercase }} Details</h2>
+        <div><span>id: </span>{{selectedRoom.id}}</div>
+        <div>
+            <label>name:
+              <input [(ngModel)]="selectedRoom.name" placeholder="name">
+            </label>
+        </div>
+        <app-leaderboard [room]="selectedRoom.id"> </app-leaderboard>
+      </div>
+    </div>
+
   </div>
-
 </div>

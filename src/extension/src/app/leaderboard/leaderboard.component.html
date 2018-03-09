@@ -1,21 +1,44 @@
-<!--<h2>My Heroes</h2>
-<ul class="heroes">
-  <li *ngFor="let hero of heroes"
-    [class.selected]="hero === selectedHero"
-    (click)="onSelect(hero)">
-    <span class="badge">{{hero.id}}</span> {{hero.name}}
-  </li>
-</ul>
-
-<div *ngIf="selectedHero">
-
-  <h2>{{ selectedHero.name | uppercase }} Details</h2>
-  <div><span>id: </span>{{selectedHero.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="selectedHero.name" placeholder="name">
-    </label>
-  </div>
-
+<div>
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
 </div>
--->
+
+<div>
+  <mat-table [dataSource]="dataSource">
+
+    <!-- Search doesn't work for this-->
+    <!--ng-container matColumnDef="rank">
+      <mat-header-cell *matHeaderCellDef> Rank  </mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{user.rank}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{user.slacker.name}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="score">
+      <mat-header-cell *matHeaderCellDef> Score </mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{user.slacker.score}} </mat-cell>
+    </ng-container-->
+
+    <ng-container matColumnDef="rank">
+      <mat-header-cell *matHeaderCellDef> Rank  </mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{user.id}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{user.name}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="score">
+      <mat-header-cell *matHeaderCellDef> Score </mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{user.score}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>
