@@ -6,6 +6,11 @@
     color: black;
   }
 
+  .chart {
+    min-width: 700px;
+    min-height: 500px;
+  }
+
   </style>
   <link rel="stylesheet" href="style.css"/>
   <link rel="stylesheet" href="buttons.css"/>
@@ -17,14 +22,16 @@
   <!--<script src="./chrome-js/popup.js"></script>-->
   <script src="./node_modules/highcharts/highcharts.js"></script>
   <script src="./node_modules/highcharts/highcharts-3d.js"></script>
-  <script src="./node_modules/highcharts/modules/exporting.js"></script>
+  <!--<script src="./node_modules/highcharts/modules/exporting.js"></script>-->
 
 </head>
+  <p style="margin-bottom:20px;padding-top:20px;font-size:40pt;">Unslack</p>
+  <hr/>
   <body>
     <div id="button_row" style="padding-bottom:20px;">
       <a id="show" href="javascript:void(0)" class="pure-button">Open Unslack Dashboard</a>
     </div>
-    <div id="website-container" class="chart"></div>
+    <div id="website-chart-container" class="chart"></div>
     <script src="./popup-chart.js"></script>
     <link rel="popupchart" href="popupchart.css"/>
     <div id="lastClear"></div>
