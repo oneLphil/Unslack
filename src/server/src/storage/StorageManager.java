@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.UUID;
 
 public class StorageManager {
 
@@ -18,11 +19,13 @@ public class StorageManager {
 	/*
 	 * create a new room in the system
 	 */
-	public void createRoom(int roomId, int userId) throws IOException {
+	public int createRoom(String userId) throws IOException {
+	  int roomId = generateRoomId(userId);
 	  Room newRoom = new Room(roomId);
 	  newRoom.addUser(userId);
 	  // TODO probably have to add an entry here
 	  writeRoom(newRoom);
+	  return roomId;
 	}
 	
 	/*
@@ -50,7 +53,7 @@ public class StorageManager {
 	/*
 	 * writes a room into storage
 	 */
-	private void writeRoom(Room room) throws IOException{
+	public void writeRoom(Room room) throws IOException{
 	  
 	  RoomSerializerDeserializer roomSD = new RoomSerializerDeserializer();
 	  int roomId = room.getRoomID();
@@ -66,6 +69,20 @@ public class StorageManager {
         return;
       }
       SSE.unlockStorage(roomId);
+	}
+	
+	/*
+	 * Helper function to generate room IDs and check if id exist in room system
+	 *
+	 */
+	private int generateRoomId(String userId) {
+	  int roomId = userId.hashCode();
+	  File roomFile = new File("rooms" + File.separator + roomId);
+	  while (roomFile.exists()) {
+	    roomId = UUID.randomUUID().hashCode();
+	    roomFile = new File("rooms" + File.separator + roomId);
+	  }
+	  return roomId;
 	}
 	
 }

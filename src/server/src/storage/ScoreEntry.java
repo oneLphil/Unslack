@@ -4,12 +4,12 @@ import java.util.GregorianCalendar;
 
 public class ScoreEntry {
   private GregorianCalendar date;
-  private int userId;
+  private String userId;
   private int score;
   
-  public ScoreEntry(GregorianCalendar date, int userId, int score){
+  public ScoreEntry(GregorianCalendar date, String user, int score){
     this.date = date;
-    this.userId = userId;
+    this.userId = user;
     this.score = score;
   }
 
@@ -17,7 +17,7 @@ public class ScoreEntry {
     return date;
   }
 
-  public int getUserId() {
+  public String getUserId() {
     return userId;
   }
 

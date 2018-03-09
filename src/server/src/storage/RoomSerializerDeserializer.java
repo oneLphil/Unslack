@@ -23,7 +23,10 @@ public class RoomSerializerDeserializer {
     
     writeSettings(room.getSettings(), writer);
     writeUsers(room.getUsers(), writer);
-    writeScoreBoard(room.getScoreboard(), writer);
+    if (!room.getScoreboard().isEmpty()){
+      writeScoreBoard(room.getScoreboard(), writer);
+    }
+    
     
     writer.close();
     
@@ -60,31 +63,33 @@ public class RoomSerializerDeserializer {
     //write Settings
     writer.write("Settings");
     writer.newLine();
-    writer.write("Unproductive Sites:");
-    writer.newLine();
-    List<String> sites = settings.getUnproductiveSites();
-    
-    // write unproductive in one line using separated with commas
-    for (int i = 0; i < sites.size(); i++) {
-      writer.write(sites.get(i));
-      if (i != sites.size() - 1) {
-        writer.write(",");
+    if (!settings.getUnproductiveSites().isEmpty()) {
+      writer.write("Unproductive Sites:");
+      writer.newLine();
+      List<String> sites = settings.getUnproductiveSites();
+      
+      // write unproductive in one line using separated with commas
+      for (int i = 0; i < sites.size(); i++) {
+        writer.write(sites.get(i));
+        if (i != sites.size() - 1) {
+          writer.write(",");
+        }
       }
+      writer.newLine();
     }
-    writer.newLine();
   }
   
   /*
    *  helper function that writes user IDs into output
    */
-  private void writeUsers(List<Integer> users, BufferedWriter writer) throws IOException {
+  private void writeUsers(List<String> list, BufferedWriter writer) throws IOException {
     
     writer.write("User IDs:");
     writer.newLine();
     
-    for (int i = 0; i < users.size(); i++) {
-      writer.write(users.get(i).toString());
-      if (i != users.size() - 1){
+    for (int i = 0; i < list.size(); i++) {
+      writer.write(list.get(i));
+      if (i != list.size() - 1){
         writer.write(",");
       } 
     }
@@ -106,7 +111,7 @@ public class RoomSerializerDeserializer {
       writer.write(",");
       writer.write(Integer.toString(entry.getDate().get(3)));
       writer.write(",");
-      writer.write(Integer.toString(entry.getUserId()));
+      writer.write(entry.getUserId());
       writer.write(",");
       writer.write(Integer.toString(entry.getScore()));
       writer.newLine();
@@ -134,7 +139,7 @@ public class RoomSerializerDeserializer {
     String newLine = buf.readLine();
     List<String> userIds = Arrays.asList(newLine.split(","));
     for (String userId : userIds) {
-      newRoom.addUser(Integer.parseInt(userId));
+      newRoom.addUser(userId);
     }
   }
   
@@ -148,7 +153,7 @@ public class RoomSerializerDeserializer {
       int year = Integer.parseInt(entry.get(0));
       int month = Integer.parseInt(entry.get(1));
       int day = Integer.parseInt(entry.get(2));
-      int userId = Integer.parseInt(entry.get(3));
+      String userId = entry.get(3);
       int score = Integer.parseInt(entry.get(4));
       GregorianCalendar date = new GregorianCalendar(year, month, day);
       newRoom.addScoreEntry(date, userId, score);

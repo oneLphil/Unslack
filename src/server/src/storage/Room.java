@@ -3,6 +3,7 @@ package storage;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.UUID;
 
 /*
  * The representation of a room containing users
@@ -11,29 +12,29 @@ import java.util.List;
 public class Room {
   private int roomID;
   private Settings settings;
-  private List<Integer> users = new ArrayList<Integer>();
+  private List<String> users = new ArrayList<String>();
   private List<ScoreEntry> scoreboard = new ArrayList<ScoreEntry>();
   
   public Room(int roomID) {
-    this.roomID = roomID;
+    this.roomID = roomID; 
     this.settings = new Settings();
   }
   
   // Add a new user to the room if the room does not contain that user
-  public void addUser(int userId) {
+  public void addUser(String userId) {
     if (!users.contains(userId)){
       users.add(userId);
     }
   }
   
   // Remove the user from the room
-  public void removeUser(int userId) {
+  public void removeUser(String userId) {
     if (users.contains(userId)) {
       users.remove(userId);
     }
   }
   // Add a new score entry
-  public void addScoreEntry(GregorianCalendar date, int user, int score) {
+  public void addScoreEntry(GregorianCalendar date, String user, int score) {
     ScoreEntry entry = new ScoreEntry(date, user, score);
     if (scoreboard.contains(entry)) {
       throw new IllegalArgumentException();
@@ -42,7 +43,7 @@ public class Room {
     }
   }
 
-  public void removeScoreEntry(GregorianCalendar date, int user, int score) {
+  public void removeScoreEntry(GregorianCalendar date, String user, int score) {
     ScoreEntry entry = new ScoreEntry(date, user, score);
     if (!(scoreboard.contains(entry))) {
       throw new IllegalArgumentException();
@@ -63,7 +64,7 @@ public class Room {
     return roomID;
   }
 
-  public List<Integer> getUsers() {
+  public List<String> getUsers() {
     return users;
   }
 
