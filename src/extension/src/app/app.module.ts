@@ -39,6 +39,7 @@ import { ChartsService } from './charts.service';
 
 import { RoomDetailComponent } from './room-detail/room-detail.component';
 import { TableComponent } from './table/table.component';
+import { RoomInteractionComponent } from './room-interaction/room-interaction.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { TableComponent } from './table/table.component';
     LeaderboardComponent,
     RoomDetailComponent,
     TableComponent,
-    TimetrackerComponent
+    TimetrackerComponent,
+    RoomInteractionComponent
     //DashtableComponent
   ],
   imports: [
