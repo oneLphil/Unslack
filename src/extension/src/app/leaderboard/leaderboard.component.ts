@@ -9,7 +9,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { DATA } from './userdata';
 import { ALLBOARDS } from './userdata';
-import { Room } from '../room'
+import { Room } from '../room';
 
 @Component({
   selector: 'app-leaderboard',
@@ -34,7 +34,7 @@ export class LeaderboardComponent implements OnInit, OnChanges {
     const room: SimpleChange = changes.room;
     this.room = room.currentValue;
     this.dataSource = new MatTableDataSource(ALLBOARDS[this.room-1]);
-    this.dataSource.filter = "";
+    this.dataSource.filter = '';
   }
 
 

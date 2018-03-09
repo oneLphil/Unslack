@@ -1,78 +1,78 @@
 import { User } from './user.model';
-//import { slacker } from './slacker';
+// import { slacker } from './slacker';
 
-export const DATA: User[] = [
+/*export const DATA: User[] = [
   {
     id: 1,
     name: "Leanne Graham",
     //username: Bret,
     score: 100,
-    info: ""
+    info: ''
   },
   {
     id: 2,
     name: "Ervin Howell",
     //username: Antonette,
     score: 99,
-    info: "Hi"
+    info: 'Hi'
   },
   {
     id: 3,
     name: "Clementine Bauch",
     //username: Samantha,
     score: 90,
-    info: "bye"
+    info: 'bye'
   },
   {
     id: 4,
     name: "Patricia Lebsack",
     //username: Karianne,
     score: 88,
-    info: "Julianne.OConner@kory.org"
+    info: 'Julianne.OConner@kory.org'
   },
   {
     id: 5,
-    name: "Chelsey Dietrich",
+    name: 'Chelsey Dietrich',
     //username: Kamren,
     score: 80,
-    info: ""
+    info: ''
   },
   {
     id: 6,
-    name: "Mrs. Dennis Schulist",
+    name: 'Mrs. Dennis Schulist',
     //username: Leopoldo_Corkery,
     score: 71,
-    info: ""
+    info: ''
   },
   {
     id: 7,
-    name: "Kurtis Weissnat",
+    name: 'Kurtis Weissnat',
     //username: Elwyn.Skiles,
     score: 60,
-    info: "se7en"
+    info: 'se7en'
   },
   {
     id: 8,
-    name: "Nicholas Runolfsdottir V",
+    name: 'Nicholas Runolfsdottir V',
     //username: Maxime_Nienow,
     score: 50,
-    info: ""
+    info: ''
   },
   {
     id: 9,
-    name: "Glenna Reichert",
+    name: 'Glenna Reichert',
     //username: Delphine,
     score: 41,
-    info: ""
+    info: ''
   },
   {
     id: 10,
-    name: "Clementina DuBuque",
+    name: 'Clementina DuBuque',
     //username: Moriah.Stanton,
     score: 0,
-    info: ":("
+    info: ':('
   }
-]
+];*/
 
 
 /*
@@ -161,64 +161,64 @@ export const DATA: User[] = [
 */
 
 /*NOTE*/
-export const DATA2: User[] = [
+/*export const DATA2: User[] = [
   {
     id: 1,
-    name: "Graeme Stroud",
+    name: 'Graeme Stroud',
     //username: Bret,
     score: 100,
-    info: ""
+    info: ''
   },
   {
     id: 2,
-    name: "Kevin Chan",
+    name: 'Kevin Chan',
     //username: Antonette,
     score: 99,
-    info: "Hi"
+    info: 'Hi'
   },
   {
     id: 3,
-    name: "Alana Man",
+    name: 'Alana Man',
     //username: Samantha,
     score: 90,
-    info: "bye"
+    info: 'bye'
   },
   {
     id: 4,
-    name: "David Colloard",
+    name: 'David Colloard',
     //username: Karianne,
     score: 88,
-    info: "Julianne.OConner@kory.org"
+    info: 'Julianne.OConner@kory.org'
   },
   {
     id: 5,
-    name: "Stephen Koza",
+    name: 'Stephen Koza',
     //username: Kamren,
     score: 80,
-    info: ""
+    info: ''
   },
   {
     id: 6,
-    name: "Mrs. Dennis Schulist",
-    //username: Leopoldo_Corkery,
+    name: 'Mrs. Dennis Schulist',
+    // username: Leopoldo_Corkery,
     score: 71,
-    info: ""
+    info: ''
   },
   {
     id: 7,
-    name: "Phillip Wang",
-    //username: Elwyn.Skiles,
+    name: 'Phillip Wang',
+    // username: Elwyn.Skiles,
     score: 60,
-    info: "se7en"
+    info: 'se7en'
   },
   {
     id: 8,
-    name: "Omid Raj",
-    //username: Maxime_Nienow,
+    name: 'Omid Raj',
+    // username: Maxime_Nienow,
     score: 50,
-    info: ""
+    info: ''
   }
-]
+];*/
 /**/
 
 /*
@@ -290,4 +290,45 @@ export const DATA2: User[] = [
 ]
 */
 
-export const ALLBOARDS: User [][] = [DATA, DATA2, DATA, DATA2, DATA, DATA2, DATA, DATA2, DATA, DATA2, DATA, DATA2]
+export const DATA: User[] = [
+  {
+    rank: 1,
+    name: 'Leanne Graham',
+    score: 100
+  },
+  {
+    rank: 2,
+    name: 'Richard Waterbottle',
+    score: 64
+  },
+  {
+    rank: 3,
+    name: 'Tanya Whistler',
+    score: 24
+  }
+];
+
+export const DATA2: User[] = [
+  {
+    rank: 1,
+    name: 'Susan Boyle',
+    score: 100
+  },
+  {
+    rank: 2,
+    name: 'Ariana MediumSize',
+    score: 98
+  },
+  {
+    rank: 3,
+    name: 'WhatAreThoseee',
+    score: 34
+  },
+  {
+    rank: 4,
+    name: 'Daniel Darrington',
+    score: 21
+  }
+];
+
+export const ALLBOARDS: User [][] = [DATA, DATA2, DATA, DATA2, DATA, DATA2, DATA, DATA2, DATA, DATA2, DATA, DATA2];
