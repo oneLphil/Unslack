@@ -7,7 +7,7 @@ import { ChartsService } from '../charts.service';
   styleUrls: ['./timetracker.component.css']
 })
 export class TimetrackerComponent implements OnInit {
-
+  
   constructor(
     private chartsService: ChartsService
   ) { }
