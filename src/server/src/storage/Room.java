@@ -1,8 +1,9 @@
 package storage;
 
 import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.UUID;
 
 /*
  * The representation of a room containing users
@@ -10,52 +11,69 @@ import java.util.List;
  */
 public class Room {
   private int roomID;
-  private List<User> users = new ArrayList<User>();
-  private List<DailyScoreEntry> scoreboard = new ArrayList<DailyScoreEntry>();
+  private Settings settings;
+  private List<String> users = new ArrayList<String>();
+  private List<ScoreEntry> scoreboard = new ArrayList<ScoreEntry>();
   
   public Room(int roomID) {
-    this.roomID = roomID;
+    this.roomID = roomID; 
+    this.settings = new Settings();
   }
   
   // Add a new user to the room if the room does not contain that user
-  public void addUser(User newUser) {
-    if (!users.contains(newUser)){
-      users.add(newUser);
+  public void addUser(String userId) {
+    if (!users.contains(userId)){
+      users.add(userId);
     }
   }
   
-  // Remove the specified user from the room
-  public void removeUser(User user) {
-    if (users.contains(user)) {
-      users.remove(user);
+  // Remove the user from the room
+  public void removeUser(String userId) {
+    if (users.contains(userId)) {
+      users.remove(userId);
     }
   }
-  
-  
-  public void addScoreEntry(Calendar date, User user, int score) {
-     for (DailyScoreEntry dailyEntry : scoreboard) {
-       // If the date is already in scoreboard, add the entry to that date
-       if (dailyEntry.getDate() == date){
-         dailyEntry.addScoreEntry(user, score);
-         return;
-       }
-     }
-     // Else create a new DailyScoreEntry with the date and insert the user and score
-     DailyScoreEntry newEntry = new DailyScoreEntry(date);
-     newEntry.addScoreEntry(user, score);
-     scoreboard.add(newEntry);     
-  }
-  
-  public List<User> getUsers() {
-    return users;
+  // Add a new score entry
+  public void addScoreEntry(GregorianCalendar date, String user, int score) {
+    ScoreEntry entry = new ScoreEntry(date, user, score);
+    if (scoreboard.contains(entry)) {
+      throw new IllegalArgumentException();
+    } else {
+      scoreboard.add(entry);
+    }
   }
 
+  public void removeScoreEntry(GregorianCalendar date, String user, int score) {
+    ScoreEntry entry = new ScoreEntry(date, user, score);
+    if (!(scoreboard.contains(entry))) {
+      throw new IllegalArgumentException();
+    } else {
+      scoreboard.remove(entry);
+    }
+  }
+  
+  public void addUnproductiveSite(String site) {
+    settings.addUnproductiveSites(site);
+  }
+  
+  public void removeUnproductiveSite(String site) {
+    settings.removeUnproductiveSites(site);
+  }
+  
   public int getRoomID() {
     return roomID;
   }
 
-  public List<DailyScoreEntry> getScoreboard() {
+  public List<String> getUsers() {
+    return users;
+  }
+
+  public List<ScoreEntry> getScoreboard() {
     return scoreboard;
   }
-    
+
+  public Settings getSettings() {
+    return settings;
+  }
+
 }
