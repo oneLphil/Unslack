@@ -22,7 +22,11 @@ import { SlackerDetailComponent } from './slacker-detail/slacker-detail.componen
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
-//import { DashtableComponent} from './dashtable/dashtable.component';
+import { TimetrackerComponent } from './timetracker/timetracker.component';
+import { RoomDetailComponent } from './room-detail/room-detail.component';
+import { TableComponent } from './table/table.component';
+import { RoomInteractionComponent } from './room-interaction/room-interaction.component';
+// import { DashtableComponent} from './dashtable/dashtable.component';
 
 // Highcharts
 import { HighchartsChartComponent } from '../../node_modules/highcharts-angular/src/app/highcharts-chart.component';
@@ -34,12 +38,10 @@ import { MaterialModule } from './material';
 import { SlackerService } from './slacker.service';
 import { RoomService } from './room.service';
 import { MessageService } from './message.service';
-import { TimetrackerComponent } from './timetracker/timetracker.component';
-import { ChartsService } from './charts.service';
 
-import { RoomDetailComponent } from './room-detail/room-detail.component';
-import { TableComponent } from './table/table.component';
-import { RoomInteractionComponent } from './room-interaction/room-interaction.component';
+import { ChartsService } from './charts.service';
+import { LeaderboardService } from './leaderboard.service';
+
 
 
 @NgModule({
@@ -81,7 +83,8 @@ import { RoomInteractionComponent } from './room-interaction/room-interaction.co
     SlackerService,
     MessageService,
     RoomService,
-    ChartsService
+    ChartsService,
+    LeaderboardService
     //InMemoryDataService
 
 

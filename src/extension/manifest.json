@@ -20,10 +20,10 @@
   ],
   "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
   "browser_action": {
-    "default_icon": "./chrome-assets/pac.png",
+    "default_icon": "./images/icon.png",
     "default_popup": "popup.html"
   },
   "options_page": "options.html",
-  "icons": { "19": "images/icon19.png", "38": "images/icon38.png",
+  "icons": { "19": "images/icon32.png", "38": "images/icon64.png",
              "128": "images/icon.png" }
 }

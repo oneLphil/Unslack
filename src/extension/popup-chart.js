@@ -9,10 +9,11 @@ var sitesData = new Array();
 for (site in gsites.sites) {
     i++;
     sitesData.push([site, gsites.sites[site]]);
+    console.log(secondsToString(gsites.sites[site]))
     if (i === 15) { break; }
 }
 
-Highcharts.chart('container', {
+Highcharts.chart('website-chart-container', {
     chart: {
         type: 'pie'/*,
         options3d: {
@@ -32,9 +33,14 @@ Highcharts.chart('container', {
             depth: 45
         }
     },*/
+    tooltip: {
+        formatter: function () {
+            return 'Time spent:' + secondsToString(this.y);
+        }
+    },
     series: [{
-        name: 'Delivered amount',
-        data: sitesData /*[
+        name: 'Time',
+        data: sitesData, /*[
             ['Bananas', 8],
             ['Kiwi', 3],
             ['Mixed nuts', 1],
