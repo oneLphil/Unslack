@@ -5,8 +5,8 @@
     </mat-form-field>
 
   </div>
-  <div *ngIf="dataSource && displayedColumns">
-    <mat-table #table [dataSource]="dataSource">
+  <div *ngIf="displayedDataSource && displayedColumns">
+    <mat-table #table [dataSource]="displayedDataSource">
 
       <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
         <mat-header-cell *matHeaderCellDef> {{column.header}} </mat-header-cell>
