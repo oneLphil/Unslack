@@ -8,6 +8,7 @@ export class ChartsService {
   constructor() { }
 
   getWebsitesData(): Websites {
+    console.log('in charts.service.ts getWebsiteData');
     return WEBSITES;
   }
 

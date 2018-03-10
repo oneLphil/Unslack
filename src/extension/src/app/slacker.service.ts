@@ -53,8 +53,6 @@ export class SlackerService {
     return this.RoomService.getLocalRoomData().slackers.find(slacker => slacker.id === id);
 
   }
-
-
   */
 
 

@@ -11,6 +11,10 @@ import { MessageService } from './message.service';
 
 @Injectable()
 export class RoomService {
+  timeDisplayFormatEnum = {
+    PRETTY: 0,
+    MINUTES: 1
+  };
 
   constructor(private messageService: MessageService) { }
 

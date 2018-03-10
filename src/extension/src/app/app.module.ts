@@ -39,6 +39,7 @@ import { RoomService } from './room.service';
 import { MessageService } from './message.service';
 import { ChartsService } from './charts.service';
 import { LeaderboardService } from './leaderboard.service';
+import { TimetrackerService } from './timetracker.service';
 
 
 
@@ -57,7 +58,7 @@ import { LeaderboardService } from './leaderboard.service';
     TableComponent,
     TimetrackerComponent,
     RoomInteractionComponent
-    //DashtableComponent
+    // DashtableComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +71,6 @@ import { LeaderboardService } from './leaderboard.service';
     MatInputModule,
     BrowserAnimationsModule,
     MatExpansionModule
-
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
@@ -83,8 +83,9 @@ import { LeaderboardService } from './leaderboard.service';
     MessageService,
     RoomService,
     ChartsService,
-    LeaderboardService
-    //InMemoryDataService
+    LeaderboardService,
+    TimetrackerService
+    // InMemoryDataService
 
 
   ],

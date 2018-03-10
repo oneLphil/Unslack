@@ -7,9 +7,11 @@
     </mat-nav-list>
   </div>
 </mat-card-content>-->
-<button mat-raised-button (click)="create()">CREATE A ROOM</button>
-
-Slacker Rooms
+<br/>
+<div><button mat-raised-button (click)="create()">CREATE A ROOM</button></div>
+<br/>
+<mat-divider></mat-divider>
+<h2>Slacker Rooms</h2>
 <mat-accordion *ngFor="let room of rooms">
   <mat-expansion-panel (opened)="panelOpenState = true"
                        (closed)="panelOpenState = false">

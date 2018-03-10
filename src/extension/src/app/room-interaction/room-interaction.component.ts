@@ -11,6 +11,7 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
 
   rooms: Room[] = this.roomService.getRooms();
   panelOpenState: boolean = false;
+
   constructor(
     private roomService: RoomService
   ) { }

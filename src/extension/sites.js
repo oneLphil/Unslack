@@ -18,6 +18,7 @@ function Sites(config) {
  */
 Object.defineProperty(Sites.prototype, "sites", {
   get: function() {
+    console.log("localStorage.sites", localStorage.sites);
     var s = JSON.parse(localStorage.sites);
     var sites = {}
     for (var site in s) {

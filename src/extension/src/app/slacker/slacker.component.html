@@ -1,7 +1,8 @@
 <br/>
-<div *ngIf="slackerData && slackerChartType" style="float:left">
-    <app-charts [chartType]="slackerChartType" [chartData]="slackerData"></app-charts >
-      <app-charts chartType="bar" [chartData]="slackerData"></app-charts >
+<!--<div *ngIf="slackerData && slackerChartType" style="float:left">-->
+  <div *ngIf="trackerData && slackerChartType" style="float:left">
+    <!--<app-charts chartType="pie" [chartData]="slackerData"></app-charts >-->
+      <app-charts chartType="bar" [chartData]="trackerData"></app-charts >
 </div>
 
   <!--<ul class="slackers">-->

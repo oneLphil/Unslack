@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,7 @@ export class AppComponent implements OnInit {
   routeLinks: any[];
   activeLinkIndex = -1;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private location: Location) {
     this.routeLinks = [
       {
         label: 'Dashboard',
@@ -24,24 +25,23 @@ export class AppComponent implements OnInit {
         link: './slacker',
         index: 1
       }, {
-        label: 'Sample Charts',
-        link: './charts',
-        index: 2
-      }, {
         label: 'Rooms',
         link: './room',
-        index: 3
-      }, {
-        label: 'Time Tracker',
-        link: './timetracker',
-        index: 4
+        index: 2
       }
     ];
   }
   ngOnInit(): void {
+    // this.load();
+    // this.router.navigate(['./dashboard']);
+    console.log(this.router.url);
     this.router.events.subscribe((res) => {
       this.activeLinkIndex = this.routeLinks.indexOf(this.routeLinks.find(tab => tab.link === '.' + this.router.url));
     });
+    console.log(this.router.events);
   }
+  /*load() {
+    location.reload();
+  }*/
 
 }

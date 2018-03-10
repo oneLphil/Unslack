@@ -1,3 +1,3 @@
 export class Websites {
-  tracked: any[][];
+  tracked: any[];
 }
