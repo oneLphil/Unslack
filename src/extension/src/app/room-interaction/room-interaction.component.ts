@@ -27,12 +27,12 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
     this.rooms = this.roomService.getRooms(); // later there should be a getUserRooms param for id
   }
 
-  join(room: Room) {
-    console.log(room);
+  join() {
+    //console.log();
   }
 
   create() {
-
+    //console.log();
   }
 
 

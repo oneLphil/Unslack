@@ -14,8 +14,9 @@
   <br/> <mat-form-field><input matInput placeholder="Blacklisted Websites"></mat-form-field>
   <br/> <mat-form-field><input matInput placeholder="Members' ID"></mat-form-field>
   <button mat-raised-button (click)="join()">JOIN A ROOM</button>
-  <br/><mat-form-field><input matInput placeholder="Room ID Hash"></mat-form-field>
+  <br/> <mat-form-field><input matInput placeholder="Room ID Hash"></mat-form-field>
 </mat-card>
+
 <mat-card style="width:70%; float: left;">
 <mat-accordion style="width: 100%" *ngFor="let room of rooms">
   <mat-expansion-panel style="width: 100%" (opened)="panelOpenState = true"
