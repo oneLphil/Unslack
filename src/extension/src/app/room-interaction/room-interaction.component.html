@@ -8,26 +8,37 @@
   </div>
 </mat-card-content>-->
 <br/>
-<div><button mat-raised-button (click)="create()">CREATE A ROOM</button></div>
-<br/>
-<mat-divider></mat-divider>
-<h2>Slacker Rooms</h2>
-<mat-accordion *ngFor="let room of rooms">
-  <mat-expansion-panel (opened)="panelOpenState = true"
+<mat-card style="width:20%; float:left;">
+  <button mat-raised-button (click)="create()">CREATE A ROOM</button>
+  <br/> <mat-form-field><input matInput placeholder="Room name"></mat-form-field>
+  <br/> <mat-form-field><input matInput placeholder="Blacklisted Websites"></mat-form-field>
+  <br/> <mat-form-field><input matInput placeholder="Members' ID"></mat-form-field>
+  <button mat-raised-button (click)="join()">JOIN A ROOM</button>
+  <br/><mat-form-field><input matInput placeholder="Room ID Hash"></mat-form-field>
+</mat-card>
+<mat-card style="width:70%; float: left;">
+<mat-accordion style="width: 100%" *ngFor="let room of rooms">
+  <mat-expansion-panel style="width: 100%" (opened)="panelOpenState = true"
                        (closed)="panelOpenState = false">
     <mat-expansion-panel-header>
       <mat-panel-title>
         {{room.name}}
       </mat-panel-title>
       <mat-panel-description>
-        Type your name and age
+        Room Description
       </mat-panel-description>
     </mat-expansion-panel-header>
 
-    Info about this room goes here.
-    <button mat-raised-button (click)="join(room)">
-      JOIN
-    </button>
+    Blacklist: {{room.blacklist}} <br/>
+    Members: {{room.member_ids}} <br/>
+
+    <app-charts
+      chartType="bar"
+      chartTitle="Member To Score"
+      [chartData]="room.scores"
+      [xAxis]="room.member_ids">
+    </app-charts>
 
   </mat-expansion-panel>
 </mat-accordion>
+<mat-card>

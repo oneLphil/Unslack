@@ -14,6 +14,7 @@ import { Websites } from '../websites';
 export class SlackerComponent implements OnInit {
   slackerChartType: string = "bar";
   slackerData: any[] = this.chartsService.getWebsitesData().tracked;
+  slackerChartCategories: string[] = this.chartsService.getNameCategoriesFromListOfObject(this.slackerData);
   selectedSlacker: Slacker;
   trackerData: any[];
 

@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { MaterialModule } from '../material';
 import { ChartsService } from '../charts.service';
-import { Websites} from '../websites';
 import * as Highcharts from 'highcharts';
 import * as Highcharts3d from 'highcharts/highcharts-3d';
 import * as HighchartsExport from 'highcharts/modules/exporting';
@@ -17,7 +16,9 @@ HighchartsExport(Highcharts);
 export class ChartsComponent implements OnInit, OnChanges {
   @Input() chartData: any[];
   @Input() chartType: string;
-  websitesData: Websites;
+  @Input() xAxis: any[];
+  @Input() chartTitle: string;
+  @Input() subTitle: string;
   constructor(
     private chartsService: ChartsService,
     private timetrackerService: TimetrackerService
@@ -27,18 +28,18 @@ export class ChartsComponent implements OnInit, OnChanges {
   chartConstructor = 'chart';
   chartOptions = {
     chart: {
-      type: /*'pie',*/ this.chartType,
-      options3d: {
+      type: this.chartType
+      /*options3d: {
           enabled: false,
           alpha: 45
-      },
-      height: 600
+      },*/
+      //height: 600
     },
     title: {
-      text: 'Web Browsing Breakdown'
+      text: this.chartTitle
     },
     subtitle: {
-      text: 'Time Spent for Websites'
+      text: this.subTitle
     },
     plotOptions: {
       pie: {
@@ -51,12 +52,12 @@ export class ChartsComponent implements OnInit, OnChanges {
       }
     },
     xAxis: {
-      /*categories: this.getCategories(),*/
+      categories: this.xAxis,
       type: 'category'
     },
     yAxis: {
       title: {
-        text: 'Fruit eaten'
+        text: ''
       }
     },
     tooltip: {
@@ -87,7 +88,7 @@ export class ChartsComponent implements OnInit, OnChanges {
     },
     series: [{
       name: 'Time spent per website (hrs)',
-      data: this.getChartData() // this.chartsService.getWebsitesData().tracked
+      data: this.getChartData()
     }]
   };
   updateFlag = false;
@@ -98,22 +99,26 @@ export class ChartsComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    const currData = this.getChartData();
-    const currCategories = this.getCategories();
+    console.log(this.xAxis);
+    console.log(this.getChartData);
+
+    const currCategories = this.xAxis;
+    //const currCategories = this.xAxis;
+    //console.log(this.getCategories());
     this.chartOptions = {
       chart: {
-        type: this.chartType,
-        options3d: {
+        type: this.chartType
+        /*options3d: {
             enabled: false,
             alpha: 45
-        },
-        height: currData.length * 30
+        },*/
+        //height: currData.length * 30
       },
       title: {
-        text: 'Web Browsing Breakdown'
+        text: this.chartTitle
       },
       subtitle: {
-        text: 'Time Spent for Websites'
+        text: this.subTitle
       },
       plotOptions: {
         pie: {
@@ -126,12 +131,12 @@ export class ChartsComponent implements OnInit, OnChanges {
         }
       },
       xAxis: {
-        /*categories: currCategories,*/
+        categories: currCategories,
         type: 'category'
       },
       yAxis: {
         title: {
-          text: 'Fruit eaten'
+          text: ''
         }
       },
       tooltip: {
@@ -162,24 +167,13 @@ export class ChartsComponent implements OnInit, OnChanges {
       },
       series: [{
         name: 'Time spent per website',
-        data: currData // this.chartsService.getWebsitesData().tracked
+        data: this.getChartData()
       }]
     };
   }
 
   getChartData(): any[] {
     return this.chartData;
-  }
-
-  getCategories(): any[] {
-    let categories: String[] = [];
-    for (let item in this.chartData) {
-      if (item) {
-        // console.log(this.chartData[item].name);
-        categories.push(this.chartData[item].name);
-      }
-    }
-    return categories;
   }
 
 }

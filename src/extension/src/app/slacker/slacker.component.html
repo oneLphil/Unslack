@@ -2,20 +2,25 @@
 <!--<div *ngIf="slackerData && slackerChartType" style="float:left">-->
   <div *ngIf="trackerData && slackerChartType" style="float:left">
     <!--<app-charts chartType="pie" [chartData]="slackerData"></app-charts >-->
-      <app-charts chartType="bar" [chartData]="trackerData"></app-charts >
+      <app-charts
+        chartType="bar"
+        chartTitle="Web Browsing Activity"
+        subTitle=""
+        [chartData]="trackerData">
+      </app-charts>
 
 
 </div>
 
 
-<mat-card-content>
+<!--<mat-card-content>
 
     <div *ngIf="columns">
       <app-table [columns]="columns" [dataSource]="webStats"></app-table>
     </div>
 
 </mat-card-content>
-
+-->
   <!--<ul class="slackers">-->
     <!--<li *ngFor="let slacker of slackers"
     [class.selected]="slacker === selectedSlacker"

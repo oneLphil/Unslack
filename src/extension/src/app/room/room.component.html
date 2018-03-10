@@ -1,5 +1,4 @@
-<br/>
-<app-room-detail></app-room-detail>
+<!--<app-room-detail></app-room-detail>-->
 <!--
 <br/>
 <mat-card style="width: 50%;">
@@ -51,11 +50,10 @@
 //-->
 
 
-<!-- had this before
 <h2>My Rooms</h2>
 
-
-  <div style="display: table-row">
+<div style="width: 100%; display:table ">
+<div style="display: table-row">
 
     <div style="width: 400px; display: table-cell;">
       <ul class="rooms">
@@ -65,9 +63,8 @@
         <span class="badge">{{room.id}}</span> {{room.name}}
         </li>
       </ul>
+    </div>
 
--->
-<div style="width: 100%; display: table;">
     <div style="display: table-cell;">
       <div *ngIf="selectedRoom">
 
@@ -78,7 +75,8 @@
               <input [(ngModel)]="selectedRoom.name" placeholder="name">
             </label>
         </div>
-        <app-leaderboard [room]="selectedRoom.id"> </app-leaderboard>
+        <app-leaderboard style="width: 70%" [room]="selectedRoom.id"> </app-leaderboard>
       </div>
     </div>
-    </div>
+</div>
+</div>

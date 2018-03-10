@@ -27,6 +27,7 @@ import { TimetrackerComponent } from './timetracker/timetracker.component';
 import { RoomDetailComponent } from './room-detail/room-detail.component';
 import { TableComponent } from './table/table.component';
 import { RoomInteractionComponent } from './room-interaction/room-interaction.component';
+
 // Highcharts
 import { HighchartsChartComponent } from '../../node_modules/highcharts-angular/src/app/highcharts-chart.component';
 
