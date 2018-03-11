@@ -11,13 +11,18 @@ Person 1 = Kevin<br/>
 Person 2 = Graeme<br/>
 Slacker & Demo narrator = David
 
-
  > (wide shot)
+ 
  > Person 1: “Hey (person 2), have you noticed how (slacker) hasn’t been doing anything for our project?
+ 
  > (over the shoulder)
+ 
  > Person 2: “He keeps saying that’s he’s busy with other courses. I don’t believe him though.”
+ 
  > (cut to david watch youtube)
+ 
  > Person 1: “If only we had some way to keep him and ourselves accountable.”
+ 
  > Person 2: “I’ve heard there’s this new extension called Unslack that could help us. We can use Unslack to create a room for our group so we can keep track of our own and each other’s productivity.”
 
 
