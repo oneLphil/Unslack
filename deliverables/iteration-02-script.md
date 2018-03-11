@@ -3,13 +3,12 @@
 <h3>Introduction (30-45 seconds)</h3>
 <strong>Give the audience some context<br/>
 Tell the audience what they are about to watch</strong></br>
+</br>
 
-
-Videographer & Video Editor = Alana
-
+Videographer & Video Editor = Alana<br/>
 Person 1 = Kevin<br/>
 Person 2 = Graeme<br/>
-Slacker & Demo narrator = David
+Slacker & Demo narrator = David<br/>
 
  > (wide shot)
  
@@ -66,7 +65,7 @@ Present it from the user’s perspective, and guide the audience through the mos
 > Both people: “Wow. “
 Person 1: “I guess, it’s time for us to Unslack!”
 
-<h3>Next Steps:</h3>
+<strong>Next Steps:</strong><br/>
 
 > Backend integration with Frontend
 
