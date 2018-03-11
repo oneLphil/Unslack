@@ -24,7 +24,7 @@ public class Settings {
   
   public void removeUnproductiveSites(String site) {
     if (UnproductiveSites.contains(site)) {
-      UnproductiveSites.add(site);
+      UnproductiveSites.remove(site);
     } else {
       throw new IllegalArgumentException();
     }
