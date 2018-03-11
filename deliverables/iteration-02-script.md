@@ -13,7 +13,7 @@ Person 2 = Graeme
 
 Slacker & Demo narrator = David
 
-<wide shot>
+(wide shot)
 Person 1: “Hey <person 2>, have you noticed how <slacker> hasn’t been doing anything for our project?
 <over the shoulder>
 Person 2: “He keeps saying that’s he’s busy with other courses. I don’t believe him though.”
