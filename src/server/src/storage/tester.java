@@ -1,11 +1,7 @@
 package storage;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.GregorianCalendar;
-import java.util.UUID;
 
 public class tester {
 

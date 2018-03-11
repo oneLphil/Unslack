@@ -1,9 +1,11 @@
 package messaging;
 
+import org.json.simple.JSONObject;
+
 public interface IMessage {
 
 	// parse message. return true iff parsed without error
-	public boolean parseMessage(/*String message*/);
+	public boolean parseMessage(JSONObject message);
 	
 	// executes message behaviour after parsing a message.
 	public boolean executeMessage();

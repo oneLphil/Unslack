@@ -3,7 +3,6 @@ package storage;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
-import java.util.UUID;
 
 /*
  * The representation of a room containing users
