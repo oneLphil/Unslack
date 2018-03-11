@@ -23,7 +23,7 @@ public class Main {
 		
 		System.out.println("Client startup sucessful");
 		
-		bw.write("[{\"MessageType\":\"createRoom\"},]");
+		bw.write("{\"MessageType\":\"CreateRoomRequest\", \"UserName\":\"User\"}");
 		bw.flush();
 		socket.shutdownOutput();
 		

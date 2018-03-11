@@ -1,6 +1,5 @@
 package messaging;
 import org.json.simple.JSONObject;
-import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
@@ -10,13 +9,12 @@ public class MessageParser {
 	public static String handleMessage(String messageString) {
 		JSONParser parser = new JSONParser();
 		String messageType = null;
+		JSONObject message = null;
 		
 		// read the message type
 		try {
 			Object obj = parser.parse(messageString);
-			JSONArray array = (JSONArray)obj;
-			
-			JSONObject message = (JSONObject)(array.get(0));
+			message = (JSONObject)obj;
 			messageType = (String) message.get("MessageType");
 			
 		} catch (ParseException e) {
@@ -24,31 +22,31 @@ public class MessageParser {
 		}
 		
 		IMessage m;
-		
+	
 		// handle the message type
 		switch(messageType) {
-			case "createRoom":
-				System.out.println("CreateRoomMessage");
+			case "CreateRoomRequest":
+				System.out.println("CreateRoomRequest");
 				m = new MessageCreateRoom();
 				break;
 			
 			default:
 				System.out.println("UnknownMessageType");
-				return createErrorMessage();
+				return createErrorMessage(messageType);
 		}
 		
-		if(!m.parseMessage()) {
-			return createErrorMessage();
+		if(!m.parseMessage(message)) {
+			return createErrorMessage(messageType);
 		}
 		if(!m.executeMessage()) {
-			return createErrorMessage();
+			return createErrorMessage(messageType);
 		}
 		
 		return m.createResponseMessage();
 	}
 	
-	private static String createErrorMessage() {
-		return "Error with the message you sent";
+	private static String createErrorMessage(String messageType) {
+		return String.format("{\"MessageType\":\"Error\", \"ErrorMessage\":\"GenericError\", \"SourceMessageType\":\"%s\"}", messageType);
 	}
 	
 }

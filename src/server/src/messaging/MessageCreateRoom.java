@@ -1,26 +1,43 @@
 package messaging;
 
+import java.io.IOException;
+
+import org.json.simple.JSONObject;
+
+import storage.StorageManager;
+
 public class MessageCreateRoom implements IMessage{
 
+	private String uId;
+	private int roomId;
+	
 	public MessageCreateRoom() {
 		
 	}
 	
 	@Override
-	public boolean parseMessage() {
-		// TODO
+	public boolean parseMessage(JSONObject message) {
+		uId = (String) message.get("UserName");
+		if (uId == null) {
+			return false;
+		}
 		return true;
 	}
 
 	@Override
 	public boolean executeMessage() {
-		// TODO: send command to storage manager to create a room
+		StorageManager sm = new StorageManager();
+		try {
+			roomId = sm.createRoom(uId);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		return true;
 	}
 
 	@Override
 	public String createResponseMessage() {
-		return "CreateRoomMessage was handled";
+		return String.format("{\"MessageType\":\"CreateRoomResponse\", \"RoomId\":%d}", roomId);
 	}
 	
 }

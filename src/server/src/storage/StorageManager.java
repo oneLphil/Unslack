@@ -12,8 +12,6 @@ public class StorageManager {
 	private StorageSynchronizationEnsuree<Integer> SSE = StorageSynchronizationEnsuree.getInstance();
 	
 	public StorageManager() {
-		SSE.lockStorage(1);
-		SSE.unlockStorage(1);
 	}
 	
 	/*
@@ -57,7 +55,7 @@ public class StorageManager {
 	  
 	  RoomSerializerDeserializer roomSD = new RoomSerializerDeserializer();
 	  int roomId = room.getRoomID();
-	  
+ 
 	  File roomFile = new File("rooms"+ File.separator + roomId);
 	  SSE.lockStorage(roomId);
       try{
@@ -73,7 +71,6 @@ public class StorageManager {
 	
 	/*
 	 * Helper function to generate room IDs and check if id exist in room system
-	 *
 	 */
 	private int generateRoomId(String userId) {
 	  int roomId = userId.hashCode();
