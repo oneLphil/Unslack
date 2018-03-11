@@ -3,7 +3,7 @@
 <h3>Introduction (30-45 seconds)</h3>
 <strong>Give the audience some context<br/>
 Tell the audience what they are about to watch</strong></br>
-Hi! This is team 2 reporting for duty. 
+
 
 Videographer & Video Editor = Alana
 Person 1 = Kevin
