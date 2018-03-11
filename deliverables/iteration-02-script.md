@@ -1,14 +1,13 @@
-<h1>Script</h1>
+# Script
 
-<h3>Introduction (30-45 seconds)</h3>
-<strong>Give the audience some context<br/>
-Tell the audience what they are about to watch</strong></br>
-</br>
+### Introduction (30-45 seconds)
 
-Videographer & Video Editor = Alana<br/>
-Person 1 = Kevin<br/>
-Person 2 = Graeme<br/>
-Slacker & Demo narrator = David<br/>
+**Give the audience some context. Tell the audience what they are about to watch**
+
+Videographer & Video Editor = Alana
+Person 1 = Kevin
+Person 2 = Graeme
+Slacker & Demo narrator = David
 
  > (wide shot)
  
@@ -25,50 +24,50 @@ Slacker & Demo narrator = David<br/>
  > Person 2: “I’ve heard there’s this new extension called Unslack that could help us. We can use Unslack to create a room for our group so we can keep track of our own and each other’s productivity.”
 
 
-<h3>Demo (1½ - 2 minutes)</h3>
-<strong>Demonstrate your product<br/>
-Present it from the user’s perspective, and guide the audience through the most common user flow.</strong><br/>
-<br/>
-<h4>Demo the front-end:</h4>
+### Demo (1½ - 2 minutes)
+**Demonstrate your product. Present it from the user’s perspective, and guide the audience through the most common user flow.**
 
-> Once the user has downloaded the chrome extension, it will immediately begin tracking their browser activity
+**Demo the front-end:**
 
-> By clicking on the icon in the toolbar, they can access a high level view of their top 15 websites that they visit, based on time
+* Once the user has downloaded the chrome extension, it will immediately begin tracking their browser activity
 
-> They can also open a full dashboard that shows a quick overview of the rooms they are in.
+* By clicking on the icon in the toolbar, they can access a high level view of their top 15 websites that they visit, based on time
 
-> There’s also a button to create or join a room. 
+* They can also open a full dashboard that shows a quick overview of the rooms they are in.
 
-> There are also options to view details from all your website browsing activity.
+* There’s also a button to create or join a room. 
 
-> You can also view detailed information from rooms that you are currently in, including a ranked list of everyone’s productivity.
+* There are also options to view details from all your website browsing activity.
 
-<h4>Demo the back end:</h4>
+* You can also view detailed information from rooms that you are currently in, including a ranked list of everyone’s productivity.
 
-> To make rooms possible, we use a java server which is responsible for accepting messages from the client.
+#### Demo the back end:
 
-> Here, we're running a couple of programs that send a create room message
+* To make rooms possible, we use a java server which is responsible for accepting messages from the client.
 
-> As you can see, the new room that User requested has been created, with user already being added to the Room
+* Here, we're running a couple of programs that send a create room message
 
-> The server will also be used to calculate everyone’s score based on their browsing history and each room’s specific settings
+* As you can see, the new room that User requested has been created, with user already being added to the Room
 
-<h3>Final discussion (30-45 seconds)</h3>
-<strong>Summarize what we saw. Briefly discuss what you’re planning to do next</strong><br/>
+* The server will also be used to calculate everyone’s score based on their browsing history and each room’s specific settings
 
-> Voiceover: In summary, Unslack currently can track browser activity, visualize data, and display room information. The server currently accepts and parses messages, and can store browsing and room data.
+### Final discussion (30-45 seconds)
+**Summarize what we saw. Briefly discuss what you’re planning to do next**
 
-> Person 1: So you’re saying that, Unslack aims to help users track their online activity and motivate them to improve their productivity through social accountability?
+**Voiceover:** In summary, Unslack currently can track browser activity, visualize data, and display room information. The server currently accepts and parses messages, and can store browsing and room data.
 
-> Person 2: I heard that in the next few weeks, the developers are planning on adding the ability to change room settings, implement room scoring, and connect the backend to the UI. 
+**Person 1:** So you’re saying that, Unslack aims to help users track their online activity and motivate them to improve their productivity through social accountability?
 
-> Both people: “Wow. “
-Person 1: “I guess, it’s time for us to Unslack!”
+**Person 2:** I heard that in the next few weeks, the developers are planning on adding the ability to change room settings, implement room scoring, and connect the backend to the UI. 
 
-<strong>Next Steps:</strong><br/>
+**Both people:** “Wow. “
 
-> Backend integration with Frontend
+**Person 1:* “I guess, it’s time for us to Unslack!”
 
-> Scoring system and Gamification
+**Next Steps:**
 
-> Allow clearing of website data
+* Backend integration with Frontend
+
+* Scoring system and Gamification
+
+* Allow clearing of website data
