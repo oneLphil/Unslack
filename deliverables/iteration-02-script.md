@@ -62,7 +62,7 @@
 
 **Both people:** “Wow. “
 
-**Person 1:* “I guess, it’s time for us to Unslack!”
+**Person 1:** “I guess, it’s time for us to Unslack!”
 
 **Next Steps:**
 
