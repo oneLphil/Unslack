@@ -6,9 +6,13 @@ Tell the audience what they are about to watch</strong></br>
 
 
 Videographer & Video Editor = Alana
+
 Person 1 = Kevin
+
 Person 2 = Graeme
+
 Slacker & Demo narrator = David
+
 Option 3.
 	<wide shot>
 	Person 1: “Hey <person 2>, have you noticed how <slacker> hasn’t been doing anything for our project?
