@@ -63,11 +63,14 @@ public class RoomSerializerDeserializer {
     //write Settings
     writer.write("Settings");
     writer.newLine();
-    if (!settings.getUnproductiveSites().isEmpty()) {
-      writer.write("Unproductive Sites:");
-      writer.newLine();
-      List<String> sites = settings.getUnproductiveSites();
-      
+    
+    writer.write("Unproductive Sites:");
+    writer.newLine();
+    List<String> sites = settings.getUnproductiveSites();
+    if (settings.getUnproductiveSites().isEmpty()) {
+      writer.write("none");
+    }
+    else {
       // write unproductive in one line using separated with commas
       for (int i = 0; i < sites.size(); i++) {
         writer.write(sites.get(i));
@@ -75,8 +78,8 @@ public class RoomSerializerDeserializer {
           writer.write(",");
         }
       }
-      writer.newLine();
     }
+    writer.newLine();
   }
   
   /*
@@ -125,6 +128,9 @@ public class RoomSerializerDeserializer {
     String newLine = buf.readLine();
     if (newLine.contains("Unproductive Sites:")){
       newLine = buf.readLine();
+      if (newLine.contains("none")){
+        return;
+      }
       List<String> sites = Arrays.asList(newLine.split(","));
       for (String site : sites) {
         newRoom.addUnproductiveSite(site);

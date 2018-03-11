@@ -44,19 +44,19 @@ public class tester {
     System.out.println("got room user: " + room.getUsers());
     System.out.println("got room sites " + room.getSettings().getUnproductiveSites());
     System.out.println("got room sites " + room.getScoreboard());
-    room.addUnproductiveSite("youtube");
-    System.out.println("got room sites " + room.getSettings().getUnproductiveSites());
-    room.addScoreEntry(new GregorianCalendar(2018, 3, 1), name, 100);
-    System.out.println("Sites size: " + room.getSettings().getUnproductiveSites().size());
-    room.addUnproductiveSite("youtube.com");
-    System.out.println("Sites size: " + room.getSettings().getUnproductiveSites().size());
-    s.writeRoom(room);
-    Room room2 = s.getRoom(roomId);
-    System.out.println("got room2 id: " + room2.getRoomID());
-    System.out.println("got room2 users: " + room2.getUsers());
-    System.out.println("got room2 id: " + room2.getScoreboard());
-    System.out.println("got room id: " + room2.getSettings().getUnproductiveSites());
-    System.out.println("Sites size: " + room2.getSettings().getUnproductiveSites().size());
+//    room.addUnproductiveSite("youtube");
+//    System.out.println("got room sites " + room.getSettings().getUnproductiveSites());
+//    room.addScoreEntry(new GregorianCalendar(2018, 3, 1), name, 100);
+//    System.out.println("Sites size: " + room.getSettings().getUnproductiveSites().size());
+//    room.addUnproductiveSite("youtube.com");
+//    System.out.println("Sites size: " + room.getSettings().getUnproductiveSites().size());
+//    s.updateRoom(room);
+//    Room room2 = s.getRoom(roomId);
+//    System.out.println("got room2 id: " + room2.getRoomID());
+//    System.out.println("got room2 users: " + room2.getUsers());
+//    System.out.println("got room2 id: " + room2.getScoreboard());
+//    System.out.println("got room id: " + room2.getSettings().getUnproductiveSites());
+//    System.out.println("Sites size: " + room2.getSettings().getUnproductiveSites().size());
   }
 
 }
