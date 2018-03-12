@@ -23,7 +23,7 @@ We planned on using an Excel sheet as a Scrum board, but realized it was too ine
 #### Online meetings
 They were successful for check-ins and assigning tasks, however we (the extension team) found our code session was productive, so we feel like it’s something to consider in the future.
 
-### Planned changes
+### Planned changes:
 
 #### More in-person meetings
 
@@ -48,7 +48,7 @@ As it worked out well when we had a code session, and because we’re going to b
 * Server Message Handling: Setup basic message parsing and handling ([See video](https://www.youtube.com/watch?v=7MKS4IA48io) demonstrating the application).
 * Server Room System: Create new rooms and give them unique room ID ([See video](https://www.youtube.com/watch?v=7MKS4IA48io)), Handle adding users to room ([See tests](project-team-02/src/server/src/tests/RoomManagerTest.java), Handle change of settings configuration (Unproductive Websites Only) in room ([See tests](project-team-02/src/server/src/tests/RoomManagerTest.java)).
 
-#### Goals and/or tasks that were planned but not met/completed:
+### Goals and/or tasks that were planned but not met/completed:
 
 ##### Frontend
 Some of the UI components we wanted to show off aren’t completed as can be seen on the [scrum board](./images/scrumboard.PNG), having to do with options panes and other menus. We focused on creating main UI that we had initially designed, and these were lower priority tasks that we couldn't get to in time although [we are part-way into implementing them](./codesample2.txt).
