@@ -1,22 +1,11 @@
-# Name: Unslack
-
- > _Note:_ This document is meant to be written during (or shortly after) your initial planning meeting.     
- > It does not really make sense for you to edit this document much (if at all) while working on the project - Instead, at the end of the planning phase, you can refer back to this document and decide which parts of your plan you are happy with and which parts you would like to change.
-
+# Unslack
 
 ## Iteration 2
 
  * Start date: Monday February 12, 2018
- * End date: The day before the deadline: Thursday March 8 2018 (ended up actually happening on the Saturday instead, due to the extension)
-
-## Process
-
-(Optional:) Quick introduction
+ * End date: The day before the deadline: Saturday March 10 2018
 
 #### Roles & responsibilities
-
-Describe the different roles on the team and the responsibilities associated with each role.
-
 
 We’ll split the group into two teams: one to work on the extension GUI and one for the server. Each person in a team is responsible for taking an unfinished task on the Scrum board, and adding the feature, while communicating with members of the same team to avoid conflicts and maximize feature compatibility.
 
@@ -30,37 +19,13 @@ Steven - Extension
 
 #### Events
 
-Describe meetings (and other events) you are planning to have:
-
- * When and where? In-person or online?
- * What's the purpose of each meeting?
- * Other events could be coding sessions, code reviews, quick weekly sync' meeting online, etc.
-
-
 Every Tuesday night, we plan to have an online meeting with the entire group. We plan on discussing what tasks on our Scrum board have been completed, and which of the incomplete tasks we should focus on next, given what and how much was completed. We’ll also have frequent unscheduled (online) check-ins with everyone in the two teams.
 
 #### Artifacts
 
-List/describe the artifacts you will produce in order to organize your team.       
-
- * Artifacts can be To-do lists, Task boards, schedule(s), etc.
- * We want to understand:
-   * How do you keep track of what needs to get done?
-   * How do you prioritize tasks?
-   * How do tasks get assigned to team members?
-
-
 We’ll us an Excel sheet as a Scrum board to keep track of our team. Every task we come up with gets put into the TODO column, and tasks get assigned and prioritized based on our weekly planning meetings. We’ll also check in with our team members to re-adjust priorities for tasks.
 
 #### Git / GitHub workflow
-
-Describe your Git / GitHub workflow.     
-Essentially, we want to understand how your team members share a codebase and avoid conflicts.
-
- * Be concise, yet precise.      
-For example, "we use pull-requests" is not a precise statement since it leaves too many open questions - Pull-requests from where to where? Who reviews the pull-requests? Who is responsible for merging them? etc.
- * If applicable, specify any naming conventions or standards you decide to adopt.
- * Don't forget to **explain why** you chose this workflow.
 
 Each team will get its own main branch. Whenever we start working on a new feature (for say the gui), we branch off the gui branch. After we’re confident in our changes, we make a pull request from the feature branch to gui branch. We let and trust the contributor to handle their own pull requests and merging. Everyone in the team will be in communication before/during we make pull requests to make sure we’re on the same page when merge conflicts come up.
 
@@ -68,14 +33,9 @@ Each team will get its own main branch. Whenever we start working on a new featu
 
 #### Goals and tasks
 
- * Describe your goals for this iteration and the tasks that you will have to complete in order to achieve these goals.
- * Order the items from most to least important.
- * Feel free (but not obligated) to specify some/all tasks as user stories.
-
-Since the 
-
 Extension goals, from most important (1a) to least (2b)
-Frontend
+
+#### Frontend
 Design the app’s basic ui (mostly done during Monday Feb 12’s planning meeting)
 Implement basic ui. All html pages should be accessible, but may have non functioning buttons, lists/tables with fake local data, etc...
 Table of users’ information for a room (just some local data at first)
