@@ -55,7 +55,7 @@ Some of the UI components we wanted to show off aren’t completed as can be see
 Storing data for distracting sites, teams, and user spent time web tracking. While we did figure out how to do this, it isn't fully finished. This was a lower priority because storing data, to us, makes more sense to focus on once we have the server and extension communicating. We can then decide what information to store vs. what to get from the server.
 
 ##### Server
-* Server Room System: Handle change of settings configurations: The settings configuration only stores unproductive sites and does not implementation any other settings. The reason we have not implemented settings fully is because we have not decided on the contents on the settings other than storing unproductive websites. 
+* In Server Room System, handle the change of settings configurations: The settings configuration only stores unproductive sites and does not implementation any other settings. The reason we have not implemented settings fully is because we have not decided on the contents on the settings other than storing unproductive websites. 
 * Accept a user’s browsing data: We planned to store user’s browsing data in the server but decided to calculate the scores and store just the scores instead.
 * Call appropriate functions to calculate scores: We planned to implement a framework for calculation of scores, but we have not decided the how scores given to users yet.
 
