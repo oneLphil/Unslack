@@ -38,8 +38,8 @@ As it worked out well when we had a code session, and because we’re going to b
 * Build a web application showcasing the concept. This is illustrated [in the video](https://www.youtube.com/watch?v=7MKS4IA48io).
 * Table of users’ information for a room ([in the video](https://www.youtube.com/watch?v=7MKS4IA48io)).
 ##### Backend
-* Figure out how to track user time spent online ([here](./codesample.txt))
-* Storing data for distracting sites, local information about teams
+* Figure out how to track user time spent online ([code sample](./codesample.txt))
+* Storing data for distracting sites, local information about teams ([code sample](./codesample3.txt))
 
 ##### Server
 * Server Socket Management: Setup basic networking and messaging acceptance ([See video](https://www.youtube.com/watch?v=7MKS4IA48io) demonstrating the application).
