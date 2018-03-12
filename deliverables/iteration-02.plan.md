@@ -53,9 +53,8 @@ Photos of the initial design from our planning meeting ([UI](./images/IMG_201802
 
 [Video](https://www.youtube.com/watch?v=7MKS4IA48io) demonstrating the application Build an extension that when displayed, opens a screen with user stats and a link to the a main page of the app.
 
-Some code of the algorithm for web tracking 
+## Some code of the algorithm for web tracking 
 
 [Script](./iteration-02-script.md) for the video demonstration of our project
 
-Video demonstrating the flow of accepting connection, parsing message, and manipulating storage.
-Some test code for the storage management framework, mainly add users, and change settings.
+We are making substantial progress on the server, including [serialization](project-team-02/src/server/src/storage/RoomSerializerDeserializer.java), accepting connections ([1](project-team-02/src/server/src/networking/ClientConnection.java), [2](https://github.com/csc301-winter-2018/project-team-02/blob/master/src/server/src/networking/SocketManager.java)), [parsing messages](project-team-02/src/server/src/messaging/MessageParser.java), and [manipulating storage](project-team-02/src/server/src/storage/StorageManager.java).
