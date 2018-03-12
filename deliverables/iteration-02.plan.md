@@ -53,7 +53,7 @@ Photos of the initial design from our planning meeting ([UI](./images/IMG_201802
 
 [Video](https://www.youtube.com/watch?v=7MKS4IA48io) demonstrating the application Build an extension that when displayed, opens a screen with user stats and a link to the a main page of the app.
 
-## Some code of the algorithm for web tracking 
+[Web tracking code](./codesample.txt) 
 
 [Script](./iteration-02-script.md) for the video demonstration of our project
 
