@@ -34,14 +34,14 @@ As it worked out well when we had a code session, and because we’re going to b
 ### Goals and/or tasks that were met/completed:
 
 #### Extension
+
 ##### Frontend
-* Design the extension’s UI (see here).
-* Build a web application showcasing the concept. This is illustrated in the video.
-* Table of users’ information for a room (see video).
+* Design the extension’s UI ([1](./images/IMG_20180212_214753.jpg), [2](./images/ui.jpg)).
+* Build a web application showcasing the concept. This is illustrated [in the video](https://www.youtube.com/watch?v=7MKS4IA48io).
+* Table of users’ information for a room ([in the video](https://www.youtube.com/watch?v=7MKS4IA48io)).
 ##### Backend
-* Figure out how to track user time spent online (see this, this, and this)
-* Figured out how to do web tracking but haven’t implemented it yet
-* Implement the data structures required to keep track of extension data
+* Figure out how to track user time spent online ([here](deliverables/codesample.txt))
+* Storing data for distracting sites, local information about teams
 
 #### Server
 * Server Socket Management: Setup basic networking and messaging acceptance ([See video](https://www.youtube.com/watch?v=7MKS4IA48io) demonstrating the application).
@@ -53,26 +53,18 @@ As it worked out well when we had a code session, and because we’re going to b
 ##### Frontend
 Some of the UI components we wanted to show off aren’t completed as can be seen on the [scrum board](./images/scrumboard.PNG), having to do with options panes and other menus. We focused on creating main UI that we had initially designed, and these were lower priority tasks that we couldn't get to in time.
 
-#### Backend
+##### Backend
 Storing data for distracting sites, teams, and user spent time web tracking. Storing data, to us, makes more sense to focus on once we’ve got server and extension communication working. We can then decide what information to store v.s. what to get from the server.
-Server
-Server Room System:
-Handle change of settings configurations: The settings configuration only store unproductive sites and does not implementation any other settings. The reason we have not implemented settings fully is because we have not decided on the contents on the settings other then storing unproductive websites.
-Accept a user’s browsing data: We planned to store user’s browsing data in the server, but decided to calculate the scores and store just the scores instead.
-Call appropriate functions to calculate scores: We planned to implement a framework for calculation of scores, but we have not decided the how scores given to users yet.
+
+#### Server
+* Server Room System: Handle change of settings configurations: The settings configuration only store unproductive sites and does not implementation any other settings. The reason we have not implemented settings fully is because we have not decided on the contents on the settings other then storing unproductive websites. 
+* Accept a user’s browsing data: We planned to store user’s browsing data in the server, but decided to calculate the scores and store just the scores instead.
+* Call appropriate functions to calculate scores: We planned to implement a framework for calculation of scores, but we have not decided the how scores given to users yet.
 
 ## Meeting Highlights
 
-Going into the next iteration, our main insights are:
-
- * 2 - 4 items
- * Short (no more than one short paragraph per item)
- * High-level concepts that should guide your work for the next iteration.
- * These concepts should help you decide on where to focus your efforts.
- * Can be related to product and/or process.
-
-Product
+##### Product
 After the meeting, we completed the main features for both the server and extension. In the next deliverable, we need to focus on how they will communicate. In particular we need to focus on the format and content of the messages sent.
 
-Process
+##### Process
 In-person meetings are more productive, and we should plan on meeting in person more frequently.
