@@ -52,7 +52,7 @@ As it worked out well when we had a code session, and because we’re going to b
 Some of the UI components we wanted to show off aren’t completed as can be seen on the [scrum board](./images/scrumboard.PNG), having to do with options panes and other menus. We focused on creating main UI that we had initially designed, and these were lower priority tasks that we couldn't get to in time although [we are part-way into implementing them](./codesample2.txt).
 
 ##### Backend
-Storing data for distracting sites, teams, and user spent time web tracking. While we did figure out how to do this, it isn't fully finished. This was a lower priority because storing data, to us, makes more sense to focus on once we’ve got server and extension communication working. We can then decide what information to store vs. what to get from the server.
+Storing data for distracting sites, teams, and user spent time web tracking. While we did figure out how to do this, it isn't fully finished. This was a lower priority because storing data, to us, makes more sense to focus on once we have the server and extension communicating. We can then decide what information to store vs. what to get from the server.
 
 ##### Server
 * Server Room System: Handle change of settings configurations: The settings configuration only stores unproductive sites and does not implementation any other settings. The reason we have not implemented settings fully is because we have not decided on the contents on the settings other than storing unproductive websites. 
