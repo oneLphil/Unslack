@@ -9,13 +9,13 @@
 
 We will split the group into two teams: one to work on the extension GUI and one for the server. Each person in a team is responsible for taking an unfinished task on the Scrum board and adding the feature while communicating with members of the same team to avoid conflicts and maximize feature compatibility.
 
-Omid - product owner & server
-David - server
-Graeme - Extension
-Philip - server
-Kevin - Extension
-Alana - Extension, Scrum Master
-Steven - Extension
+* Omid - product owner & server
+* David - server
+* Graeme - Extension
+* Philip - server
+* Kevin - Extension
+* Alana - Extension, Scrum Master
+* Steven - Extension
 
 #### Events:
 
