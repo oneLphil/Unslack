@@ -63,8 +63,8 @@ Storing data for distracting sites, teams, and user spent time web tracking. Sto
 
 ## Meeting Highlights
 
-##### Product
+#### Product
 After the meeting, we completed the main features for both the server and extension. In the next deliverable, we need to focus on how they will communicate - in particular we need to focus on the format and content of the messages sent. We also need to fully develop the remaining components of the UI.
 
-##### Process
+#### Process
 In-person meetings are more productive, and we should plan on meeting in person more frequently.
