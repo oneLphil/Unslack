@@ -49,10 +49,13 @@ Each team will get its own main branch. Whenever we start working on a new featu
 
 Photos of the initial design from our planning meeting ([UI](./images/IMG_20180212_214753.jpg), [Storage](./images/IMG_20180212_214504.jpg), [Communication](./images/IMG_20180212_214716.jpg), [Server](./images/IMG_20180212_214632.jpg)).
 
-[Drawing of the UI closer to the end of this sprint](./images/ui.jpg)
+[Drawing of the UI](./images/ui.jpg) closer to the end of this sprint.
 
-Video demonstrating the application Build an extension that when displayed, opens a screen with user stats and a link to the a main page of the app.
+[Video](https://www.youtube.com/watch?v=7MKS4IA48io) demonstrating the application Build an extension that when displayed, opens a screen with user stats and a link to the a main page of the app.
+
 Some code of the algorithm for web tracking 
-Script for the video demonstration of our project
+
+[Script](./iteration-02-script.md) for the video demonstration of our project
+
 Video demonstrating the flow of accepting connection, parsing message, and manipulating storage.
 Some test code for the storage management framework, mainly add users, and change settings.
