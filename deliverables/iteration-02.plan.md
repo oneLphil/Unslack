@@ -31,7 +31,7 @@ Each team will get its own main branch. Whenever we start working on a new featu
 
 ## Product
 
-#### Goals and tasks
+### Goals and tasks
 
 #### Frontend
 * Design the app’s basic ui (mostly done during Monday Feb 12’s planning meeting)
@@ -40,28 +40,12 @@ Each team will get its own main branch. Whenever we start working on a new featu
 #### Backend: 
 * Figure out how to collect and store user time spent online 
 * Storing data for distracting sites, local information about teams
-#### Server 
-* Server Socket Management:
-- Setup basic networking and messaging acceptance
-Server Message Handling:
-Setup basic message parsing and handling
-No implementation of behaviour, but dummy calls for later implementation
-Server Room System:
-Create new rooms and give them unique room ID
-Handle adding users to room
-Handle change of settings configuration in room
-Accept a user’s browsing data
-Call appropriate functions to calculate scores
-
+#### Server:
+* Server Socket Management: Setup basic networking and messaging acceptance
+* Server Message Handling: Setup basic message parsing and handling, no implementation of behaviour, but dummy calls for later implementation
+* Server Room System: Create new rooms and give them unique room ID, handle adding users to room, handle change of settings configuration in room, accept a user’s browsing data and call appropriate functions to calculate scores
 
 #### Artifacts
-
-List/describe the artifacts you will produce in order to present your project idea.
-
- * Artifacts can be text, code, images, videos, interactive mock-ups and/or any other useful artifact you can think of.
- * Make sure to explain the purpose of each artifact (i.e. Why is it on your to-do list? Why is it useful for your team?)
- * Be concise, yet precise.         
-   For example: "Build the website" is not precise at all, but "Build a static home page and upload it somewhere, so that it is publicly accessible" is much clearer.
 
 A drawing or image of the basic user interface, and all the different pages on can visit in the app.
 Build an extension that when displayed, opens a screen with user stats and a link to the  a main page of the app.
