@@ -7,20 +7,20 @@
 
 ## Process
 
-### Decisions that turned out well
+### Decisions that turned out well:
 
-#### Split up into two teams.
+#### Split up into two teams
 This allowed us to focus on getting a functioning server and extension. Also, the task of connecting the two would become more arduous if there are unfinished features in the extension.
 
 #### Trello Scrum board
 We planned on using an Excel sheet as a Scrum board, but [we changed to Trello early on.](./images/scrumboard.PNG) It was useful for us because it allowed us to ensure everyone had something to do and to ensure we weren’t working on the same task.
 
-### Decisions that did not turn out as well as we hoped
+### Decisions that did not turn out as well as we hoped:
 
 #### Excel board
 We planned on using an Excel sheet as a Scrum board, but realized it was too ineffective to both label what stage the jobs were in and who was assigned to what. We switched to Trello early and haven’t looked back.
 
-#### Online meetings. 
+#### Online meetings
 They were successful for check-ins and assigning tasks, however we (the extension team) found our code session was productive, so we feel like it’s something to consider in the future.
 
 ### Planned changes
