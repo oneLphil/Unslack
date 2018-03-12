@@ -47,7 +47,8 @@ Each team will get its own main branch. Whenever we start working on a new featu
 
 #### Artifacts
 
-A drawing or image of the basic user interface, and all the different pages on can visit in the app.
+Photos of the initial design structure ([UI](./images/IMG_20180212_214753.jpg), [Storage](./images/IMG_20180212_214504.jpg), [Communication](./images/IMG_20180212_214716.jpg), [Server](./images/IMG_20180212_214632.jpg)).
+
 Build an extension that when displayed, opens a screen with user stats and a link to the  a main page of the app.
 Some code of the algorithm for web tracking 
 Script for the video demonstration of our project
