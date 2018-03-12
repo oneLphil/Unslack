@@ -33,18 +33,16 @@ Each team will get its own main branch. Whenever we start working on a new featu
 
 #### Goals and tasks
 
-Extension goals, from most important (1a) to least (2b)
-
 #### Frontend
-Design the app’s basic ui (mostly done during Monday Feb 12’s planning meeting)
-Implement basic ui. All html pages should be accessible, but may have non functioning buttons, lists/tables with fake local data, etc...
-Table of users’ information for a room (just some local data at first)
-Backend: 
-Figure out how to collect and store user time spent online 
-Storing data for distracting sites, local information about teams
-Server 
-Server Socket Management:
-Setup basic networking and messaging acceptance
+* Design the app’s basic ui (mostly done during Monday Feb 12’s planning meeting)
+* Implement basic ui. All html pages should be accessible, but may have non functioning buttons, lists/tables with fake local data, etc...
+* Table of users’ information for a room (just some local data at first)
+#### Backend: 
+* Figure out how to collect and store user time spent online 
+* Storing data for distracting sites, local information about teams
+#### Server 
+* Server Socket Management:
+- Setup basic networking and messaging acceptance
 Server Message Handling:
 Setup basic message parsing and handling
 No implementation of behaviour, but dummy calls for later implementation
