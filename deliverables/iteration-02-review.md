@@ -46,7 +46,7 @@ As it worked out well when we had a code session, and because we’re going to b
 #### Server
 * Server Socket Management: Setup basic networking and messaging acceptance ([See video](https://www.youtube.com/watch?v=7MKS4IA48io) demonstrating the application).
 * Server Message Handling: Setup basic message parsing and handling ([See video](https://www.youtube.com/watch?v=7MKS4IA48io) demonstrating the application).
-* Server Room System: Create new rooms and give them unique room ID ([See video](https://www.youtube.com/watch?v=7MKS4IA48io)), Handle adding users to room ([See tests]project-team-02/src/server/src/tests/RoomManagerTest.java), Handle change of settings configuration (Unproductive Websites Only) in room ([See tests]project-team-02/src/server/src/tests/RoomManagerTest.java)
+* Server Room System: Create new rooms and give them unique room ID ([See video](https://www.youtube.com/watch?v=7MKS4IA48io)), Handle adding users to room ([See tests](project-team-02/src/server/src/tests/RoomManagerTest.java), Handle change of settings configuration (Unproductive Websites Only) in room ([See tests](project-team-02/src/server/src/tests/RoomManagerTest.java)).
 
 #### Goals and/or tasks that were planned but not met/completed:
 
