@@ -25,51 +25,35 @@ They were successful for check-ins and assigning tasks, however we (the extensio
 
 ### Planned changes
 
-Only change: more in-person meetings. As it worked out well when we had a code session, and because we’re going to be connecting the server with the extension soon, it would be beneficial to plan for frequent code sessions in addition to the online meetings.
+#### More in-person meetings
 
+As it worked out well when we had a code session, and because we’re going to be connecting the server with the extension soon, it would be beneficial to plan for frequent code sessions in addition to the online meetings.
 
 ## Product - Review
 
-#### Goals and/or tasks that were met/completed:
+### Goals and/or tasks that were met/completed:
 
- * From most to least important.
- * Refer/link to artifact(s) that show that a goal/task was met/completed.
- * If a goal/task was not part of the original iteration plan, please mention it.
+#### Extension
+##### Frontend
+* Design the extension’s UI (see here).
+* Build a web application showcasing the concept. This is illustrated in the video.
+* Table of users’ information for a room (see video).
+##### Backend
+* Figure out how to track user time spent online (see this, this, and this)
+* Figured out how to do web tracking but haven’t implemented it yet
+* Implement the data structures required to keep track of extension data
 
-
-Extension
-Frontend
-Design the extension’s UI (see here).
-Build a web application showcasing the concept. This is illustrated in the video.
-Table of users’ information for a room (see video).
-Backend
-Figure out how to track user time spent online (see this, this, and this)
-Figured out how to do web tracking but haven’t implemented it yet
-Implement the data structures required to keep track of extension data
-
-
-Server
-Server Socket Management:
-Setup basic networking and messaging acceptance (see video)
-Server Message Handling:
-Setup basic message parsing and handling (see video)
-Server Room System:
-Create new rooms and give them unique room ID (see video)
-Handle adding users to room (see Tests)
-Handle change of settings configuration (Unproductive Websites Only) in room (see Tests)
+#### Server
+* Server Socket Management: Setup basic networking and messaging acceptance ([See video](https://www.youtube.com/watch?v=7MKS4IA48io) demonstrating the application).
+* Server Message Handling: Setup basic message parsing and handling ([See video](https://www.youtube.com/watch?v=7MKS4IA48io) demonstrating the application).
+* Server Room System: Create new rooms and give them unique room ID ([See video](https://www.youtube.com/watch?v=7MKS4IA48io)), Handle adding users to room ([See tests]project-team-02/src/server/src/tests/RoomManagerTest.java), Handle change of settings configuration (Unproductive Websites Only) in room ([See tests]project-team-02/src/server/src/tests/RoomManagerTest.java)
 
 #### Goals and/or tasks that were planned but not met/completed:
 
- * From most to least important.
- * For each goal/task, explain why it was not met/completed.      
-   e.g. Did you change your mind, or did you just not get to it yet?
+##### Frontend
+Some of the UI components we wanted to show off aren’t completed as can be seen on the [scrum board](./images/scrumboard.PNG), having to do with options panes and other menus. We focused on creating main UI that we had initially designed, and these were lower priority tasks that we couldn't get to in time.
 
-
-Frontend
-Some of the UI components we wanted to show off aren’t completed
-
-
-Backend
+#### Backend
 Storing data for distracting sites, teams, and user spent time web tracking. Storing data, to us, makes more sense to focus on once we’ve got server and extension communication working. We can then decide what information to store v.s. what to get from the server.
 Server
 Server Room System:
