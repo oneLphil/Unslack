@@ -47,9 +47,11 @@ Each team will get its own main branch. Whenever we start working on a new featu
 
 #### Artifacts
 
-Photos of the initial design structure ([UI](./images/IMG_20180212_214753.jpg), [Storage](./images/IMG_20180212_214504.jpg), [Communication](./images/IMG_20180212_214716.jpg), [Server](./images/IMG_20180212_214632.jpg)).
+Photos of the initial design from our planning meeting ([UI](./images/IMG_20180212_214753.jpg), [Storage](./images/IMG_20180212_214504.jpg), [Communication](./images/IMG_20180212_214716.jpg), [Server](./images/IMG_20180212_214632.jpg)).
 
-Build an extension that when displayed, opens a screen with user stats and a link to the  a main page of the app.
+[Drawing of the UI closer to the end of this sprint](./images/ui.jpg)
+
+Video demonstrating the application Build an extension that when displayed, opens a screen with user stats and a link to the a main page of the app.
 Some code of the algorithm for web tracking 
 Script for the video demonstration of our project
 Video demonstrating the flow of accepting connection, parsing message, and manipulating storage.
