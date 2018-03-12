@@ -5,43 +5,25 @@
  * When: Saturday March 10 2018
  * Where: Bahen 3200
 
-## Process - Reflection
+## Process
 
-(Optional) Short introduction
+### Decisions that turned out well
 
-#### Decisions that turned out well
+#### Split up into two teams.
+This allowed us to focus on getting a functioning server and extension. Also, the task of connecting the two would become more arduous if there are unfinished features in the extension.
 
-List process-related (i.e. team organization) decisions that, in retrospect, turned out to be successful.
+#### Trello Scrum board
+We planned on using an Excel sheet as a Scrum board, but [we changed to Trello early on.](./images/scrumboard.PNG) It was useful for us because it allowed us to ensure everyone had something to do and to ensure we weren’t working on the same task.
 
+### Decisions that did not turn out as well as we hoped
 
- * 2 - 4 decisions.
- * Ordered from most to least important.
- * Explain why (i.e. give a supporting argument) you consider a decision to be successful.
- * Feel free to refer/link to process artifact(s).
+#### Excel board
+We planned on using an Excel sheet as a Scrum board, but realized it was too ineffective to both label what stage the jobs were in and who was assigned to what. We switched to Trello pretty early and haven’t looked back.
 
-Split up into two teams. This allowed us to focus on getting a functioning server and extension. Also, the task of connecting the two would become more arduous if there are unfinished features in the extension.
-Trello Scrum board (include ref to board pic in github, or make board public and link to Trello website). We planned on using an Excel sheet as a Scrum board, but we changed to Trello early on. It was useful for us because it allowed us to ensure everyone had something to do and to ensure we weren’t working on the same task.
+#### Online meetings. 
+They were successful for check-ins and assigning tasks, however we (the extension team) found a code session was fairly productive, so we feel like it’s something to consider in the future.
 
-#### Decisions that did not turn out as well as we hoped
-
-List process-related (i.e. team organization) decisions that, in retrospect, were not as successful as you thought they would be.
-
- * 2 - 4 decisions.
- * Ordered from most to least important.
- * Feel free to refer/link to process artifact(s).
-
-Excel board. We planned on using an Excel sheet as a Scrum board, but realized it was too ineffective to both label what stage the jobs were in and who was assigned to what. We switched to Trello pretty early and haven’t looked back.
-Online meetings. They were successful for check-ins and assigning tasks, however we (the extension team) found a code session was fairly productive, so we feel like it’s something to consider in the future.
-
-
-
-#### Planned changes
-
-List any process-related changes you are planning to make (if there are any)
-
- * Ordered from most to least important.
- * Explain why you are making a change.
-
+### Planned changes
 
 Only change: more in-person meetings. As it worked out well when we had a code session, and because we’re going to be connecting the server with the extension soon, it would be beneficial to plan for frequent code sessions in addition to the online meetings.
 
