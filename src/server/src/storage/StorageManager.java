@@ -89,6 +89,14 @@ public class StorageManager {
 	}
 	
 	/*
+	 * Return true iff a given roomId exists
+	 */
+	public static boolean roomIdExists(int roomId) {
+		File roomFile = new File(directory + roomId);
+		return roomFile.exists();
+	}
+	
+	/*
 	 * Helper function to generate room IDs and check if id exist in room system
 	 */
 	private int generateRoomId(String userId) {
