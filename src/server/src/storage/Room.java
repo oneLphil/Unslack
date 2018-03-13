@@ -10,12 +10,14 @@ import java.util.List;
  */
 public class Room {
   private int roomID;
+  private String roomName;
   private Settings settings;
   private List<String> users = new ArrayList<String>();
   private List<ScoreEntry> scoreboard = new ArrayList<ScoreEntry>();
   
-  public Room(int roomID) {
+  public Room(int roomID, String roomName) {
     this.roomID = roomID; 
+    this.roomName = roomName;
     this.settings = new Settings();
   }
   
@@ -73,6 +75,10 @@ public class Room {
 
   public Settings getSettings() {
     return settings;
+  }
+
+  public String getRoomName() {
+    return roomName;
   }
 
 }
