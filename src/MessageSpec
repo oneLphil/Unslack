@@ -35,7 +35,8 @@ requires them to submit a userid/username, and will return their room id.
 The send message is formatted as follows:
   {
     "MessageType":"CreateRoomRequest",
-    "UserName":<user's name>                                            # string
+    "UserName":<user's name>,                                           # string
+    "RoomName":<room name>						# string
   }
 
 The response message is formatted as follows:
@@ -87,7 +88,7 @@ The send message is formatted as follows:
   {
     "MessageType":"JoinRoomRequest",
     "RoomId":<room id>,                                                 # string
-    "UserId":<user's name>                                              # string
+    "UserName":<user's name>                                              # string
   }
 
 The response message is formatted as follows:

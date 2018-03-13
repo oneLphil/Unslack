@@ -12,4 +12,7 @@ public interface IMessage {
 	
 	// creates a response message
 	public String createResponseMessage();
+	
+	// creates an error message based on the current state
+	public String createErrorMessage();
 }

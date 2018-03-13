@@ -23,7 +23,9 @@ public class Main {
 		
 		System.out.println("Client startup sucessful");
 		
-		bw.write("{\"MessageType\":\"CreateRoomRequest\", \"UserName\":\"User\"}");
+		//bw.write("{\"MessageType\":\"CreateRoomRequest\", \"UserName\":\"User\", \"RoomName\":\"NewRoom\"}");
+		bw.write("{\"MessageType\":\"JoinRoomRequest\", \"UserName\":\"User_joiner\", \"RoomId\":\"944687404\"}");
+
 		bw.flush();
 		socket.shutdownOutput();
 		
@@ -32,7 +34,6 @@ public class Main {
 		System.out.println("Server sent: " + bf.readLine());
 		
 		// clean up
-		//bw.close();
 		bf.close();
 		socket.close();
 		

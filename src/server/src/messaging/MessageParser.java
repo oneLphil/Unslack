@@ -29,24 +29,28 @@ public class MessageParser {
 				System.out.println("CreateRoomRequest");
 				m = new MessageCreateRoom();
 				break;
-			
+			case "JoinRoomRequest":
+				System.out.println("JoinRoomRequest");
+				m = new MessageJoinRoom();
+				break;
+				
 			default:
 				System.out.println("UnknownMessageType");
 				return createErrorMessage(messageType);
 		}
 		
 		if(!m.parseMessage(message)) {
-			return createErrorMessage(messageType);
+			return m.createErrorMessage();
 		}
 		if(!m.executeMessage()) {
-			return createErrorMessage(messageType);
+			return m.createErrorMessage();
 		}
 		
 		return m.createResponseMessage();
 	}
 	
 	private static String createErrorMessage(String messageType) {
-		return String.format("{\"MessageType\":\"Error\", \"ErrorMessage\":\"GenericError\", \"SourceMessageType\":\"%s\"}", messageType);
+		return String.format("{\"MessageType\":\"Error\", \"ErrorMessage\":\"Unrecognized message type\", \"SourceMessageType\":\"%s\"}", messageType);
 	}
 	
 }

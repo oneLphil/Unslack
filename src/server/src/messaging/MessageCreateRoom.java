@@ -40,5 +40,10 @@ public class MessageCreateRoom implements IMessage{
 	public String createResponseMessage() {
 		return String.format("{\"MessageType\":\"CreateRoomResponse\", \"RoomId\":%d}", roomId);
 	}
+
+	@Override
+	public String createErrorMessage() {
+		return String.format("{\"MessageType\":\"Error\", \"ErrorMessage\":\"%s\", \"SourceMessageType\":\"%s\"}", "Invalid arugments", "CreateRoomRequest");
+	}
 	
 }

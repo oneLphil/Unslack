@@ -34,6 +34,12 @@ public class Room {
       users.remove(userId);
     }
   }
+  
+  // Return true iff the user UserId is in the room
+  public boolean hasUser(String userId) {
+	  return users.contains(userId);
+  }
+  
   // Add a new score entry
   public void addScoreEntry(GregorianCalendar date, String user, int score) {
     ScoreEntry entry = new ScoreEntry(date, user, score);
