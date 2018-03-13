@@ -8,7 +8,7 @@ import storage.StorageManager;
 
 public class MessageCreateRoom implements IMessage{
 
-	private String uId;
+	private String uId, roomName;
 	private int roomId;
 	
 	public MessageCreateRoom() {
@@ -18,7 +18,8 @@ public class MessageCreateRoom implements IMessage{
 	@Override
 	public boolean parseMessage(JSONObject message) {
 		uId = (String) message.get("UserName");
-		if (uId == null) {
+		roomName = (String) message.get("RoomName");
+		if (uId == null || roomName == null) {
 			return false;
 		}
 		return true;
@@ -28,7 +29,7 @@ public class MessageCreateRoom implements IMessage{
 	public boolean executeMessage() {
 		StorageManager sm = new StorageManager();
 		try {
-			roomId = sm.createRoom(uId);
+			roomId = sm.createRoom(uId, roomName);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

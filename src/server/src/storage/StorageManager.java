@@ -19,9 +19,9 @@ public class StorageManager {
 	/*
 	 * create a new room in the system
 	 */
-	public int createRoom(String userId) throws IOException {
+	public int createRoom(String userId, String roomName) throws IOException {
 	  int roomId = generateRoomId(userId);
-	  Room newRoom = new Room(roomId);
+	  Room newRoom = new Room(roomId, roomName);
 	  newRoom.addUser(userId);
 	  // TODO probably have to add an entry here
 	  File dir = new File(directory);
