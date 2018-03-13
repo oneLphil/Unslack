@@ -16,17 +16,36 @@ import storage.StorageManager;
 public class RoomManagerTest {
 
   String userName = "user";
+  String roomName = "Unslack";
   int roomId;
   StorageManager sm = new StorageManager();
   
   //util
   public int createRoom() throws IOException {
-    return sm.createRoom(userName);
+    return sm.createRoom(userName, roomName);
   }
   
   @Before
   public void setupRoomTests() throws IOException {
     roomId = createRoom();
+  }
+  
+  @Test
+  public void createRoomTest() throws FileNotFoundException, IOException {
+    Room room = sm.getRoom(roomId);
+    
+    // Check if room name is created correctly
+    assertEquals(room.getRoomName(), roomName);
+    
+    // Check if unproductive sites are empty
+    assertEquals(room.getSettings().getUnproductiveSites(), new ArrayList<String>());
+    
+    List<String> users = new ArrayList<String>();
+    users.add(userName);
+    // Check if owner of the room is added to users
+    assertEquals(room.getUsers(), users);
+    
+    
   }
   
   @Test
