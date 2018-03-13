@@ -24,12 +24,16 @@ public class StorageManager {
 	  Room newRoom = new Room(roomId, roomName);
 	  newRoom.addUser(userId);
 	  // TODO probably have to add an entry here
+	  
+	  lockRoom(roomId);
 	  File dir = new File(directory);
 	  // make the directory if it does not exist
 	  if (!dir.exists()) {
 	    dir.mkdirs();
 	  }
 	  writeRoom(newRoom);
+	  unlockRoom(roomId);
+	  
 	  return roomId;
 	}
 	
@@ -43,7 +47,6 @@ public class StorageManager {
 	  Room room;
 	  File roomFile = new File(directory + roomId);
 	  
-	  SSE.lockStorage(roomId);
 	  try{
 	    room = roomSD.deserialize(new FileInputStream(roomFile), roomId);
 	  }
@@ -51,7 +54,6 @@ public class StorageManager {
 	    System.err.println("Room is not in storage");
 	    return null;
 	  }
-	  SSE.unlockStorage(roomId);
       return room;
 	}
 	
@@ -64,7 +66,6 @@ public class StorageManager {
 	  int roomId = room.getRoomID();
  
 	  File roomFile = new File(directory + roomId);
-	  SSE.lockStorage(roomId);
       try{
         roomSD.serialize(room, new FileOutputStream(roomFile));
       }
@@ -73,7 +74,6 @@ public class StorageManager {
         e.printStackTrace();
         return;
       }
-      SSE.unlockStorage(roomId);
 	}
 	
 	/*
@@ -101,4 +101,17 @@ public class StorageManager {
 	  return roomId;
 	}
 	
+	/*
+	 * Lock access to room via room ID
+	 */
+	public void lockRoom(int roomId){
+	  SSE.lockStorage(roomId);
+	}
+	
+	/*
+     * Unlock access to room via room ID
+     */
+    public void unlockRoom(int roomId){
+      SSE.unlockStorage(roomId);
+    }
 }
