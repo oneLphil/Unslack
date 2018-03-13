@@ -1,0 +1,45 @@
+<!--<mat-card-content>
+  Slacker Rooms
+  <div *ngIf="rooms">
+    <mat-nav-list *ngFor="let room of rooms"
+      (click)="popupOnClick(room)">
+      <span class="badge">{{room.id}}</span> {{room.name}}
+    </mat-nav-list>
+  </div>
+</mat-card-content>-->
+<br/>
+<mat-card style="width:20%; float:left;">
+  <button mat-raised-button (click)="create()">CREATE A ROOM</button>
+  <br/> <mat-form-field><input matInput placeholder="Room name"></mat-form-field>
+  <br/> <mat-form-field><input matInput placeholder="Blacklisted Websites"></mat-form-field>
+  <br/> <mat-form-field><input matInput placeholder="Members' ID"></mat-form-field>
+  <button mat-raised-button (click)="join()">JOIN A ROOM</button>
+  <br/> <mat-form-field><input matInput placeholder="Room ID Hash"></mat-form-field>
+</mat-card>
+
+<mat-card style="width:70%; float: left;">
+<mat-accordion style="width: 100%" *ngFor="let room of rooms">
+  <mat-expansion-panel style="width: 100%" (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{room.name}}
+      </mat-panel-title>
+      <mat-panel-description>
+        Room Description
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    Blacklist: {{room.blacklist}} <br/>
+    Members: {{room.member_ids}} <br/>
+
+    <app-charts
+      chartType="bar"
+      chartTitle="Member To Score"
+      [chartData]="room.scores"
+      [xAxis]="room.member_ids">
+    </app-charts>
+
+  </mat-expansion-panel>
+</mat-accordion>
+<mat-card>
