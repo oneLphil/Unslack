@@ -1,8 +1,7 @@
-# YOUR PRODUCT/TEAM NAME
+# Unslack
 
  > _Note:_ This document is meant to be written during (or shortly after) your initial planning meeting.     
  > It does not really make sense for you to edit this document much (if at all) while working on the project - Instead, at the end of the planning phase, you can refer back to this document and decide which parts of your plan you are happy with and which parts you would like to change.
-
 
 ## Iteration 3
 
@@ -56,8 +55,6 @@ Essentially, we want to understand how your team members share a codebase and av
 For example, "we use pull-requests" is not a precise statement since it leaves too many open questions - Pull-requests from where to where? Who reviews the pull-requests? Who is responsible for merging them? etc.
  * If applicable, specify any naming conventions or standards you decide to adopt.
  * Don't forget to **explain why** you chose this workflow.
-
-
 
 ## Product
 
