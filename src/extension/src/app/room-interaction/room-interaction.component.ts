@@ -29,10 +29,12 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
 
   join() {
     //console.log();
+    this.roomService.joinRoom();
   }
 
   create() {
     //console.log();
+    this.roomService.createRoom();
   }
 
 
