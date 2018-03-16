@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 
 import { MessageService } from './message.service';
-
+import { ServerService } from './server.service';
 @Injectable()
 export class RoomService {
   timeDisplayFormatEnum = {
@@ -16,12 +16,21 @@ export class RoomService {
     MINUTES: 1
   };
 
-  constructor(private messageService: MessageService) { }
+  constructor(
+    private messageService: MessageService,
+    private serverService: ServerService
+  ) { }
 
+  /* Retrieve join form data to send to the Server Service.
+  */
   joinRoom() : void {
+    this.serverService.joinRoomRequest().subscribe();
   }
 
+  /* Retrieve create form data and create a JSON object to send to the Server Service.
+  */
   createRoom() : void {
+    this.serverService.createRoomRequest().subscribe();
   }
 
   /* Return an array of Room that the user has enrolled in.
