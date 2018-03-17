@@ -23,14 +23,38 @@ export class RoomService {
 
   /* Retrieve join form data to send to the Server Service.
   */
-  joinRoom() : void {
-    this.serverService.joinRoomRequest().subscribe();
+  joinRoom(roomId: string, userName: string): void {
+    const msg = {
+      MessageType: 'JoinRoomRequest',
+      RoomId: roomId,
+      UserName: userName
+    };
+    this.serverService.joinRoomRequest(msg).subscribe();
   }
 
   /* Retrieve create form data and create a JSON object to send to the Server Service.
   */
-  createRoom() : void {
-    this.serverService.createRoomRequest().subscribe();
+  createRoom(userName: string, roomName: string): void {
+    const msg = {
+      MessageType: 'CreateRoomRequest',
+      UserName: userName,
+      RoomName: roomName
+    };
+    this.serverService.createRoomRequest(msg).subscribe();
+  }
+
+  changeRoomSettings(roomId: string, roomBlacklist: string): void {
+    const msg = {
+      MessageType: 'ChangeRoomSettingsRequest',
+      RoomId: roomId,
+      WebsiteSettings: [{'': 1}]
+    };
+
+    // preprocess the roomBlacklist string. Assume it to be comma separated.
+    // bonus: if the user writes "google.com", change it so that it looks like
+    // http://www.google.com
+
+    this.serverService.changeRoomSettingsRequest(msg).subscribe();
   }
 
   /* Return an array of Room that the user has enrolled in.
@@ -43,9 +67,9 @@ export class RoomService {
   /* Return the names of the rooms the user has enrolled in.
   */
   getRoomNameList(): string[] {
-    var roomNames = [];
-    var roomlist = this.getRooms();
-    var room;
+    const roomNames = [];
+    const roomlist = this.getRooms();
+    const room;
     for (room in roomlist) {
       roomNames.push(room.name);
     }

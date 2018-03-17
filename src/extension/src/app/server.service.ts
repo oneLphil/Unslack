@@ -1,3 +1,12 @@
+/**
+ * https://codecraft.tv/courses/angular/http/http-with-observables/
+ * a tutorial on how to map the data from the observable into new classes
+ * that we can use.
+ * https://angular.io/guide/http
+ * https://stackoverflow.com/questions/36911348/angular2-map-data-as-specific-object-type
+ * Retrieving properties of the JSON object
+ * Example: <Observable>.subscribe(resp => new Object(resp['RoomId'], resp['RoomName']));
+ */
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
@@ -11,9 +20,9 @@ const httpOptions = {
 
 @Injectable()
 export class ServerService {
-  serverUrl : string = ''; 
+  serverUrl = '';
   constructor(
-    private MessageService,
+    private messageService: MessageService,
     private http: HttpClient
   ) { }
 
@@ -36,16 +45,8 @@ export class ServerService {
     }
   */
 
-  createRoomRequest() : Observable<Object> {
-
-    var msg = {
-      MessageType: "CreateRoomRequest",
-      UserName: "",
-      RoomName: ""
-    };
-
+  createRoomRequest(msg: any): Observable<Object> {
     return this.http.post(this.serverUrl, msg, httpOptions);
-    
   }
 
   /**
@@ -67,16 +68,9 @@ export class ServerService {
       }
    */
 
-  joinRoomRequest() : Observable<Object> {
-
-    var msg = {
-      MessageType: "JoinRoomRequest",
-      RoomId: "",
-      UserName: ""
-    };
+  joinRoomRequest(msg: any): Observable<Object> {
 
     return this.http.post(this.serverUrl, msg, httpOptions);
-    
   }
 
   /**
@@ -98,18 +92,17 @@ export class ServerService {
         "MessageType":"SendDataResponse"
       }
    */
-  sendDataRequest() : Observable<Object> {
+  sendDataRequest(): Observable<Object> {
 
-    var msg = {
-      MessageType: "SendDataRequest",
-      RoomId: "",
-      UserId: "",
-      History: [[1,1]],
-      LastSubmitTime: ""
+    const msg = {
+      MessageType: 'SendDataRequest',
+      RoomId: '',
+      UserId: '',
+      History: [[1, 1]],
+      LastSubmitTime: ''
     };
 
     return this.http.post(this.serverUrl, msg, httpOptions);
-    
   }
 
   /**
@@ -131,10 +124,10 @@ export class ServerService {
                                                       # period.
       }
    */
-  getLeaderboardRequest() : Observable<Object> {
-    var msg = {
-      MessageType: "GetLeaderboardRequest",
-      RoomId: ""
+  getLeaderboardRequest(): Observable<Object> {
+    const msg = {
+      MessageType: 'GetLeaderboardRequest',
+      RoomId: ''
     };
 
     return this.http.post(this.serverUrl, msg, httpOptions);
@@ -158,13 +151,7 @@ export class ServerService {
         "MessageType":"ChangeRoomSettingsResponse"
       }
    */
-  changeRoomSettingsRequest() : Observable<Object> {
-    var msg = {
-      MessageType: "ChangeRoomSettingsRequest",
-      RoomId: "",
-      WebsiteSettings: [{"":1}]
-    };
-
+  changeRoomSettingsRequest(msg: any): Observable<Object> {
     return this.http.post(this.serverUrl, msg, httpOptions);
   }
 
@@ -186,10 +173,10 @@ export class ServerService {
         "Users": [<user name>, ...]                        # list of user names
       }
    */
-  getRoomSettingsRequest() : Observable<Object> {
-    var msg = {
-      MessageType: "GetRoomSettingsRequest",
-      RoomId: ""
+  getRoomSettingsRequest(): Observable<Object> {
+    const msg = {
+      MessageType: 'GetRoomSettingsRequest',
+      RoomId: ''
     };
 
     return this.http.post(this.serverUrl, msg, httpOptions);

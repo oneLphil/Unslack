@@ -10,7 +10,17 @@ import { RoomService} from '../room.service';
 export class RoomInteractionComponent implements OnInit, OnChanges {
 
   rooms: Room[] = this.roomService.getRooms();
-  panelOpenState: boolean = false;
+  createRoomNameField = '';
+  createRoomUserNameField = '';
+  joinRoomIDField = '';
+  joinRoomUserNameField = '';
+  // field for a new change room settings component
+  // with a dropdown menu to select a room
+  changeRoomSettingsIDField = '';
+  changeRoomBlacklistField = ''; // comma separated
+
+
+  panelOpenState = false;
 
   constructor(
     private roomService: RoomService
@@ -28,13 +38,24 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
   }
 
   join() {
-    //console.log();
-    this.roomService.joinRoom();
+    this.roomService.joinRoom(
+      this.joinRoomIDField,
+      this.joinRoomUserNameField
+    );
   }
 
   create() {
-    //console.log();
-    this.roomService.createRoom();
+    this.roomService.createRoom(
+      this.createRoomUserNameField,
+      this.createRoomNameField
+    );
+  }
+
+  changeRoomSettings() {
+    this.roomService.changeRoomSettings(
+      this.changeRoomSettingsIDField,
+      this.changeRoomBlacklistField
+    );
   }
 
 
