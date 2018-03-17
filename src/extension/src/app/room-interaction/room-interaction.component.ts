@@ -1,6 +1,7 @@
-import { Component, OnInit, OnChanges} from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { Room } from '../room';
-import { RoomService} from '../room.service';
+import { RoomService } from '../room.service';
+import { ServerService } from '../server.service';
 
 @Component({
   selector: 'app-room-interaction',
@@ -23,7 +24,8 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
   panelOpenState = false;
 
   constructor(
-    private roomService: RoomService
+    private roomService: RoomService,
+    private serverService: ServerService
   ) { }
 
   ngOnInit() {
@@ -38,26 +40,34 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
   }
 
   join() {
-    this.roomService.joinRoom(
-      this.joinRoomIDField,
-      this.joinRoomUserNameField
-    );
+    const msg = {
+      MessageType: 'JoinRoomRequest',
+      RoomId: this.joinRoomIDField,
+      UserName: this.joinRoomUserNameField
+    };
+    this.serverService.joinRoomRequest(msg).subscribe();
   }
 
   create() {
-    this.roomService.createRoom(
-      this.createRoomUserNameField,
-      this.createRoomNameField
-    );
+    const msg = {
+      MessageType: 'CreateRoomRequest',
+      UserName: this.createRoomUserNameField,
+      RoomName: this.createRoomNameField
+    };
+    console.log(this.serverService.createRoomRequest(msg).subscribe());
   }
 
   changeRoomSettings() {
-    this.roomService.changeRoomSettings(
-      this.changeRoomSettingsIDField,
-      this.changeRoomBlacklistField
-    );
+
+    const msg = {
+      MessageType: 'ChangeRoomSettingsRequest',
+      RoomId: this.changeRoomSettingsIDField,
+      WebsiteSettings: [{'': 1}]
+    };
+    // preprocess the roomBlacklist string. Assume it to be comma separated.
+    // get the string from this.changeRoomBlacklistField
+    // bonus: if the user writes "google.com", change it so that it looks like
+    // http://www.google.com
+    this.serverService.changeRoomSettingsRequest(msg).subscribe();
   }
-
-
-
 }

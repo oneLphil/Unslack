@@ -13,6 +13,9 @@ import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { TimetrackerService } from './timetracker.service';
+import { RoomService  } from './room.service';
+import { SlackerService } from './slacker.service';
 
 const httpOptions = {
   headers: new HttpHeaders({ })
@@ -20,10 +23,13 @@ const httpOptions = {
 
 @Injectable()
 export class ServerService {
-  serverUrl = '';
+  serverUrl = 'http://localhost:9999';
   constructor(
     private messageService: MessageService,
-    private http: HttpClient
+    private http: HttpClient,
+    private timetrackerService: TimetrackerService,
+    private roomService: RoomService,
+    private slackerService: SlackerService
   ) { }
 
   /*
@@ -46,6 +52,9 @@ export class ServerService {
   */
 
   createRoomRequest(msg: any): Observable<Object> {
+    // this.sendDataRequestToAllRooms();
+    console.log('creatingRooms!');
+    console.log('createRoomRequest: ', msg);
     return this.http.post(this.serverUrl, msg, httpOptions);
   }
 
@@ -92,17 +101,45 @@ export class ServerService {
         "MessageType":"SendDataResponse"
       }
    */
-  sendDataRequest(): Observable<Object> {
+  sendDataRequest(msg): Observable<Object> {
 
-    const msg = {
+    /*let msg = {
       MessageType: 'SendDataRequest',
       RoomId: '',
       UserId: '',
       History: [[1, 1]],
       LastSubmitTime: ''
-    };
+    };*/
 
     return this.http.post(this.serverUrl, msg, httpOptions);
+  }
+
+  sendDataRequestToAllRooms(): void {
+
+    const allRooms = this.roomService.getRooms();
+    const currSlacker = this.slackerService.getSlacker();
+    let room;
+    // console.log('allRooms: ', allRooms);
+    for (room in allRooms) {
+      if (room) {
+        console.log('currRoom: ', room);
+        console.log('currRoomId: ', typeof(room));
+        console.log('sendDataToAllRooms', {
+          MessageType: 'SendDataRequest',
+          RoomId: allRooms[room].id.toString(),
+          UserId: currSlacker.id.toString(),
+          History: this.timetrackerService.getTrackingDataAsList(),
+          LastSubmitTime: Date.now()
+        });
+        this.sendDataRequest({
+          MessageType: 'SendDataRequest',
+          RoomId: allRooms[room].id.toString(),
+          UserId: currSlacker.id.toString(),
+          History: this.timetrackerService.getTrackingDataAsList(),
+          LastSubmitTime: Date.now().toString()
+        });
+      }
+    }
   }
 
   /**

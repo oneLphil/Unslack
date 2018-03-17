@@ -17,6 +17,7 @@ export class SlackerComponent implements OnInit {
   slackerChartCategories: string[] = this.chartsService.getNameCategoriesFromListOfObject(this.slackerData);
   selectedSlacker: Slacker;
   trackerData: any[];
+  websiteNames: any[];
 
   /* slackerService is a singleton instance of SlackerService
   */
@@ -29,10 +30,11 @@ export class SlackerComponent implements OnInit {
   // this runs upon a lifecycle
   // https://angular.io/guide/lifecycle-hooks
   ngOnInit() {
-    this.slackerData = this.chartsService.getWebsitesData().tracked;
+    // this.slackerData = this.chartsService.getWebsitesData().tracked;
     // console.log(this.slackerData);
     this.trackerData = this.timetrackerService.getTrackingData().tracked;
     // console.log('slacker.component ngOnInit', this.trackerData);
+    this.websiteNames = this.chartsService.getNameCategoriesFromListOfObject(this.trackerData);
   }
 
 

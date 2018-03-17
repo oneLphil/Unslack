@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Site } from '../site';
-//import { RoomService } from '../room.service';
+// import { RoomService } from '../room.service';
 
 @Component({
   selector: 'app-my-slacker-stats-table',
@@ -10,8 +10,8 @@ import { Site } from '../site';
 export class SummaryTableComponent implements OnInit {
   // parameter definitions of the columns
   columns = [
-    { columnDef: 'website',     header: 'Website',   cell: (site: Site) => `${Site.name}`     },
-    { columnDef: 'duration',   header: 'Duration', cell: (site: Site) => `${Site.time}`   }
+    { columnDef: 'website',     header: 'Website',   cell: (site: Site) => `${site.name}`     },
+    { columnDef: 'duration',   header: 'Duration', cell: (site: Site) => `${site.time}`   }
   ];
 
   webStats: Site[] = [

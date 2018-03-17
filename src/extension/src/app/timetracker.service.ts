@@ -96,6 +96,25 @@ export class TimetrackerService {
 
   }
 
+  getTrackingDataAsList(): Websites {
+    // Todo: send the message _after_ fetching the slacker
+    this.log(`fetched websites`);
+    // console.log('getTrackingData: ', this.getSites());
+
+    const siteData = this.getSites();
+    this.websitesData.tracked = [];
+
+    for (const site in siteData) {
+      if (site) {
+        this.websitesData.tracked.push([site, siteData[site]]);
+      }
+    }
+
+    // list of lists, not sorted [[site1, seconds1], [site2, seconds2]]
+    return this.websitesData;
+
+  }
+
   // Log a SlackerService message with the MessageService
   private log(message: string) {
     this.messageService.add('TimetrackerService: ' + message);

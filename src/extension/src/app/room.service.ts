@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 
 import { MessageService } from './message.service';
-import { ServerService } from './server.service';
+// import { ServerService } from './server.service';
 @Injectable()
 export class RoomService {
   timeDisplayFormatEnum = {
@@ -18,32 +18,32 @@ export class RoomService {
 
   constructor(
     private messageService: MessageService,
-    private serverService: ServerService
+    // private serverService: ServerService
   ) { }
 
   /* Retrieve join form data to send to the Server Service.
   */
-  joinRoom(roomId: string, userName: string): void {
+  /*joinRoom(roomId: string, userName: string): void {
     const msg = {
       MessageType: 'JoinRoomRequest',
       RoomId: roomId,
       UserName: userName
     };
     this.serverService.joinRoomRequest(msg).subscribe();
-  }
+  }*/
 
   /* Retrieve create form data and create a JSON object to send to the Server Service.
   */
-  createRoom(userName: string, roomName: string): void {
+  /*createRoom(userName: string, roomName: string): void {
     const msg = {
       MessageType: 'CreateRoomRequest',
       UserName: userName,
       RoomName: roomName
     };
     this.serverService.createRoomRequest(msg).subscribe();
-  }
+  }*/
 
-  changeRoomSettings(roomId: string, roomBlacklist: string): void {
+  /*changeRoomSettings(roomId: string, roomBlacklist: string): void {
     const msg = {
       MessageType: 'ChangeRoomSettingsRequest',
       RoomId: roomId,
@@ -55,7 +55,7 @@ export class RoomService {
     // http://www.google.com
 
     this.serverService.changeRoomSettingsRequest(msg).subscribe();
-  }
+  }*/
 
   /* Return an array of Room that the user has enrolled in.
   */
@@ -69,9 +69,11 @@ export class RoomService {
   getRoomNameList(): string[] {
     const roomNames = [];
     const roomlist = this.getRooms();
-    const room;
+    let room;
     for (room in roomlist) {
-      roomNames.push(room.name);
+      if (room) {
+        roomNames.push(room.name);
+      }
     }
     return roomNames;
   }

@@ -3,10 +3,11 @@
   <div *ngIf="trackerData && slackerChartType" style="float:left">
     <!--<app-charts chartType="pie" [chartData]="slackerData"></app-charts >-->
       <app-charts
-        chartType="bar"
+        chartType="pie"
         chartTitle="Web Browsing Activity"
         subTitle=""
-        [chartData]="trackerData">
+        [chartData]="trackerData"
+        [xAxis]="websiteNames">
       </app-charts>
 
 

@@ -8,10 +8,10 @@ export class ChartsService {
   constructor() { }
 
   /* Get an object of Websites from the Local Data Storage
-  and return it. 
+  and return it.
   */
   getWebsitesData(): Websites {
-    console.log('in charts.service.ts getWebsiteData');
+    console.log('inside charts.service.ts, getWebsiteData');
     return WEBSITES;
   }
 
@@ -20,7 +20,7 @@ export class ChartsService {
    */
   getNameCategoriesFromListOfObject(catlist: any[]): any[] {
     const categories: String[] = [];
-    for (let item in catlist) {
+    for (const item in catlist) {
       if (item) {
         // console.log(this.chartData[item].name);
         categories.push(catlist[item].name);

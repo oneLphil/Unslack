@@ -26,7 +26,7 @@ public class Main {
 		// TODO: get rid of this for production
 		// wait before shutting down server
 		try {
-			Thread.sleep(20000);
+			Thread.sleep(200000000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
