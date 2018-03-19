@@ -23,9 +23,15 @@ public class Main {
 		
 		System.out.println("Client startup sucessful");
 		
-		//bw.write("{\"MessageType\":\"CreateRoomRequest\", \"UserName\":\"User\", \"RoomName\":\"NewRoom\"}");
-		bw.write("{\"MessageType\":\"JoinRoomRequest\", \"UserName\":\"User_joiner\", \"RoomId\":\"944687404\"}");
+		// create room message
+		bw.write(sampleCreateRoom());
 
+		// join room message
+		//bw.write(sampleJoinRoom());
+		
+		// change room settings message
+		//bw.write(sampleChangeRoomSettings());
+		
 		bw.flush();
 		socket.shutdownOutput();
 		
@@ -38,5 +44,29 @@ public class Main {
 		socket.close();
 		
 		System.out.println("Client terminated");
+	}
+	
+	public static String sampleCreateRoom() {
+		return "{"
+				+ "\"MessageType\":\"CreateRoomRequest\", "
+				+ "\"UserName\":\"User\", "
+				+ "\"RoomName\":\"NewRoom\""
+				+ "}";
+	}
+	
+	public static String sampleJoinRoom() {
+		return "{"
+				+ "\"MessageType\":\"JoinRoomRequest\", "
+				+ "\"UserName\":\"User_joiner\", "
+				+ "\"RoomId\":\"944687404\""
+				+ "}";
+	}
+	
+	public static String sampleChangeRoomSettings() {
+		return "{"
+				+ "\"MessageType\":\"ChangeRoomSettingsRequest\","
+				+ "\"RoomId\":\"2645995\","
+				+ "\"WebsiteSettings\":[\"www.facebook.com\"]"
+				+ "}";
 	}
 }
