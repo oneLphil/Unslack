@@ -9,22 +9,33 @@ import storage.StorageManager;
 
 public class MessageJoinRoom implements IMessage {
 
-	int RoomId;
-	String uId;
+	public static final String requestName = "JoinRoomRequest";
+	public static final String responseName = "JoinRoomResponse";
 	
+	// message parameters
+	int roomId;
+	String uId;
+
+	// error flags
+	boolean roomDNE;
 	boolean userAlreadyExists;
 	
 	public MessageJoinRoom() {
-		RoomId = -1;
+		roomId = -1;
 		uId = null;
+		roomDNE = false;
 		userAlreadyExists = false;
 	}
 	
 	@Override
 	public boolean parseMessage(JSONObject message) {
-		RoomId = Integer.parseInt((String) message.get("RoomId"));
+		roomId = Integer.parseInt((String) message.get("RoomId"));
 		uId = (String) message.get("UserName");
-		if (!StorageManager.roomIdExists(RoomId) || uId == null) {
+		if (!StorageManager.roomIdExists(roomId)) {
+			roomDNE = true;
+			return false;
+		}	
+		else if(uId == null) {
 			return false;
 		}
 		return true;
@@ -33,20 +44,20 @@ public class MessageJoinRoom implements IMessage {
 	@Override
 	public boolean executeMessage() {
 		StorageManager m = new StorageManager();
-		m.lockRoom(RoomId);
+		m.lockRoom(roomId);
 		
 		Room r;
 		try {
-			r = m.getRoom(RoomId);
+			r = m.getRoom(roomId);
 		} catch (IOException e) {
 			e.printStackTrace();
-			m.unlockRoom(RoomId);
+			m.unlockRoom(roomId);
 			return false;
 		}
 		
 		if (r.hasUser(uId)) {
 			userAlreadyExists = true;
-			m.unlockRoom(RoomId);
+			m.unlockRoom(roomId);
 			return false;
 		}
 		
@@ -56,26 +67,29 @@ public class MessageJoinRoom implements IMessage {
 			m.updateRoom(r);
 		} catch (IOException e) {
 			e.printStackTrace();
-			m.unlockRoom(RoomId);
+			m.unlockRoom(roomId);
 			return false;
 		}
 		
-		m.unlockRoom(RoomId);
+		m.unlockRoom(roomId);
 		return true;
 	}
 
 	@Override
 	public String createResponseMessage() {
-		return String.format("{\"MessageType\":\"JoinRoomResponse\"}");
+		return GenericMessageGenerator.simpleResponseMessage(requestName);
 	}
 
 	@Override
 	public String createErrorMessage() {
-		if (userAlreadyExists) {
-			return String.format("{\"MessageType\":\"Error\", \"ErrorMessage\":\"%s\", \"SourceMessageType\":\"%s\"}", "That username has already been taken for this room", "JoinRoomRequest");
+		if (roomDNE) {
+			return GenericMessageGenerator.invalidRoomIdError(roomId, requestName);
+		}
+		else if (userAlreadyExists) {
+			return String.format("{\"MessageType\":\"Error\", \"ErrorMessage\":\"%s\", \"SourceMessageType\":\"%s\"}", "That username has already been taken for this room", requestName);
 		}
 		
-		return String.format("{\"MessageType\":\"Error\", \"ErrorMessage\":\"%s\", \"SourceMessageType\":\"%s\"}", "Invalid arugments", "JoinRoomRequest");
+		return String.format("{\"MessageType\":\"Error\", \"ErrorMessage\":\"%s\", \"SourceMessageType\":\"%s\"}", "Invalid arugments", requestName);
 	}
 
 }
