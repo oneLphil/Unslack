@@ -84,11 +84,17 @@ websiteParser (websites) {
   var sitesTrimmed = websites.replace(/ /g, ""); //Trim whitespace
   var sitesArray = sitesTrimmed.split(",");
   var i = 0;
+  var prefix = "https://";
+  //Fix the formatting of the passed websites
   for (i = 0; i < sitesArray.length; i++) {
-    //Assuming user doesn't input https://
-    var prefix = "https://";
-    var temp = sitesArray[i];
-    sitesArray[i] = prefix.concat(prefix, temp);
+    var first = sitesArray[i].substring(0,7); //get first 8char substring
+    if (first.equals(prefix)) { //If substring == "https://"
+      //Do nothing
+    }
+    else {
+      var temp = sitesArray[i];
+      sitesArray[i] = prefix.concat(prefix, temp);
+    }
   }
   return sitesArray;
 }
