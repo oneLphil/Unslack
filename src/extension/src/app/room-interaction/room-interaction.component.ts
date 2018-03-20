@@ -61,24 +61,33 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
   }
 
   changeRoomSettings() {
-
     const msg = {
       MessageType: 'ChangeRoomSettingsRequest',
       RoomId: this.changeRoomSettingsIDField,
       WebsiteSettings: [{'': 1}]
     };
-
-websiteParser () {
-  changeRoomBlacklistField; //Base string from HTML
-  var sitesTrimmed = changeRoomBlacklistField.replace(/ /g, ""); //Trim whitespace
+    this.serverService.changeRoomSettingsRequest(msg).subscribe();
+  }
+//Parse blacklisted websites from HTML input
+//'websites' is passed as a comma separated string: "youtube.com, facebook.com"
+websiteParser (websites) {
+  //Base string from HTML
+  var sitesTrimmed = websites.replace(/ /g, ""); //Trim whitespace
   var sitesArray = sitesTrimmed.split(",");
-
+  var i = 0;
+  for (i = 0; i < sitesArray.length; i++) {
+    //Assuming user doesn't input https://
+    var prefix = "https://";
+    var temp = sitesArray[i];
+    sitesArray[i] = prefix.concat(prefix, temp);
+  }
+  return sitesArray;
 }
 
     // preprocess the roomBlacklist string. Assume it to be comma separated.
     // get the string from this.changeRoomBlacklistField
     // bonus: if the user writes "google.com", change it so that it looks like
     // http://www.google.com
-    this.serverService.changeRoomSettingsRequest(msg).subscribe();
-  }
+
+  //}
 }
