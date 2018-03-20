@@ -53,8 +53,8 @@ The send message is formatted as follows:
   {
     "MessageType":"ChangeRoomSettingsRequest",
     "RoomId":<room id>,                                                 # string
-    "WebsiteSettings": [<website>:<weight>, ...],  # list of website strings
-                                                   # mapped to numerical weights
+    "AddToBlacklist": [<website>, ...],  # list of website strings
+    "RemoveFromBlacklist": [<website>, ...],  # list of website strings                                       
   }
 
 The response message is formatted as follows:
