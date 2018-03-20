@@ -10,44 +10,50 @@
 <br/>
 <mat-card style="width:20%; float:left;">
   <button mat-raised-button (click)="create()">CREATE A ROOM</button>
-  <br/> 
+  <br/>
   <mat-form-field>
-    <input matInput 
+    <input matInput
     [(ngModel)]="createRoomNameField"
     placeholder="Room name"></mat-form-field>
-  <br/> 
+  <br/>
   <mat-form-field>
-    <input matInput 
+    <input matInput
     [(ngModel)]="createRoomUserNameField"
     placeholder="Your Username in this Room">
   </mat-form-field>
   <br/>
   <button mat-raised-button (click)="join()">JOIN A ROOM</button>
-  <br/> 
+  <br/>
   <mat-form-field>
-    <input matInput 
+    <input matInput
     [(ngModel)]="joinRoomIDField"
     placeholder="Room ID Hash">
   </mat-form-field>
   <br/>
   <mat-form-field>
-      <input matInput 
+      <input matInput
       [(ngModel)]="joinRoomUserNameField"
       placeholder="Your Username in this Room">
   </mat-form-field>
-  
+
   <button mat-raised-button (click)="changeRoomSettings()">CHANGE ROOM SETTINGS</button>
-  <br/> 
+  <br/>
   <mat-form-field>
-      <input matInput 
+      <input matInput
       [(ngModel)]="changeRoomSettingsIDField"
       placeholder="Room ID">
   </mat-form-field>
   <br/>
   <mat-form-field>
-    <input matInput 
-    [(ngModel)]="changeRoomBlacklistField"
-    placeholder="Blacklisted Websites">
+    <input matInput
+    [(ngModel)]="changeRoomAddBlacklistField"
+    placeholder="Blacklist youtube.com , ... , ...">
+  </mat-form-field>
+  <br/>
+  <mat-form-field>
+    <input matInput
+    [(ngModel)]="changeRoomRemoveBlacklistField"
+    placeholder="Whitelist facebook.com , ... , ...">
   </mat-form-field>
 </mat-card>
 

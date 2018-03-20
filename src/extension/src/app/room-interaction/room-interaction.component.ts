@@ -18,7 +18,8 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
   // field for a new change room settings component
   // with a dropdown menu to select a room
   changeRoomSettingsIDField = '';
-  changeRoomBlacklistField = ''; // comma separated
+  changeRoomAddBlacklistField = ''; // comma separated
+  changeRoomRemoveBlacklistField = ''; // comma separated
 
   panelOpenState = false;
 
@@ -64,13 +65,18 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
   }
 
   changeRoomSettings() {
+    var ATB = this.websiteParser(this.changeRoomAddBlacklistField);
+    var RFB = this.websiteParser(this.changeRoomRemoveBlacklistField);
     const msg = {
       MessageType: 'ChangeRoomSettingsRequest',
       RoomId: this.changeRoomSettingsIDField,
-      WebsiteSettings: [{'': 1}]
+      //WebsiteSettings: [{'': 1}],
+      AddToBlacklist: ATB,
+      RemoveFromBlacklist: RFB
     };
     this.serverService.changeRoomSettingsRequest(msg).subscribe();
   }
+
 //Parse blacklisted websites from HTML input
 //'websites' is passed as a comma separated string: "youtube.com, facebook.com"
 websiteParser (websites) {
