@@ -163,10 +163,10 @@ export class ServerService {
                                                       # period.
       }
    */
-  getLeaderboardRequest(): Observable<Object> {
+  getLeaderboardRequest(roomId: number): Observable<Object> {
     const msg = {
       MessageType: 'GetLeaderboardRequest',
-      RoomId: ''
+      RoomId: roomId
     };
 
     return this.http.post(this.serverUrl, '\f' + JSON.stringify(msg) + '\f', httpOptions);
