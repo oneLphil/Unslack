@@ -47,6 +47,9 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
     this.serverService.joinRoomRequest(msg).subscribe();
   }
 
+  /**
+   * Upon receipt of a new room id hash, create a new room and save it in the LocalStorage
+   */
   create() {
     const msg = {
       MessageType: 'CreateRoomRequest',
@@ -54,7 +57,7 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
       RoomName: this.createRoomNameField
     };
     const subscriber = this.serverService.createRoomRequest(msg).subscribe(
-      data => console.log('Data in create: ', data),
+      data => this.roomService.addNewRoomToLocal(data['RoomId'], this.createRoomNameField),
       err => console.log('err in create: ', err)
     );
     console.log('create subscriber: ', subscriber);
