@@ -8,6 +8,7 @@ import java.io.OutputStreamWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
+import networking.ClientConnection;
 import networking.SocketManager;
 
 public class Main {
@@ -23,16 +24,21 @@ public class Main {
 		
 		System.out.println("Client startup sucessful");
 		
+		char delim = ClientConnection.messageDelimChar;
+		
 		// create room message
-		bw.write(sampleCreateRoom());
+		//bw.write(delim + sampleCreateRoom() + delim);
 
 		// join room message
-		//bw.write(sampleJoinRoom());
+		bw.write(delim + sampleJoinRoom() + delim);
 		
 		// change room settings message
-		//bw.write(sampleChangeRoomSettings());
+		//bw.write(delim + sampleChangeRoomSettings() + delim);
 		
 		bw.flush();
+		
+		Thread.sleep(10000);
+		
 		socket.shutdownOutput();
 		
 		System.out.println("message sent to server");
@@ -58,14 +64,14 @@ public class Main {
 		return "{"
 				+ "\"MessageType\":\"JoinRoomRequest\", "
 				+ "\"UserName\":\"User_joiner\", "
-				+ "\"RoomId\":\"944687404\""
+				+ "\"RoomId\":\"2076492403\""
 				+ "}";
 	}
 	
 	public static String sampleChangeRoomSettings() {
 		return "{"
 				+ "\"MessageType\":\"ChangeRoomSettingsRequest\","
-				+ "\"RoomId\":\"2645995\","
+				+ "\"RoomId\":\"2076492403\","
 				+ "\"WebsiteSettings\":[\"www.facebook.com\"]"
 				+ "}";
 	}

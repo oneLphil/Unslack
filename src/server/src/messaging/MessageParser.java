@@ -19,6 +19,7 @@ public class MessageParser {
 			
 		} catch (ParseException e) {
 			e.printStackTrace();
+			return createErrorMessage("");
 		}
 		
 		IMessage m;

@@ -11,6 +11,7 @@ import messaging.MessageParser;
 public class ClientConnection implements Runnable{
 
 	private Socket clientSocket;
+	public static final char messageDelimChar = '\0';
 	
 	public ClientConnection(Socket clientSocket) {
 		this.clientSocket = clientSocket;
@@ -39,11 +40,22 @@ public class ClientConnection implements Runnable{
 		}
 
 		// handle reading the message
-		String input;
 		String message = "";
+		boolean reading = false;
 		
-		while((input = in.readLine()) != null) {
-			message += input;
+		while(in.ready()) {
+			char tmp = (char) in.read();
+			//message += (char) in.read();			
+			
+			if(reading) {
+				if(tmp == messageDelimChar) {
+					reading = false;
+				}else {
+					message += tmp;	
+				}
+			}else if(tmp == messageDelimChar) {
+				reading = true;
+			}
 		}
 		
 		System.out.println(message);
