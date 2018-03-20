@@ -20,7 +20,6 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
   changeRoomSettingsIDField = '';
   changeRoomBlacklistField = ''; // comma separated
 
-
   panelOpenState = false;
 
   constructor(
@@ -68,6 +67,14 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
       RoomId: this.changeRoomSettingsIDField,
       WebsiteSettings: [{'': 1}]
     };
+
+websiteParser () {
+  changeRoomBlacklistField; //Base string from HTML
+  var sitesTrimmed = changeRoomBlacklistField.replace(/ /g, ""); //Trim whitespace
+  var sitesArray = sitesTrimmed.split(",");
+
+}
+
     // preprocess the roomBlacklist string. Assume it to be comma separated.
     // get the string from this.changeRoomBlacklistField
     // bonus: if the user writes "google.com", change it so that it looks like
