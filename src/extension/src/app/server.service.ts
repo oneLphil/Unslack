@@ -18,7 +18,7 @@ import { RoomService  } from './room.service';
 import { SlackerService } from './slacker.service';
 
 const httpOptions = {
-  headers: new HttpHeaders({ })
+  headers: new HttpHeaders({ 'Content-Type':'application/json; charset=utf-8' })
 };
 
 @Injectable()
@@ -55,7 +55,9 @@ export class ServerService {
     // this.sendDataRequestToAllRooms();
     console.log('creatingRooms!');
     console.log('createRoomRequest: ', msg);
-    return this.http.post(this.serverUrl, msg, httpOptions);
+    const ob = this.http.post(this.serverUrl, JSON.stringify(msg), httpOptions);
+    console.log('createRoomRequest observer: ', ob);
+    return ob;
   }
 
   /**
@@ -79,7 +81,7 @@ export class ServerService {
 
   joinRoomRequest(msg: any): Observable<Object> {
 
-    return this.http.post(this.serverUrl, msg, httpOptions);
+    return this.http.post(this.serverUrl, JSON.stringify(msg), httpOptions);
   }
 
   /**
@@ -111,7 +113,7 @@ export class ServerService {
       LastSubmitTime: ''
     };*/
 
-    return this.http.post(this.serverUrl, msg, httpOptions);
+    return this.http.post(this.serverUrl, JSON.stringify(msg), httpOptions);
   }
 
   sendDataRequestToAllRooms(): void {
@@ -167,7 +169,7 @@ export class ServerService {
       RoomId: ''
     };
 
-    return this.http.post(this.serverUrl, msg, httpOptions);
+    return this.http.post(this.serverUrl, JSON.stringify(msg), httpOptions);
   }
 
   /**
@@ -189,7 +191,7 @@ export class ServerService {
       }
    */
   changeRoomSettingsRequest(msg: any): Observable<Object> {
-    return this.http.post(this.serverUrl, msg, httpOptions);
+    return this.http.post(this.serverUrl, JSON.stringify(msg), httpOptions);
   }
 
   /**
@@ -216,6 +218,6 @@ export class ServerService {
       RoomId: ''
     };
 
-    return this.http.post(this.serverUrl, msg, httpOptions);
+    return this.http.post(this.serverUrl, JSON.stringify(msg), httpOptions);
   }
 }
