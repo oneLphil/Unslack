@@ -54,7 +54,11 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
       UserName: this.createRoomUserNameField,
       RoomName: this.createRoomNameField
     };
-    console.log(this.serverService.createRoomRequest(msg).subscribe());
+    const subscriber = this.serverService.createRoomRequest(msg).subscribe(
+      data => console.log('Data in create: ', data),
+      err => console.log('err in create: ', err)
+    );
+    console.log('create subscriber: ', subscriber);
   }
 
   changeRoomSettings() {
