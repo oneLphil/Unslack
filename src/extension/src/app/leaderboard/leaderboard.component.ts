@@ -23,9 +23,16 @@ export class LeaderboardComponent implements OnInit, OnChanges {
 
 
   //dataSource = new MatTableDataSource(ALLBOARDS[room.id]);
-  dataSource : MatTableDataSource<User>;
-  //displayedColumns = ['id', 'name', 'score', 'info'];
-  displayedColumns = ['rank', 'name', 'score'];
+  //dataSource : MatTableDataSource<User>;
+  dataSource : User[];
+
+  //displayedColumns = ['rank', 'name', 'score'];
+  columns = [
+    { columnDef: 'rank', header: 'Rank',    cell: (user: User) => `${user.rank}` },
+    { columnDef: 'name',     header: 'Name',   cell: (user: User) => `${user.name}`     },
+    { columnDef: 'score',   header: 'Score', cell: (user: User) => `${user.score}`   }
+  ];
+
   constructor(/*private leaderboardService: LeaderboardService*/) {
 
   }
@@ -33,23 +40,28 @@ export class LeaderboardComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges){
     const room: SimpleChange = changes.room;
     this.room = room.currentValue;
-    this.dataSource = new MatTableDataSource(ALLBOARDS[this.room-1]);
-    this.dataSource.filter = '';
+    //this.dataSource = new MatTableDataSource(ALLBOARDS[this.room-1]);
+    //this.dataSource.filter = '';
+    this.dataSource = ALLBOARDS[this.room-1];
+    //this.dataSource = this.dataSources[0];
   }
 
 
-  applyFilter(filterValue: string) {
+  /*applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
-    this.dataSource.filter = filterValue;
-  }
+    //this.dataSource.filter = filterValue;
+  }*/
 
   ngOnInit() {
-    this.dataSource = new MatTableDataSource(ALLBOARDS[this.room-1]);
+    //this.dataSource = new MatTableDataSource(ALLBOARDS[this.room-1]);
+    this.dataSource = ALLBOARDS[this.room-1];
+    //this.dataSource = this.dataSources[0];
+    //TODO get data from local/server
   }
 
-  getData(): MatTableDataSource<User> {
+  /*getData(): MatTableDataSource<User> {
     return new MatTableDataSource(ALLBOARDS[this.room-1]);
-  }
+  }*/
 
 }
