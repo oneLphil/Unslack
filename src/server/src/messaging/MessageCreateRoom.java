@@ -7,6 +7,9 @@ import org.json.simple.JSONObject;
 import storage.StorageManager;
 
 public class MessageCreateRoom implements IMessage{
+	
+	public static final String requestName = "CreateRoomRequest";
+	public static final String responseName = "CreateRoomResponse";
 
 	private String uId, roomName;
 	private int roomId;
@@ -38,12 +41,12 @@ public class MessageCreateRoom implements IMessage{
 
 	@Override
 	public String createResponseMessage() {
-		return String.format("{\"MessageType\":\"CreateRoomResponse\", \"RoomId\":%d}", roomId);
+		return String.format("{\"MessageType\":\"%s\", \"RoomId\":%d}", responseName, roomId);
 	}
 
 	@Override
 	public String createErrorMessage() {
-		return String.format("{\"MessageType\":\"Error\", \"ErrorMessage\":\"%s\", \"SourceMessageType\":\"%s\"}", "Invalid arugments", "CreateRoomRequest");
+		return String.format("{\"MessageType\":\"Error\", \"ErrorMessage\":\"%s\", \"SourceMessageType\":\"%s\"}", "Invalid arugments", requestName);
 	}
 	
 }

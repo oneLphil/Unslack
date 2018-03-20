@@ -4,6 +4,9 @@ import org.json.simple.JSONObject;
 
 public interface IMessage {
 
+	public String requestName = "";
+	public String responseName = "";
+
 	// parse message. return true iff parsed without error
 	public boolean parseMessage(JSONObject message);
 	

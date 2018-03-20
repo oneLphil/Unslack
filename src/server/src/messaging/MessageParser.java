@@ -19,21 +19,33 @@ public class MessageParser {
 			
 		} catch (ParseException e) {
 			e.printStackTrace();
+			return createErrorMessage("");
 		}
 		
 		IMessage m;
 	
 		// handle the message type
 		switch(messageType) {
-			case "CreateRoomRequest":
+			case MessageCreateRoom.requestName:
 				System.out.println("CreateRoomRequest");
 				m = new MessageCreateRoom();
 				break;
-			case "JoinRoomRequest":
+			case MessageJoinRoom.requestName:
 				System.out.println("JoinRoomRequest");
 				m = new MessageJoinRoom();
 				break;
-				
+			case MessageChangeRoomSettings.requestName:
+				System.out.println("ChangeRoomSettingsRequest");
+				m = new MessageChangeRoomSettings();
+				break;
+			case MessageGetLeaderboard.requestName: // unimplemented
+				System.out.println("GetLeaderboardRequest");
+				m = new MessageGetLeaderboard();
+				break;
+			case MessageGetSettings.requestName: // unimplemented
+				System.out.println("GetRoomSettingsRequest");
+				m = new MessageGetSettings();
+				break;
 			default:
 				System.out.println("UnknownMessageType");
 				return createErrorMessage(messageType);
