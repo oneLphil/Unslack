@@ -55,7 +55,7 @@ export class ServerService {
     // this.sendDataRequestToAllRooms();
     console.log('creatingRooms!');
     console.log('createRoomRequest: ', JSON.stringify(msg));
-    const ob = this.http.post(this.serverUrl, JSON.stringify(msg), httpOptions);
+    const ob = this.http.post(this.serverUrl, '\f' + JSON.stringify(msg) + '\f', httpOptions);
     console.log('createRoomRequest observer: ', ob.map((res: Response) => console.log(res.json())));
     return ob;
   }
@@ -81,7 +81,7 @@ export class ServerService {
 
   joinRoomRequest(msg: any): Observable<Object> {
 
-    return this.http.post(this.serverUrl, JSON.stringify(msg), httpOptions);
+    return this.http.post(this.serverUrl, '\f' + JSON.stringify(msg) + '\f', httpOptions);
   }
 
   /**
@@ -169,7 +169,7 @@ export class ServerService {
       RoomId: ''
     };
 
-    return this.http.post(this.serverUrl, JSON.stringify(msg), httpOptions);
+    return this.http.post(this.serverUrl, '\f' + JSON.stringify(msg) + '\f', httpOptions);
   }
 
   /**
@@ -191,7 +191,7 @@ export class ServerService {
       }
    */
   changeRoomSettingsRequest(msg: any): Observable<Object> {
-    return this.http.post(this.serverUrl, JSON.stringify(msg), httpOptions);
+    return this.http.post(this.serverUrl, '\f' + JSON.stringify(msg) + '\f', httpOptions);
   }
 
   /**
@@ -218,6 +218,6 @@ export class ServerService {
       RoomId: ''
     };
 
-    return this.http.post(this.serverUrl, JSON.stringify(msg), httpOptions);
+    return this.http.post(this.serverUrl, '\f' + JSON.stringify(msg) + '\f', httpOptions);
   }
 }
