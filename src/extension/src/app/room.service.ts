@@ -17,50 +17,31 @@ export class RoomService {
   };
 
   constructor(
-    private messageService: MessageService,
-    // private serverService: ServerService
-  ) { }
+    private messageService: MessageService
+  ) {
+    if (!localStorage.slackerRooms) {
+      localStorage.slackerRooms = JSON.stringify({});
+    }
+  }
 
-  /* Retrieve join form data to send to the Server Service.
-  */
-  /*joinRoom(roomId: string, userName: string): void {
-    const msg = {
-      MessageType: 'JoinRoomRequest',
-      RoomId: roomId,
-      UserName: userName
-    };
-    this.serverService.joinRoomRequest(msg).subscribe();
-  }*/
-
-  /* Retrieve create form data and create a JSON object to send to the Server Service.
-  */
-  /*createRoom(userName: string, roomName: string): void {
-    const msg = {
-      MessageType: 'CreateRoomRequest',
-      UserName: userName,
-      RoomName: roomName
-    };
-    this.serverService.createRoomRequest(msg).subscribe();
-  }*/
-
-  /*changeRoomSettings(roomId: string, roomBlacklist: string): void {
-    const msg = {
-      MessageType: 'ChangeRoomSettingsRequest',
-      RoomId: roomId,
-      WebsiteSettings: [{'': 1}]
+  addNewRoomToLocal(roomId: number, roomName: string): Room {
+    const newRoom: Room = {
+      id: roomId,
+      name: roomName,
+      member_ids: [],
+      blacklist: [],
+      scores: [],
     };
 
-    // preprocess the roomBlacklist string. Assume it to be comma separated.
-    // bonus: if the user writes "google.com", change it so that it looks like
-    // http://www.google.com
-
-    this.serverService.changeRoomSettingsRequest(msg).subscribe();
-  }*/
+    localStorage.slackerRooms[roomId] = newRoom;
+    return newRoom;
+  }
 
   /* Return an array of Room that the user has enrolled in.
   */
   getRooms(): Room[] {
     this.messageService.add('RoomService: fetched rooms');
+    console.log(localStorage.slackerRooms);
     return ROOMS;
   }
 
