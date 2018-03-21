@@ -20,6 +20,8 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
   changeRoomSettingsIDField = '';
   changeRoomAddBlacklistField = ''; // comma separated
   changeRoomRemoveBlacklistField = ''; // comma separated
+  createdRoomId = '';
+  createRoomIdMessage = 'Your new room id: ';
 
   panelOpenState = false;
 
@@ -58,7 +60,12 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
       RoomName: this.createRoomNameField
     };
     const subscriber = this.serverService.createRoomRequest(msg).subscribe(
-      data => this.roomService.addNewRoomToLocal(data['RoomId'], this.createRoomNameField),
+      data => {
+        this.roomService.addNewRoomToLocal(data['RoomId'], this.createRoomNameField);
+        //Change createdRoomId so that it displays the generated room id
+        var temp = data['RoomId'];
+        this.createdRoomId = this.createRoomIdMessage.concat(temp);
+      },
       err => console.log('err in create: ', err)
     );
     console.log('create subscriber: ', subscriber);
@@ -89,11 +96,12 @@ websiteParser (websites) {
   for (i = 0; i < sitesArray.length; i++) {
     var first = sitesArray[i].substring(0,7); //get first 8char substring
     if (first.equals(prefix)) { //If substring == "https://"
-      //Do nothing
+      //Check for www.
+//      if (second.equals)
     }
     else {
       var temp = sitesArray[i];
-      sitesArray[i] = prefix.concat(prefix, temp);
+      sitesArray[i] = prefix.concat(temp);
     }
   }
   return sitesArray;
