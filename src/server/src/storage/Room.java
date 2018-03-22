@@ -59,11 +59,11 @@ public class Room {
     }
   }
   
-  public void addUnproductiveSite(String site) {
+  public void addUnproductiveSite(String site) throws IllegalArgumentException {
     settings.addUnproductiveSites(site);
   }
   
-  public void removeUnproductiveSite(String site) {
+  public void removeUnproductiveSite(String site) throws IllegalArgumentException {
     settings.removeUnproductiveSites(site);
   }
   

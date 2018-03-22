@@ -16,7 +16,8 @@ public class MessageChangeRoomSettings implements IMessage{
 
 	// message parameters
 	private int roomId;
-	private JSONArray newSettings;
+	private JSONArray addSites;
+	private JSONArray removeSites;
 	
 	// error flags
 	boolean roomDNE = false;
@@ -24,14 +25,17 @@ public class MessageChangeRoomSettings implements IMessage{
 	@Override
 	public boolean parseMessage(JSONObject message) {
 		roomId = Integer.parseInt((String) message.get("RoomId"));
-		newSettings = (JSONArray) message.get("WebsiteSettings");
+		addSites = (JSONArray) message.get("AddToBlacklist");
+		removeSites = (JSONArray) message.get("RemoveFromBlacklist");
+
 		if (!StorageManager.roomIdExists(roomId)) {
 			roomDNE = true;
 			return false;
 		}
-		else if (newSettings == null) {
+		else if (addSites == null || removeSites == null) {
 			return false;
 		}
+
 		return true;
 	}
 
@@ -40,6 +44,8 @@ public class MessageChangeRoomSettings implements IMessage{
 		StorageManager sm = new StorageManager();
 		sm.lockRoom(roomId);
 		Room room;
+		Iterator<?> sites;
+		
 		try {
 			room = sm.getRoom(roomId);
 		} catch (IOException e) {
@@ -48,10 +54,24 @@ public class MessageChangeRoomSettings implements IMessage{
 			return false;
 		}
 	
-		Iterator<?> sites = newSettings.iterator();
-
+		// adds sites
+		sites = addSites.iterator();
 		while (sites.hasNext()) {
-			room.addUnproductiveSite(sites.next().toString());
+			try {
+				room.addUnproductiveSite(sites.next().toString());
+			}catch(IllegalArgumentException e) {
+				// TODO, create response for user				
+			}
+		}
+		
+		// remove sites
+		sites = removeSites.iterator();
+		while (sites.hasNext()) {
+			try {
+				room.removeUnproductiveSite(sites.next().toString());				
+			}catch(IllegalArgumentException e) {
+				// TODO, create response for user
+			}
 		}
 		
 		try {

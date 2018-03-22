@@ -26,13 +26,13 @@ public class Main {
 		char delim = ClientConnection.messageDelimChar;
 		
 		// create room message
-		bw.write(delim + sampleCreateRoom() + delim);
+		//bw.write(delim + sampleCreateRoom() + delim);
 
 		// join room message
 		//bw.write(delim + sampleJoinRoom() + delim);
 		
 		// change room settings message
-		//bw.write(delim + sampleChangeRoomSettings() + delim);
+		bw.write(delim + sampleChangeRoomSettings() + delim);
 		
 		bw.flush();
 		
@@ -69,15 +69,16 @@ public class Main {
 		return "{"
 				+ "\"MessageType\":\"JoinRoomRequest\", "
 				+ "\"UserName\":\"User_joiner\", "
-				+ "\"RoomId\":\"2076492403\""
+				+ "\"RoomId\":\"2645995\""
 				+ "}";
 	}
 	
 	public static String sampleChangeRoomSettings() {
 		return "{"
 				+ "\"MessageType\":\"ChangeRoomSettingsRequest\","
-				+ "\"RoomId\":\"2076492403\","
-				+ "\"WebsiteSettings\":[\"www.facebook.com\"]"
+				+ "\"RoomId\":\"2645995\","
+				+ "\"AddToBlacklist\":[\"www.facebook.com\", \"www.twitter.com\"],"
+				+ "\"RemoveFromBlacklist\":[\"www.facebook.com\"]"
 				+ "}";
 	}
 }
