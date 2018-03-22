@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 
 import { MessageService } from './message.service';
-// import { ServerService } from './server.service';
+
 @Injectable()
 export class RoomService {
   timeDisplayFormatEnum = {
@@ -20,29 +20,16 @@ export class RoomService {
     private messageService: MessageService
   ) {
     if (!localStorage.slackerRooms) {
-      localStorage.slackerRooms = JSON.stringify({});
+      localStorage.slackerRooms = JSON.stringify([]);
     }
-  }
-
-  addNewRoomToLocal(roomId: number, roomName: string): Room {
-    const newRoom: Room = {
-      id: roomId,
-      name: roomName,
-      member_ids: [],
-      blacklist: [],
-      scores: [],
-    };
-
-    localStorage.slackerRooms[roomId] = newRoom;
-    return newRoom;
   }
 
   /* Return an array of Room that the user has enrolled in.
   */
   getRooms(): Room[] {
     this.messageService.add('RoomService: fetched rooms');
-    console.log(localStorage.slackerRooms);
-    return ROOMS;
+    console.log('localStorage.slackerRooms: ', localStorage.slackerRooms);
+    return JSON.parse(localStorage.slackerRooms);
   }
 
   /* Return the names of the rooms the user has enrolled in.

@@ -1,12 +1,3 @@
-<!--<mat-card-content>
-  Slacker Rooms
-  <div *ngIf="rooms">
-    <mat-nav-list *ngFor="let room of rooms"
-      (click)="popupOnClick(room)">
-      <span class="badge">{{room.id}}</span> {{room.name}}
-    </mat-nav-list>
-  </div>
-</mat-card-content>-->
 <br/>
 <mat-card style="width:20%; float:left;">
   <button mat-raised-button (click)="create()">CREATE A ROOM</button>
@@ -50,6 +41,8 @@
     placeholder="Blacklisted Websites">
   </mat-form-field>
 </mat-card>
+
+<!-- TABLE -->
 
 <mat-card style="width:70%; float: left;">
 <mat-accordion style="width: 100%" *ngFor="let room of rooms">

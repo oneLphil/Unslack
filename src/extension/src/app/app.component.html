@@ -16,7 +16,7 @@
           routerLinkActive="mat-tab-link-active"
           #rla="routerLinkActive"
           [active]="activeLinkIndex === i"
-          (click)="activeLinkIndex = i"
+          (click)="activeLinkIndex = i; updateRooms()"
           [routerLinkActiveOptions]="{exact: true}">
       {{routeLink.label}}
     </a>

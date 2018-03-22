@@ -16,7 +16,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { TimetrackerService } from './timetracker.service';
 import { RoomService  } from './room.service';
 import { SlackerService } from './slacker.service';
-
+import { Room } from './room';
 const httpOptions = {
   headers: new HttpHeaders({ })
 };
@@ -80,7 +80,6 @@ export class ServerService {
    */
 
   joinRoomRequest(msg: any): Observable<Object> {
-
     return this.http.post(this.serverUrl, '\f' + JSON.stringify(msg) + '\f', httpOptions);
   }
 
@@ -104,15 +103,6 @@ export class ServerService {
       }
    */
   sendDataRequest(msg): Observable<Object> {
-
-    /*let msg = {
-      MessageType: 'SendDataRequest',
-      RoomId: '',
-      UserId: '',
-      History: [[1, 1]],
-      LastSubmitTime: ''
-    };*/
-
     return this.http.post(this.serverUrl, '\f' + JSON.stringify(msg) + '\f', httpOptions);
   }
 
@@ -181,8 +171,8 @@ export class ServerService {
       {
         "MessageType":"ChangeRoomSettingsRequest",
         "RoomId":<room id>,                                                 # string
-        "WebsiteSettings": [{<website>:<weight>}, ...],  # list of object website strings
-                                                      # mapped to numerical weights
+        "AddToBlacklist": [<website>, ...],  # list of website strings
+        "RemoveFromBlacklist": [<website>, ...],  # list of website strings
       }
 
     The response message is formatted as follows:
@@ -212,12 +202,66 @@ export class ServerService {
         "Users": [<user name>, ...]                        # list of user names
       }
    */
-  getRoomSettingsRequest(): Observable<Object> {
+  getRoomSettingsRequest(roomId: number): Observable<Object> {
     const msg = {
       MessageType: 'GetRoomSettingsRequest',
-      RoomId: ''
+      RoomId: roomId
     };
-
     return this.http.post(this.serverUrl, '\f' + JSON.stringify(msg) + '\f', httpOptions);
   }
+
+  /**
+   * Add a new room to the local data storage file
+   */
+  addNewRoomToLocal(roomId: number, roomName: string): Room {
+    const newRoom: Room = {
+      id: roomId,
+      name: roomName,
+      member_ids: [],
+      blacklist: [],
+      scores: [],
+    };
+
+    const localRooms = JSON.parse(localStorage.slackerRooms);
+    localRooms.push(newRoom);
+    localStorage.slackerRooms = JSON.stringify(localRooms);
+    return newRoom;
+  }
+
+  /**
+   * Update room members and blacklist for a room.
+   */
+  updateRoomMembersAndBlacklist(roomId: number): void {
+    this.getRoomSettingsRequest(roomId).subscribe(
+      res => {
+        console.log(typeof(localStorage.slackerRooms));
+        const updatedRoom = JSON.parse(
+          localStorage.slackerRooms).find(room => room.id === roomId);
+        updatedRoom['blacklist'] = res['WebsiteSettings'];
+        updatedRoom['member_ids'] = res['Users'];
+        localStorage.slackerRooms = JSON.stringify(updatedRoom);
+      },
+      err => console.log(err)
+    );
+  }
+
+   /**
+    * Update a room's scores
+    */
+  updateRoomScores(roomId: number): void {
+    this.getLeaderboardRequest(roomId).subscribe(
+      res => {
+        console.log(typeof(localStorage.slackerRooms));
+        const updatedRoom = JSON.parse(
+          localStorage.slackerRooms).find(room => room.id === roomId);
+        updatedRoom['scores'] =
+            [{'LastDay' : res['LastDay']},
+            {'LastWeek' : res['LastWeek']},
+            {'LastMonth' : res['LastMonth']}];
+        localStorage.slackerRooms = JSON.stringify(updatedRoom);
+        },
+      err => console.log(err)
+    );
+  }
+
 }

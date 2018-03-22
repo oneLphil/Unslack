@@ -32,11 +32,7 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    this.updateRooms();
-  }
-
-  updateRooms() {
-    this.rooms = this.roomService.getRooms(); // later there should be a getUserRooms param for id
+    this.rooms = this.roomService.getRooms();
   }
 
   join() {
@@ -58,7 +54,10 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
       RoomName: this.createRoomNameField
     };
     const subscriber = this.serverService.createRoomRequest(msg).subscribe(
-      data => this.roomService.addNewRoomToLocal(data['RoomId'], this.createRoomNameField),
+      data => {
+        console.log('subscribe data: ', data);
+        this.serverService.addNewRoomToLocal(data['RoomId'], this.createRoomNameField);
+      },
       err => console.log('err in create: ', err)
     );
     console.log('create subscriber: ', subscriber);

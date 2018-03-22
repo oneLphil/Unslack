@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { ServerService} from './server.service';
+import { RoomService } from './room.service';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +16,11 @@ export class AppComponent implements OnInit {
   routeLinks: any[];
   activeLinkIndex = -1;
 
-  constructor(private router: Router, private location: Location) {
+  constructor(
+    private router: Router,
+    private location: Location,
+    private serverService: ServerService,
+    private roomService: RoomService) {
     this.routeLinks = [
       {
         label: 'Dashboard',
@@ -39,6 +45,20 @@ export class AppComponent implements OnInit {
       this.activeLinkIndex = this.routeLinks.indexOf(this.routeLinks.find(tab => tab.link === '.' + this.router.url));
     });
     console.log(this.router.events);
+  }
+
+  /**
+   * Updates the rooms to display for the drop down list of rooms.
+   */
+  updateRooms() {
+    const rooms = this.roomService.getRooms();
+    let room;
+    for (room in rooms) {
+      if (room != null) {
+        this.serverService.updateRoomMembersAndBlacklist(room.id);
+        this.serverService.updateRoomScores(room.id);
+      }
+    }
   }
   /*load() {
     location.reload();

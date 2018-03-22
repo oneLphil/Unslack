@@ -69,6 +69,10 @@ public class ClientConnection implements Runnable{
 		// handle the message execution
 		String responseMessage = MessageParser.handleMessage(message);
 		
+		out.println("HTTP/1.1 200 OK");
+		out.println("Connection: close");
+		out.println();
+		out.flush();
 		out.println(responseMessage);
 		
 		System.out.println("client closed");
