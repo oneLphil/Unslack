@@ -7,15 +7,20 @@ export class ChartsService {
 
   constructor() { }
 
+  /* Get an object of Websites from the Local Data Storage
+  and return it.
+  */
   getWebsitesData(): Websites {
-    console.log('in charts.service.ts getWebsiteData');
+    console.log('inside charts.service.ts, getWebsiteData');
     return WEBSITES;
   }
 
-  // only work if obj[] with obj having a name property
+  /* Return a list of name from an array of Object.
+   Only works if catlist is type obj[] with obj having a name property
+   */
   getNameCategoriesFromListOfObject(catlist: any[]): any[] {
     const categories: String[] = [];
-    for (let item in catlist) {
+    for (const item in catlist) {
       if (item) {
         // console.log(this.chartData[item].name);
         categories.push(catlist[item].name);
@@ -23,8 +28,4 @@ export class ChartsService {
     }
     return categories;
   }
-  /* General method for
-  getListArrayData(): any[] {
-    return ... server request
-  }*/
 }

@@ -3,5 +3,5 @@ export class Room {
     name: string;
     member_ids: number[];
     blacklist: string[];
-    scores: number[];
+    scores: any[];
 }

@@ -4,9 +4,10 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material';
+import { MatExpansionModule } from '@angular/material/expansion';
+// import { HttpModule } from '@angular/http';
 // testing purposes
 // import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 // import { InMemoryDataService }  from './in-memory-data.service';
@@ -28,6 +29,7 @@ import { RoomDetailComponent } from './room-detail/room-detail.component';
 import { TableComponent } from './table/table.component';
 import { RoomInteractionComponent } from './room-interaction/room-interaction.component';
 
+
 // Highcharts
 import { HighchartsChartComponent } from '../../node_modules/highcharts-angular/src/app/highcharts-chart.component';
 
@@ -41,6 +43,7 @@ import { MessageService } from './message.service';
 import { ChartsService } from './charts.service';
 import { LeaderboardService } from './leaderboard.service';
 import { TimetrackerService } from './timetracker.service';
+import { ServerService } from './server.service';
 
 
 
@@ -59,7 +62,6 @@ import { TimetrackerService } from './timetracker.service';
     TableComponent,
     TimetrackerComponent,
     RoomInteractionComponent
-    // DashtableComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +73,8 @@ import { TimetrackerService } from './timetracker.service';
     MatFormFieldModule,
     MatInputModule,
     BrowserAnimationsModule,
-    MatExpansionModule
+    MatExpansionModule// ,
+    // HttpModule
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
@@ -85,7 +88,8 @@ import { TimetrackerService } from './timetracker.service';
     RoomService,
     ChartsService,
     LeaderboardService,
-    TimetrackerService
+    TimetrackerService,
+    ServerService
     // InMemoryDataService
 
 
