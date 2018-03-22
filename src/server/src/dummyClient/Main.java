@@ -18,7 +18,6 @@ public class Main {
 		int port = SocketManager.DEFAULT_PORT;
 		Socket socket = new Socket("localhost", port);
 		BufferedReader bf = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-		//PrintWriter pw = new PrintWriter(socket.getOutputStream());
 		
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 		
@@ -27,23 +26,29 @@ public class Main {
 		char delim = ClientConnection.messageDelimChar;
 		
 		// create room message
-		//bw.write(delim + sampleCreateRoom() + delim);
+		bw.write(delim + sampleCreateRoom() + delim);
 
 		// join room message
-		bw.write(delim + sampleJoinRoom() + delim);
+		//bw.write(delim + sampleJoinRoom() + delim);
 		
 		// change room settings message
 		//bw.write(delim + sampleChangeRoomSettings() + delim);
 		
 		bw.flush();
 		
-		Thread.sleep(10000);
+		// delay to test read blocking 
+		Thread.sleep(1000);
 		
 		socket.shutdownOutput();
 		
 		System.out.println("message sent to server");
 		
-		System.out.println("Server sent: " + bf.readLine());
+		String response = "";
+		
+		while(bf.ready()) {
+			response += (char)bf.read();
+		}
+		System.out.println("Server sent: " + response);
 		
 		// clean up
 		bf.close();

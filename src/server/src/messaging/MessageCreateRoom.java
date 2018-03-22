@@ -22,7 +22,7 @@ public class MessageCreateRoom implements IMessage{
 	public boolean parseMessage(JSONObject message) {
 		uId = (String) message.get("UserName");
 		roomName = (String) message.get("RoomName");
-		if (uId == null || roomName == null) {
+		if (uId == null || uId.equals("") || roomName == null || roomName.equals("")) {
 			return false;
 		}
 		return true;
