@@ -207,6 +207,8 @@ export class ServerService {
       MessageType: 'GetRoomSettingsRequest',
       RoomId: roomId
     };
+    console.log('getRoomSettingsRequest: The input roomId');
+    console.log(roomId);
     return this.http.post(this.serverUrl, '\f' + JSON.stringify(msg) + '\f', httpOptions);
   }
 
@@ -219,7 +221,7 @@ export class ServerService {
       name: roomName,
       member_ids: [],
       blacklist: [],
-      scores: [],
+      scores: []
     };
 
     const localRooms = JSON.parse(localStorage.slackerRooms);
@@ -234,12 +236,17 @@ export class ServerService {
   updateRoomMembersAndBlacklist(roomId: number): void {
     this.getRoomSettingsRequest(roomId).subscribe(
       res => {
-        console.log(typeof(localStorage.slackerRooms));
-        const updatedRoom = JSON.parse(
-          localStorage.slackerRooms).find(room => room.id === roomId);
-        updatedRoom['blacklist'] = res['WebsiteSettings'];
-        updatedRoom['member_ids'] = res['Users'];
-        localStorage.slackerRooms = JSON.stringify(updatedRoom);
+        console.log('updateRoomMembersAndBlacklist: ', localStorage.slackerRooms);
+        console.log(res);
+        if (res != null) {
+          const updatedRoom = JSON.parse(
+            localStorage.slackerRooms).find(room => room.id === roomId);
+          updatedRoom['blacklist'] = res['WebsiteSettings'];
+          updatedRoom['member_ids'] = res['Users'];
+          localStorage.slackerRooms = JSON.stringify(updatedRoom);
+        } else {
+          console.log('getRoomSettingsRequest returned null: ', roomId);
+        }
       },
       err => console.log(err)
     );
@@ -251,14 +258,19 @@ export class ServerService {
   updateRoomScores(roomId: number): void {
     this.getLeaderboardRequest(roomId).subscribe(
       res => {
-        console.log(typeof(localStorage.slackerRooms));
-        const updatedRoom = JSON.parse(
-          localStorage.slackerRooms).find(room => room.id === roomId);
-        updatedRoom['scores'] =
-            [{'LastDay' : res['LastDay']},
-            {'LastWeek' : res['LastWeek']},
-            {'LastMonth' : res['LastMonth']}];
-        localStorage.slackerRooms = JSON.stringify(updatedRoom);
+        console.log('updateRoomScores: ', localStorage.slackerRooms);
+        console.log(res);
+        if (res != null) {
+          const updatedRoom = JSON.parse(
+            localStorage.slackerRooms).find(room => room.id === roomId);
+          updatedRoom['scores'] =
+              [{'LastDay' : res['LastDay']},
+              {'LastWeek' : res['LastWeek']},
+              {'LastMonth' : res['LastMonth']}];
+          localStorage.slackerRooms = JSON.stringify(updatedRoom);
+        } else {
+          console.log('getLeaderboardRequest returned null: ', roomId);
+        }
         },
       err => console.log(err)
     );

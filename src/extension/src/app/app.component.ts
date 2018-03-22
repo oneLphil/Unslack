@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { ServerService} from './server.service';
 import { RoomService } from './room.service';
+import { Room } from './room';
 
 @Component({
   selector: 'app-root',
@@ -51,10 +52,12 @@ export class AppComponent implements OnInit {
    * Updates the rooms to display for the drop down list of rooms.
    */
   updateRooms() {
-    const rooms = this.roomService.getRooms();
-    let room;
-    for (room in rooms) {
+    const rooms: Room[] = this.roomService.getRooms();
+    console.log('app component updateRooms() rooms:', rooms);
+    for (const room of rooms) {
       if (room != null) {
+        console.log('app component updateRooms() room:', room);
+        console.log('app component updateRooms() room id:', room.id);
         this.serverService.updateRoomMembersAndBlacklist(room.id);
         this.serverService.updateRoomScores(room.id);
       }

@@ -28,7 +28,6 @@ import { TimetrackerComponent } from './timetracker/timetracker.component';
 import { RoomDetailComponent } from './room-detail/room-detail.component';
 import { TableComponent } from './table/table.component';
 import { RoomInteractionComponent } from './room-interaction/room-interaction.component';
-//import { SummaryTableComponent } from './my-slacker-stats-table/my-slacker-stats-table.component';
 
 
 // Highcharts
@@ -62,9 +61,7 @@ import { ServerService } from './server.service';
     RoomDetailComponent,
     TableComponent,
     TimetrackerComponent,
-    RoomInteractionComponent,
-    //SummaryTableComponent
-    // DashtableComponent
+    RoomInteractionComponent
   ],
   imports: [
     BrowserModule,
