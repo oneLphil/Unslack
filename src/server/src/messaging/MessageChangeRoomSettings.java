@@ -94,7 +94,7 @@ public class MessageChangeRoomSettings implements IMessage{
 	@Override
 	public String createErrorMessage() {
 		if(roomDNE) {
-			return GenericMessageGenerator.invalidRoomIdError(roomId, "ChangeRoomSettings");
+			return GenericMessageGenerator.invalidRoomIdError(roomId, requestName);
 		}
 		return GenericMessageGenerator.messageExecutionError(requestName);
 	}
