@@ -45,21 +45,14 @@ public class ClientConnection implements Runnable{
 		
 		while(in.ready()) {
 			char tmp = (char) in.read();
-			//message += (char) in.read();
-			// System.out.println("in is ready");
-			// System.out.printf("tmp: %s\n", tmp);
 			
 			if(reading) {
 				if(tmp == messageDelimChar) {
-					// System.out.println("reading is true, tmp is null, set reading to false");
 					reading = false;
 				} else {
-					// System.out.println("reading is true, tmp is not null, read that tmp");
 					message += tmp;	
-					// System.out.printf("currMsg: %s\n", message);
 				}
 			} else if(tmp == messageDelimChar) {
-				// System.out.println("reading is false, tmp is not null, set reading to true");
 				reading = true;
 			}
 		}
@@ -68,7 +61,7 @@ public class ClientConnection implements Runnable{
 		
 		// handle the message execution
 		String responseMessage = MessageParser.handleMessage(message);
-		
+
 		out.println("HTTP/1.1 200 OK");
 		out.println("Connection: close");
 		out.println();

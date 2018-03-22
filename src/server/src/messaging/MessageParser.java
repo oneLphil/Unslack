@@ -42,7 +42,7 @@ public class MessageParser {
 				System.out.println("GetLeaderboardRequest");
 				m = new MessageGetLeaderboard();
 				break;
-			case MessageGetSettings.requestName: // unimplemented
+			case MessageGetSettings.requestName:
 				System.out.println("GetRoomSettingsRequest");
 				m = new MessageGetSettings();
 				break;

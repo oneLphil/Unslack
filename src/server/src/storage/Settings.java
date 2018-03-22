@@ -14,7 +14,7 @@ public class Settings {
     // TODO some kind of default settings will be initiated
   }
   
-  public void addUnproductiveSites(String site) {
+  public void addUnproductiveSites(String site) throws IllegalArgumentException {
     if (!(UnproductiveSites.contains(site))) {
       UnproductiveSites.add(site);
     } else {
@@ -22,7 +22,7 @@ public class Settings {
     }
   }
   
-  public void removeUnproductiveSites(String site) {
+  public void removeUnproductiveSites(String site) throws IllegalArgumentException {
     if (UnproductiveSites.contains(site)) {
       UnproductiveSites.remove(site);
     } else {
