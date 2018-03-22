@@ -14,7 +14,7 @@ import { RoomDetailComponent } from '../room-detail/room-detail.component';
 
 export class RoomComponent implements OnInit {
 
-  rooms: Room[] = this.roomService.getUserRooms(); //temporary since getRooms not async
+  rooms: Room[] = this.roomService.getRooms();
   selectedRoom: Room;
   leaderboards = ALLBOARDS;
   selectedLeaderboard: User[];
@@ -39,7 +39,7 @@ export class RoomComponent implements OnInit {
   /* Subscribe is needed to do async; wait until server responds
   */
   getRooms(): Room[] {
-    return this.roomService.getUserRooms();//.subscribe(room => this.rooms = room);
+    return this.roomService.getRooms();
   }
 
 

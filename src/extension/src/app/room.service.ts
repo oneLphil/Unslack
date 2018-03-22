@@ -16,35 +16,41 @@ export class RoomService {
     MINUTES: 1
   };
 
-  constructor(private messageService: MessageService) { }
+  constructor(
+    private messageService: MessageService
+  ) {
+  }
 
+  /* Return an array of Room that the user has enrolled in.
+  */
   getRooms(): Room[] {
     this.messageService.add('RoomService: fetched rooms');
-    return ROOMS;
+    console.log('localStorage.slackerRooms: ', localStorage.slackerRooms);
+    return JSON.parse(localStorage.slackerRooms);
   }
 
-  getUserRooms(): Room[] {
-    this.messageService.add('RoomService: fetched user rooms');
-    return ROOMS;
-  }
-
+  /* Return the names of the rooms the user has enrolled in.
+  */
   getRoomNameList(): string[] {
-    var roomNames = [];
-    var roomlist = this.getRooms();
-    var room;
-    for (room in roomlist) {
-      roomNames.push(room.name);
+    const roomNames = [];
+    const roomlist = this.getRooms();
+    for (const room of roomlist) {
+      if (room) {
+        roomNames.push(room.name);
+      }
     }
     return roomNames;
   }
 
+  /* Return a specific Room given a room id.
+  */
   getRoom(id: number): Room {
     // Todo: send the message _after_ fetching the room
     this.log(`fetched room id=${id}`);
     return this.getRooms().find(room => room.id === id);
   }
 
-  // Log a SlackerService message with the MessageService
+  /* Log a SlackerService message with the MessageService */
   private log(message: string) {
     this.messageService.add('RoomService: ' + message);
   }

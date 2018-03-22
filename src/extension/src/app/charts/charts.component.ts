@@ -28,12 +28,12 @@ export class ChartsComponent implements OnInit, OnChanges {
   chartConstructor = 'chart';
   chartOptions = {
     chart: {
-      type: this.chartType
-      /*options3d: {
-          enabled: false,
+      type: this.chartType,
+      options3d: {
+          enabled: true,
           alpha: 45
-      },*/
-      //height: 600
+      },
+      height: 600
     },
     title: {
       text: this.chartTitle
@@ -62,11 +62,11 @@ export class ChartsComponent implements OnInit, OnChanges {
     },
     tooltip: {
       formatter: function () {
-        let years = Math.floor(this.y * 360 / 31536000);
-        let days = Math.floor((this.y * 360 % 31536000) / 86400);
-        let hours = Math.floor(((this.y * 360 % 31536000) % 86400) / 3600);
-        let mins = Math.floor((((this.y * 360 % 31536000) % 86400) % 3600) / 60);
-        let secs = (((this.y * 360 % 31536000) % 86400) % 3600) % 60;
+        const years = Math.floor(this.y * 360 / 31536000);
+        const days = Math.floor((this.y * 360 % 31536000) / 86400);
+        const hours = Math.floor(((this.y * 360 % 31536000) % 86400) / 3600);
+        const mins = Math.floor((((this.y * 360 % 31536000) % 86400) % 3600) / 60);
+        const secs = (((this.y * 360 % 31536000) % 86400) % 3600) % 60;
         let s = '';
         if (years) {
           s = s + ' ' + years + 'y';
@@ -91,28 +91,29 @@ export class ChartsComponent implements OnInit, OnChanges {
       data: this.getChartData()
     }]
   };
+
   updateFlag = false;
-  chartCallback = function (chart) { console.log('callback!'); };
+  chartCallback = function (chart) { console.log('no callback'); };
 
   ngOnInit() {
     // console.log(this.chartData);
   }
 
   ngOnChanges() {
-    console.log(this.xAxis);
-    console.log(this.getChartData);
+    console.log('this.xAxis: ', this.xAxis);
+    console.log('this.getChartData: ', this.getChartData());
 
-    const currCategories = this.xAxis;
-    //const currCategories = this.xAxis;
-    //console.log(this.getCategories());
+    // const currCategories = this.getCategories();
+    // const currCategories = this.xAxis;
+    // console.log(this.getCategories());
     this.chartOptions = {
       chart: {
-        type: this.chartType
-        /*options3d: {
-            enabled: false,
+        type: this.chartType,
+        options3d: {
+            enabled: true,
             alpha: 45
-        },*/
-        //height: currData.length * 30
+        },
+        height: this.setChartHeight()
       },
       title: {
         text: this.chartTitle
@@ -131,7 +132,7 @@ export class ChartsComponent implements OnInit, OnChanges {
         }
       },
       xAxis: {
-        categories: currCategories,
+        categories: this.xAxis,
         type: 'category'
       },
       yAxis: {
@@ -141,11 +142,11 @@ export class ChartsComponent implements OnInit, OnChanges {
       },
       tooltip: {
         formatter: function () {
-          let years = Math.floor(this.y * 360 / 31536000);
-          let days = Math.floor((this.y * 360 % 31536000) / 86400);
-          let hours = Math.floor(((this.y * 360 % 31536000) % 86400) / 3600);
-          let mins = Math.floor((((this.y * 360 % 31536000) % 86400) % 3600) / 60);
-          let secs = (((this.y * 360 % 31536000) % 86400) % 3600) % 60;
+          const years = Math.floor(this.y * 360 / 31536000);
+          const days = Math.floor((this.y * 360 % 31536000) / 86400);
+          const hours = Math.floor(((this.y * 360 % 31536000) % 86400) / 3600);
+          const mins = Math.floor((((this.y * 360 % 31536000) % 86400) % 3600) / 60);
+          const secs = (((this.y * 360 % 31536000) % 86400) % 3600) % 60;
           let s = '';
           if (years) {
             s = s + ' ' + years + 'y';
@@ -174,6 +175,10 @@ export class ChartsComponent implements OnInit, OnChanges {
 
   getChartData(): any[] {
     return this.chartData;
+  }
+
+  setChartHeight(): number {
+    return this.xAxis.length * 30 + 100;
   }
 
 }
