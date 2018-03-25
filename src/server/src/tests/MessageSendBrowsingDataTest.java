@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.json.simple.JSONArray;
@@ -38,7 +37,7 @@ public class MessageSendBrowsingDataTest {
   }
   
   @Before
-  public void setupRoomTests() throws IOException {
+  public void setupSendScoreTests() throws IOException {
     roomId = createRoomWithUnproductiveSitesAndMultipleUsers();
   }
   
@@ -51,8 +50,12 @@ public class MessageSendBrowsingDataTest {
     JSONArray entry1 = new JSONArray();
     entry1.add(0, "www.youtube.com");
     entry1.add(1, 30);
+    JSONArray entry2 = new JSONArray();
+    entry2.add(0, "www.unslack.com");
+    entry2.add(1, 20);
     JSONArray history = new JSONArray();
     history.add(0, entry1);
+    history.add(1, entry2);
     message.put("History", history);
     assertTrue(m.parseMessage(message));
     
@@ -61,7 +64,7 @@ public class MessageSendBrowsingDataTest {
     List<ScoreEntry> scoreboard = updatedRoom.getScoreboard();
     for(ScoreEntry entry : scoreboard) {
       if (entry.getUserId().equals(userName)){
-        assertEquals(entry.getScore(), -30);
+        assertEquals(entry.getScore(), -10);
       }
       else {
         assertEquals(entry.getScore(), 0);
