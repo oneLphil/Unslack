@@ -1,7 +1,7 @@
 package storage;
 
 import java.util.ArrayList;
-import java.util.GregorianCalendar;
+import java.util.Calendar;
 import java.util.List;
 
 /*
@@ -41,7 +41,7 @@ public class Room {
   }
   
   // Add a new score entry
-  public void addScoreEntry(GregorianCalendar date, String user, int score) {
+  public void addScoreEntry(Calendar date, String user, int score) {
     ScoreEntry entry = new ScoreEntry(date, user, score);
     if (scoreboard.contains(entry)) {
       throw new IllegalArgumentException();
@@ -50,7 +50,7 @@ public class Room {
     }
   }
 
-  public void removeScoreEntry(GregorianCalendar date, String user, int score) {
+  public void removeScoreEntry(Calendar date, String user, int score) {
     ScoreEntry entry = new ScoreEntry(date, user, score);
     if (!(scoreboard.contains(entry))) {
       throw new IllegalArgumentException();
