@@ -92,7 +92,7 @@ websiteParser (websites) {
   // Fix the formatting of the passed websites
   for (i = 0; i < sitesArray.length; i++) {
     var first = sitesArray[i].substring(0,7); //get first 8char substring
-    if (first.equals(prefix)) { //If substring == "https://"
+    if (first === prefix) { //If substring == "https://"
       //Check for www.
 //      if (second.equals)
     }
