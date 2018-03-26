@@ -6,21 +6,20 @@
  * End date: The day before the deadline: Thursday March 29, 2018
 
 #### Changes from previous iteration
+TO-DO
 
- > *Note:* If you are not making any changes to your process, it means that you are happy with all of the decisions you made in the previous iterations.
- > In this case, list what you consider to be the most significant process decisions your team made. For each decision, explain why you consider it successful, and what success metric you are using (or could use) to assert that the decision is successful.
 
 #### Roles & responsibilities
 
-We will split the group into two teams: one to work on the extension GUI and one for the server. Each person in a team is responsible for taking an unfinished task on the Scrum board and adding the feature while communicating with members of the same team to avoid conflicts and maximize feature compatibility.
+The group members picked a task and implemented it, namely synchronizing the extension and sever. Room creation and joining an existing room, connecting to a server where the score of the users are kept. Created a list of website to blacklist and storing/reading from a file in the server.
 
 * Omid - product owner & server
 * David - server
-* Graeme - Extension
+* Graeme - Room joining/creation and connection to server
 * Philip - server
-* Kevin - Extension
+* Kevin - Room joining/creation and connection to server
 * Alana - Extension, Scrum Master
-* Steven - Extension
+* Steven - Website blacklisting: Website string parser & string builder
 
 #### Events
 
