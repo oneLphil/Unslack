@@ -66,12 +66,15 @@
     Blacklist: {{room.blacklist}} <br/>
     Members: {{room.member_ids}} <br/>
 
-    <app-charts
+    <app-leaderboard style="width: 100%" [room]="room.id"> </app-leaderboard>
+
+
+    <!--app-charts
       chartType="bar"
       chartTitle="Member To Score"
       [chartData]="room.scores"
       [xAxis]="room.member_ids">
-    </app-charts>
+    </app-charts-->
 
   </mat-expansion-panel>
 </mat-accordion>
