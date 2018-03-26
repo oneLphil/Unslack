@@ -26,7 +26,7 @@ export class RoomService {
   getRooms(): Room[] {
     this.messageService.add('RoomService: fetched rooms');
     console.log('localStorage.slackerRooms: ', localStorage.slackerRooms);
-    return /*JSON.parse(localStorage.slackerRooms);*/ ROOMS;
+    return JSON.parse(localStorage.slackerRooms);
   }
 
   /* Return the names of the rooms the user has enrolled in.
