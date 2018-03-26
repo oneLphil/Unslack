@@ -12,8 +12,11 @@ public class Settings {
   
   public Settings(){
     // TODO some kind of default settings will be initiated
+
   }
   
+  // Add the given site to the UnproductiveSites list, if it already exists throw 
+  // an exception.
   public void addUnproductiveSites(String site) throws IllegalArgumentException {
     if (!(UnproductiveSites.contains(site))) {
       UnproductiveSites.add(site);
@@ -22,6 +25,8 @@ public class Settings {
     }
   }
   
+  // Remove the given site from the UnproductiveSites list, if list does not 
+  // contain that site throw an exception.
   public void removeUnproductiveSites(String site) throws IllegalArgumentException {
     if (UnproductiveSites.contains(site)) {
       UnproductiveSites.remove(site);
@@ -30,6 +35,7 @@ public class Settings {
     }
   }
 
+  // Return a list of strings, each string is an unproductive site.
   public List<String> getUnproductiveSites() {
     return UnproductiveSites;
   }
