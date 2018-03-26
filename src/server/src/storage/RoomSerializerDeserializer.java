@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 
@@ -116,11 +117,11 @@ public class RoomSerializerDeserializer {
     writer.newLine();
     
     for (ScoreEntry entry : scoreboard) {
-      writer.write(Integer.toString(entry.getDate().get(1)));
+      writer.write(Integer.toString(entry.getDate().get(Calendar.YEAR)));
       writer.write(",");
-      writer.write(Integer.toString(entry.getDate().get(2)));
+      writer.write(Integer.toString(entry.getDate().get(Calendar.MONTH)));
       writer.write(",");
-      writer.write(Integer.toString(entry.getDate().get(3)));
+      writer.write(Integer.toString(entry.getDate().get(Calendar.DAY_OF_MONTH)));
       writer.write(",");
       writer.write(entry.getUserId());
       writer.write(",");
