@@ -3,10 +3,9 @@
 
   <button mat-raised-button (click)="create()">CREATE A ROOM</button>
 
-  <div id="welcomeDiv"  style="display:none;" class="answer_list" >
-    Your new room's Id is:
+  <div id="welcomeDiv"  style="display:none;" class="answer_list">
+    <h1>Your new room id: {{createdRoomId}}</h1>
     <!--> this is where the id from the room is supposed to be injected <-->
-    <p ng-bind-html="createdRoomId"></p> 
   </div>
 
   <br/>

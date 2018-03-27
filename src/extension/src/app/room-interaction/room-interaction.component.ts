@@ -21,7 +21,7 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
   changeRoomAddBlacklistField = ''; // comma separated
   changeRoomRemoveBlacklistField = ''; // comma separated
   createdRoomId = '';
-  createRoomIdMessage = 'Your new room id: ';
+//  createRoomIdMessage = 'Your new room id: ';
 
   panelOpenState = false;
 
@@ -59,16 +59,15 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
       data => {
         console.log('subscribe data: ', data);
         this.serverService.addNewRoomToLocal(data['RoomId'], this.createRoomNameField);
-        // Change createdRoomId so that it displays the generated room id
-        const temp = data['RoomId'];
-        this.createdRoomId = this.createRoomIdMessage.concat(temp);
-        //document.roomIdMessage("roomIdMessage").innerHTML = "Written";
+        //This is the correct way to set the string but can't tell if server
+        //is retrieving and displaying the message
+        this.createdRoomId = data['RoomId'];
       },
-      //document.roomIdMessage("roomIdMessage").innerHTML = "Written";
       err => console.log('err in create: ', err)
     );
     console.log('create subscriber: ', subscriber);
     document.getElementById('welcomeDiv').style.display = "inline-block";
+
   }
 
   changeRoomSettings() {
@@ -77,7 +76,6 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
     const msg = {
       MessageType: 'ChangeRoomSettingsRequest',
       RoomId: this.changeRoomSettingsIDField,
-      // WebsiteSettings: [{'': 1}],
       AddToBlacklist: ATB,
       RemoveFromBlacklist: RFB
     };
