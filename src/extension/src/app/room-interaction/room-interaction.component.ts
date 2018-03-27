@@ -62,10 +62,13 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
         // Change createdRoomId so that it displays the generated room id
         const temp = data['RoomId'];
         this.createdRoomId = this.createRoomIdMessage.concat(temp);
+        //document.roomIdMessage("roomIdMessage").innerHTML = "Written";
       },
+      //document.roomIdMessage("roomIdMessage").innerHTML = "Written";
       err => console.log('err in create: ', err)
     );
     console.log('create subscriber: ', subscriber);
+    document.getElementById('welcomeDiv').style.display = "inline-block";
   }
 
   changeRoomSettings() {
@@ -85,8 +88,10 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
 // 'websites' is passed as a comma separated string: "youtube.com, facebook.com"
 websiteParser (websites) {
   // Base string from HTML
-  var sitesTrimmed = websites.replace(/ /g, ""); //Trim whitespace
-  var sitesArray = sitesTrimmed.split(",");
+  var sitesArray = new Array();
+  var sitesTrimmed = new String();
+  sitesTrimmed = websites.replace(/ /g, ""); //Trim whitespace
+  sitesArray = sitesTrimmed.split(",");
   var i = 0;
   var prefix = "https://";
   // Fix the formatting of the passed websites
