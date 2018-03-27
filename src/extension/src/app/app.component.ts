@@ -63,6 +63,7 @@ export class AppComponent implements OnInit {
         console.log('app component updateRooms() room id:', room.id);
         this.serverService.updateRoomMembersAndBlacklist(room.id);
         this.serverService.updateRoomScores(room.id);
+        console.log('called updates');
       }
     }
   }

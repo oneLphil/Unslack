@@ -110,9 +110,9 @@ export class ServerService {
 
     const allRooms = this.roomService.getRooms();
     const currSlacker = this.slackerService.getSlacker();
-    let room;
+    // let room;
     // console.log('allRooms: ', allRooms);
-    for (room in allRooms) {
+    for (const room in allRooms) {
       if (room) {
         console.log('currRoom: ', room);
         console.log('currRoomId: ', typeof(room));
@@ -156,7 +156,7 @@ export class ServerService {
   getLeaderboardRequest(roomId: number): Observable<Object> {
     const msg = {
       MessageType: 'GetLeaderboardRequest',
-      RoomId: roomId
+      RoomId: roomId.toString()
     };
 
     return this.http.post(this.serverUrl, '\f' + JSON.stringify(msg) + '\f', httpOptions);
@@ -205,10 +205,9 @@ export class ServerService {
   getRoomSettingsRequest(roomId: number): Observable<Object> {
     const msg = {
       MessageType: 'GetRoomSettingsRequest',
-      RoomId: roomId
+      RoomId: roomId.toString()
     };
-    console.log('getRoomSettingsRequest: The input roomId');
-    console.log(roomId);
+    console.log('getRoomSettingsRequest: The input roomId: ', roomId);
     return this.http.post(this.serverUrl, '\f' + JSON.stringify(msg) + '\f', httpOptions);
   }
 
@@ -227,6 +226,7 @@ export class ServerService {
     const localRooms = JSON.parse(localStorage.slackerRooms);
     localRooms.push(newRoom);
     localStorage.slackerRooms = JSON.stringify(localRooms);
+    console.log('addNewRoomToLocal: ', localStorage.slackerRooms);
     return newRoom;
   }
 
@@ -237,19 +237,19 @@ export class ServerService {
     this.getRoomSettingsRequest(roomId).subscribe(
       res => {
         console.log('updateRoomMembersAndBlacklist: ', localStorage.slackerRooms);
-        console.log(res);
+        console.log('getRoomSettingsRequest Response: ', res);
         if (res != null) {
           const localRooms: Room[] = JSON.parse(localStorage.slackerRooms);
           const updatedRoom: Room = localRooms.find(room => room.id === roomId);
           const index = localRooms.indexOf(updatedRoom);
-          updatedRoom['blacklist'] = res['WebsiteSettings'];
-          updatedRoom['member_ids'] = res['Users'];
-          let newRooms;
           if (index > -1) {
-            newRooms = localRooms.splice(index);
-            newRooms.push(updatedRoom);
+            updatedRoom['blacklist'] = res['WebsiteSettings'];
+            updatedRoom['member_ids'] = res['Users'];
+            localRooms.splice(index, 1, updatedRoom);
+            console.log('updateRoomMembersAndBlacklist after splicing:', JSON.stringify(localRooms));
+            localStorage.slackerRooms = JSON.stringify(localRooms);
           }
-          localStorage.slackerRooms = (JSON.stringify(newRooms));
+          console.log('updateRoomMembersAndBlacklist roomService.getRooms(): ', this.roomService.getRooms());
         } else {
           console.log('getRoomSettingsRequest returned null: ', roomId);
         }
@@ -270,16 +270,15 @@ export class ServerService {
           const localRooms: Room[] = JSON.parse(localStorage.slackerRooms);
           const updatedRoom = localRooms.find(room => room.id === roomId);
           const index = localRooms.indexOf(updatedRoom);
-          updatedRoom['scores'] =
+          if (index > -1) {
+            updatedRoom['scores'] =
               [{'LastDay' : res['LastDay']},
               {'LastWeek' : res['LastWeek']},
               {'LastMonth' : res['LastMonth']}];
-          let newRooms;
-          if (index > -1) {
-            newRooms = localRooms.splice(index);
-            newRooms.push(updatedRoom);
+            localRooms.splice(index, 1, updatedRoom);
+            console.log('updateRoomScores after splicing:', JSON.stringify(localRooms));
+            localStorage.slackerRooms = JSON.stringify(localRooms);
           }
-          localStorage.slackerRooms = JSON.stringify(newRooms);
         } else {
           console.log('getLeaderboardRequest returned null: ', roomId);
         }
