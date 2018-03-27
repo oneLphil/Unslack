@@ -282,7 +282,7 @@ export class ServerService {
         } else {
           console.log('getLeaderboardRequest returned null: ', roomId);
         }
-        },
+      },
       err => console.log(err)
     );
   }
