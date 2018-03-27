@@ -38,14 +38,17 @@ public class MessageParser {
 				System.out.println("ChangeRoomSettingsRequest");
 				m = new MessageChangeRoomSettings();
 				break;
-			case MessageGetLeaderboard.requestName: // unimplemented
+			case MessageGetSettings.requestName:
+                System.out.println("GetRoomSettingsRequest");
+                m = new MessageGetSettings();
+                break;
+			case MessageGetLeaderboard.requestName:
 				System.out.println("GetLeaderboardRequest");
 				m = new MessageGetLeaderboard();
 				break;
-			case MessageGetSettings.requestName:
-				System.out.println("GetRoomSettingsRequest");
-				m = new MessageGetSettings();
-				break;
+			case MessageSendBrowsingData.requestName:
+			    System.out.println("SendDataRequest");
+			    m = new MessageSendBrowsingData();
 			default:
 				System.out.println("UnknownMessageType");
 				return createErrorMessage(messageType);
