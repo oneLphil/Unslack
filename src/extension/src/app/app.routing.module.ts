@@ -12,7 +12,7 @@ import { TimetrackerComponent } from './timetracker/timetracker.component';
 const routes: Routes = [
     {
         path: '',
-        redirectTo: 'Dashboard',
+        redirectTo: 'index.html',
         pathMatch: 'full'
     },
     { path: 'Dashboard', component: DashboardComponent },

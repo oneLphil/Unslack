@@ -1,12 +1,3 @@
-/**
- * https://codecraft.tv/courses/angular/http/http-with-observables/
- * a tutorial on how to map the data from the observable into new classes
- * that we can use.
- * https://angular.io/guide/http
- * https://stackoverflow.com/questions/36911348/angular2-map-data-as-specific-object-type
- * Retrieving properties of the JSON object
- * Example: <Observable>.subscribe(resp => new Object(resp['RoomId'], resp['RoomName']));
- */
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
@@ -129,7 +120,10 @@ export class ServerService {
           UserId: currSlacker.id.toString(),
           History: this.timetrackerService.getTrackingDataAsList(),
           LastSubmitTime: Date.now().toString()
-        });
+        }).subscribe(
+          res => {console.log(res); },
+          err => console.log('sendDataRequestToAllRooms Error: ', err)
+        );
       }
     }
   }

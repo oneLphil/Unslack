@@ -4,6 +4,9 @@ import { Location } from '@angular/common';
 import { ServerService} from './server.service';
 import { RoomService } from './room.service';
 import { Room } from './room';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/interval';
+import 'rxjs/add/operator/takeWhile';
 
 @Component({
   selector: 'app-root',
@@ -49,6 +52,10 @@ export class AppComponent implements OnInit {
       this.activeLinkIndex = this.routeLinks.indexOf(this.routeLinks.find(tab => tab.link === '.' + this.router.url));
     });
     console.log(this.router.events);
+
+    // send and update periodically
+    Observable.interval(30000).takeWhile(() => true).subscribe(() => this.updateRooms());
+    Observable.interval(60000).takeWhile(() => true).subscribe(() => this.serverService.sendDataRequestToAllRooms());
   }
 
   /**
