@@ -63,8 +63,30 @@ export class LeaderboardComponent implements OnInit, OnChanges {
   }*/
 
   getData() {
-    this.serverService.getLeaderboardRequest(this.room).subscribe((data) =>
-                                                                        this.dataSource = data[0]);
+    /*this.serverService.getLeaderboardRequest(this.room).subscribe(
+      (data) =>
+            this.dataSource = data[0];
+            console.log("this.dataSource =", this.dataSource);
+          );*/
+
+    //
+    this.serverService.updateRoomScores(this.room);
+    const currRooms: Room[] = JSON.parse(localStorage.slackerRooms);
+    const thisRoom = currRooms.find(room => room.id === this.room);
+
+    this.dataSource = [];
+
+    const index = currRooms.indexOf(thisRoom);
+    if (index > -1) {
+
+      for (var i = 0; i < thisRoom['scores']['lastDay'].length; i++){
+        this.dataSource[i] = { rank: i+1,
+                               name: thisRoom['scores']['lastDay']['UserName'],
+                               score: thisRoom['scores']['lastDay']['scores'] };
+      }
+
+    }
+
   }
 
 }
