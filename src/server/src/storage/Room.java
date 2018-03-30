@@ -21,17 +21,22 @@ public class Room {
     this.settings = new Settings();
   }
   
-  // Add a new user to the room if the room does not contain that user
+  // Add a new user to the room if the room does not contain that user,
+  // otherwise throw an exception.
   public void addUser(String userId) {
     if (!users.contains(userId)){
       users.add(userId);
+    } else {
+      throw new IllegalArgumentException();
     }
   }
   
-  // Remove the user from the room
+  // Remove the user from the room, if user does not exist throw an exception
   public void removeUser(String userId) {
     if (users.contains(userId)) {
       users.remove(userId);
+    } else {
+      throw new IllegalArgumentException();
     }
   }
   
@@ -40,7 +45,7 @@ public class Room {
 	  return users.contains(userId);
   }
   
-  // Add a new score entry
+  // Add a new score entry, if it already exists throw an exception
   public void addScoreEntry(Calendar date, String user, int score) {
     ScoreEntry entry = new ScoreEntry(date, user, score);
     if (scoreboard.contains(entry)) {
@@ -50,6 +55,7 @@ public class Room {
     }
   }
 
+  // Removes a score entry if it exists, otherwise throw an exception
   public void removeScoreEntry(Calendar date, String user, int score) {
     ScoreEntry entry = new ScoreEntry(date, user, score);
     if (!(scoreboard.contains(entry))) {
