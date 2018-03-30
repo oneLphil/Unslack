@@ -79,10 +79,15 @@ export class LeaderboardComponent implements OnInit, OnChanges {
     const index = currRooms.indexOf(thisRoom);
     if (index > -1) {
 
+      /*this.dataSource = thisRoom['lastDay'].map(person =>
+                                { 'rank': ?,
+                               'name': person[0],
+                               'score': person[1] });*/
+
       for (var i = 0; i < thisRoom['scores']['lastDay'].length; i++){
-        this.dataSource[i] = { rank: i+1,
-                               name: thisRoom['scores']['lastDay']['UserName'],
-                               score: thisRoom['scores']['lastDay']['scores'] };
+        this.dataSource[i] = { 'rank': i+1,
+                               'name': thisRoom['scores']['lastDay'][0],
+                               'score': thisRoom['scores']['lastDay'][1] };
       }
 
     }
