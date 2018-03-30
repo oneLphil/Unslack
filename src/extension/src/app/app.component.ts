@@ -43,6 +43,9 @@ export class AppComponent implements OnInit {
     if (!localStorage.slackerRooms) {
       localStorage.slackerRooms = JSON.stringify([]);
     }
+    if (!localStorage.slackerRoomIdToName) {
+      localStorage.slackerRoomIdToName = JSON.stringify({});
+    }
   }
   ngOnInit(): void {
     // this.load();

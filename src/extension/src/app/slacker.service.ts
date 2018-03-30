@@ -14,7 +14,7 @@ import { Slacker } from './slacker';
 import { SLACKER } from './mock-slacker';
 
 import { MessageService } from './message.service';
-import { RoomService } from './room.service'
+import { RoomService } from './room.service';
 
 
 
@@ -31,6 +31,15 @@ export class SlackerService {
     this.log(`fetched slacker id=${SLACKER.id}`);
     // local file version
     return SLACKER;
+  }
+
+  getSlackerName(roomId: number): string {
+    const name = JSON.parse(localStorage.slackerRoomIdToName)[roomId.toString()];
+    if (typeof name !== 'undefined') {
+      return name;
+    } else {
+      return null;
+    }
   }
 
   // Log a SlackerService message with the MessageService

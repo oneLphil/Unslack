@@ -22,14 +22,13 @@ export class SlackerDetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getSlacker();
+    // this.getSlacker();
   }
-
+  /*
   getSlacker(): void {
     this.slacker = this.slackerService.getSlacker();
       //.subscribe(slacker => this.slacker = slacker);
   }
-  /*
   getSlacker(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.slackerService.getSlacker(id)

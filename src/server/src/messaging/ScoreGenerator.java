@@ -110,11 +110,11 @@ public class ScoreGenerator {
       for(int i = 0; i < history.size(); i++) {
         // if website entry is in bad sites, -1 score for each unit of time
         if (badSites.contains(((JSONArray)history.get(i)).get(0))){
-          score -= (int)((JSONArray)history.get(i)).get(1);
+          score -= (long)((JSONArray)history.get(i)).get(1);
         }
         // if website entry is not in bad sites, +1 score for each unit of time
         else {
-          score += (int)((JSONArray)history.get(i)).get(1);
+          score += (long)((JSONArray)history.get(i)).get(1);
         }
       }
       return score;

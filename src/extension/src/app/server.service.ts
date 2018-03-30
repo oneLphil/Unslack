@@ -100,7 +100,6 @@ export class ServerService {
   sendDataRequestToAllRooms(): void {
 
     const allRooms = this.roomService.getRooms();
-    const currSlacker = this.slackerService.getSlacker();
     // let room;
     // console.log('allRooms: ', allRooms);
     for (const room in allRooms) {
@@ -110,14 +109,14 @@ export class ServerService {
         console.log('sendDataToAllRooms', {
           MessageType: 'SendDataRequest',
           RoomId: allRooms[room].id.toString(),
-          UserId: currSlacker.id.toString(),
+          UserId: this.slackerService.getSlackerName(allRooms[room].id),
           History: this.timetrackerService.getTrackingDataAsList(),
           LastSubmitTime: Date.now()
         });
         this.sendDataRequest({
           MessageType: 'SendDataRequest',
           RoomId: allRooms[room].id.toString(),
-          UserId: currSlacker.id.toString(),
+          UserId: this.slackerService.getSlackerName(allRooms[room].id),
           History: this.timetrackerService.getTrackingDataAsList(),
           LastSubmitTime: Date.now().toString()
         }).subscribe(
@@ -216,12 +215,21 @@ export class ServerService {
       blacklist: [],
       scores: []
     };
-
+    // Add the room to the localStorage
     const localRooms = JSON.parse(localStorage.slackerRooms);
     localRooms.push(newRoom);
     localStorage.slackerRooms = JSON.stringify(localRooms);
     console.log('addNewRoomToLocal: ', localStorage.slackerRooms);
+
     return newRoom;
+  }
+
+  addRoomIdToNameToLocal(roomId: number, slackerId: string): void {
+    // map the name to the room id in localStorage
+    const localRoomIdToNameObj = JSON.parse(localStorage.slackerRoomIdToName);
+    localRoomIdToNameObj[roomId.toString()] = slackerId;
+    localStorage.slackerRoomIdToName = JSON.stringify(localRoomIdToNameObj);
+    console.log('addRoomIdToNameToLocal: ', localStorage.slackerRoomIdToName);
   }
 
   /**

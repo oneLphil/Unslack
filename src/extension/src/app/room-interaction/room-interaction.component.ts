@@ -2,6 +2,7 @@ import { Component, OnInit, OnChanges } from '@angular/core';
 import { Room } from '../room';
 import { RoomService } from '../room.service';
 import { ServerService } from '../server.service';
+import { SlackerService } from '../slacker.service';
 
 @Component({
   selector: 'app-room-interaction',
@@ -27,7 +28,8 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
 
   constructor(
     private roomService: RoomService,
-    private serverService: ServerService
+    private serverService: ServerService,
+    private slackerService: SlackerService
   ) { }
 
   ngOnInit() {
@@ -43,7 +45,25 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
       RoomId: this.joinRoomIDField,
       UserName: this.joinRoomUserNameField
     };
-    this.serverService.joinRoomRequest(msg).subscribe();
+
+    const roomId: number = parseInt(this.joinRoomIDField, 10);
+
+    // check if user has already joined this room
+    if (this.slackerService.getSlackerName(roomId)) {
+      this.serverService.joinRoomRequest(msg).subscribe(
+        data => {
+          if (data['MessageType'] !== 'Error') {
+            this.serverService.addNewRoomToLocal(roomId, 'joined room');
+            this.serverService.addRoomIdToNameToLocal(roomId, this.joinRoomUserNameField);
+          } else {
+            console.log(data);
+          }
+        },
+        err => console.log(err)
+      );
+    } else {
+      console.log('Error: Already joined room:', roomId);
+    }
   }
 
   /**
@@ -57,11 +77,15 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
     };
     const subscriber = this.serverService.createRoomRequest(msg).subscribe(
       data => {
-        console.log('subscribe data: ', data);
-        this.serverService.addNewRoomToLocal(data['RoomId'], this.createRoomNameField);
-        // Change createdRoomId so that it displays the generated room id
-        const temp = data['RoomId'];
-        this.createdRoomId = this.createRoomIdMessage.concat(temp);
+        if (!(data['MessageType'] === 'Error')) {
+          this.serverService.addNewRoomToLocal(data['RoomId'], this.createRoomNameField);
+          this.serverService.addRoomIdToNameToLocal(data['RoomId'], this.createRoomUserNameField);
+          // Change createdRoomId so that it displays the generated room id
+          const temp = data['RoomId'];
+          this.createdRoomId = this.createRoomIdMessage.concat(temp);
+        } else {
+          console.log('subscribe data: ', data);
+        }
         //document.roomIdMessage("roomIdMessage").innerHTML = "Written";
       },
       //document.roomIdMessage("roomIdMessage").innerHTML = "Written";
@@ -84,30 +108,30 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
     this.serverService.changeRoomSettingsRequest(msg).subscribe();
   }
 
-// Parse blacklisted websites from HTML input
-// 'websites' is passed as a comma separated string: "youtube.com, facebook.com"
-websiteParser (websites) {
-  // Base string from HTML
-  var sitesArray = new Array();
-  var sitesTrimmed = new String();
-  sitesTrimmed = websites.replace(/ /g, ""); //Trim whitespace
-  sitesArray = sitesTrimmed.split(",");
-  var i = 0;
-  var prefix = "https://";
-  // Fix the formatting of the passed websites
-  for (i = 0; i < sitesArray.length; i++) {
-    var first = sitesArray[i].substring(0,7); //get first 8char substring
-    if (first === prefix) { //If substring == "https://"
-      //Check for www.
-//      if (second.equals)
+  // Parse blacklisted websites from HTML input
+  // 'websites' is passed as a comma separated string: "youtube.com, facebook.com"
+  websiteParser (websites) {
+    // Base string from HTML
+    var sitesArray = new Array();
+    var sitesTrimmed = new String();
+    sitesTrimmed = websites.replace(/ /g, ""); //Trim whitespace
+    sitesArray = sitesTrimmed.split(",");
+    var i = 0;
+    var prefix = "https://";
+    // Fix the formatting of the passed websites
+    for (i = 0; i < sitesArray.length; i++) {
+      var first = sitesArray[i].substring(0,7); //get first 8char substring
+      if (first === prefix) { //If substring == "https://"
+        //Check for www.
+  //      if (second.equals)
+      }
+      else {
+        var temp = sitesArray[i];
+        sitesArray[i] = prefix.concat(temp);
+      }
     }
-    else {
-      var temp = sitesArray[i];
-      sitesArray[i] = prefix.concat(temp);
-    }
+    return sitesArray;
   }
-  return sitesArray;
-}
 
     // preprocess the roomBlacklist string. Assume it to be comma separated.
     // get the string from this.changeRoomBlacklistField

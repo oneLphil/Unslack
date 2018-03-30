@@ -49,6 +49,7 @@ public class MessageParser {
 			case MessageSendBrowsingData.requestName:
 			    System.out.println("SendDataRequest");
 			    m = new MessageSendBrowsingData();
+			    break;
 			default:
 				System.out.println("UnknownMessageType");
 				return createErrorMessage(messageType);
