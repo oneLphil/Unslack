@@ -54,7 +54,7 @@ export class LeaderboardComponent implements OnInit, OnChanges {
   }*/
 
   ngOnInit() {
-    //this.dataSource = ALLBOARDS[this.room-1];
+    // this.dataSource = ALLBOARDS[this.room-1];
     this.getData();
   }
 
@@ -83,11 +83,12 @@ export class LeaderboardComponent implements OnInit, OnChanges {
                                 { 'rank': ?,
                                'name': person[0],
                                'score': person[1] });*/
+ 
+      for (let i = 0; i < thisRoom['scores'][0]['LastDay'].length; i++) {
 
-      for (var i = 0; i < thisRoom['scores']['lastDay'].length; i++){
-        this.dataSource[i] = { 'rank': i+1,
-                               'name': thisRoom['scores']['lastDay'][0],
-                               'score': thisRoom['scores']['lastDay'][1] };
+        this.dataSource[i] = { 'rank': i + 1,
+                               'name': thisRoom['scores'][0]['LastDay'][i][0],
+                               'score': thisRoom['scores'][0]['LastDay'][i][1] };
       }
 
     }
