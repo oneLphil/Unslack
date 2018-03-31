@@ -178,7 +178,12 @@ export class ChartsComponent implements OnInit, OnChanges {
   }
 
   setChartHeight(): number {
-    return this.xAxis.length * 30 + 100;
+
+    if (typeof this.xAxis === 'undefined') {
+      return 600;
+    } else {
+      return this.xAxis.length * 30 + 100;
+    }
   }
 
 }

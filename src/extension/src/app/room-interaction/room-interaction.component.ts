@@ -104,8 +104,8 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
   }
 
   changeRoomSettings() {
-    var ATB = this.websiteParser(this.changeRoomAddBlacklistField);
-    var RFB = this.websiteParser(this.changeRoomRemoveBlacklistField);
+    const ATB = this.websiteParser(this.changeRoomAddBlacklistField);
+    const RFB = this.websiteParser(this.changeRoomRemoveBlacklistField);
     const msg = {
       MessageType: 'ChangeRoomSettingsRequest',
       RoomId: this.changeRoomSettingsIDField,
@@ -131,21 +131,21 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
   // 'websites' is passed as a comma separated string: "youtube.com, facebook.com"
   websiteParser (websites) {
     // Base string from HTML
-    var sitesArray = new Array();
-    var sitesTrimmed = new String();
-    sitesTrimmed = websites.replace(/ /g, ""); //Trim whitespace
-    sitesArray = sitesTrimmed.split(",");
-    var i = 0;
-    var prefix = "https://";
+    let sitesArray = new Array();
+    let sitesTrimmed = '';
+    sitesTrimmed = websites.replace(/ /g, ''); // Trim whitespace
+    sitesArray = sitesTrimmed.split(',');
+    let i = 0;
+    const prefix = 'https://';
     // Fix the formatting of the passed websites
+    console.log(sitesArray);
     for (i = 0; i < sitesArray.length; i++) {
-      var first = sitesArray[i].substring(0,7); //get first 8char substring
-      if (first === prefix) { //If substring == "https://"
-        //Check for www.
+      const first = sitesArray[i].substring(0, 7); // get first 8char substring
+      if (first === prefix) { // If substring == "https://"
+        // Check for www.
   //      if (second.equals)
-      }
-      else {
-        var temp = sitesArray[i];
+      } else {
+        const temp = sitesArray[i];
         sitesArray[i] = prefix.concat(temp);
       }
     }
