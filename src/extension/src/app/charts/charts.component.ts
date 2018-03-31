@@ -29,10 +29,10 @@ export class ChartsComponent implements OnInit, OnChanges {
   chartOptions = {
     chart: {
       type: this.chartType,
-      options3d: {
+      /*options3d: {
           enabled: true,
           alpha: 45
-      },
+      },*/
       height: 600
     },
     title: {
@@ -109,10 +109,10 @@ export class ChartsComponent implements OnInit, OnChanges {
     this.chartOptions = {
       chart: {
         type: this.chartType,
-        options3d: {
+        /*options3d: {
             enabled: true,
             alpha: 45
-        },
+        },*/
         height: this.setChartHeight()
       },
       title: {

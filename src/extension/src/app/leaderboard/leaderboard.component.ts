@@ -7,8 +7,8 @@ import { User } from './user.model';
 import {MatTableDataSource} from '@angular/material';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-//import { DATA } from './userdata';
-//import { ALLBOARDS } from './userdata';
+// import { DATA } from './userdata';
+// import { ALLBOARDS } from './userdata';
 import { Room } from '../room';
 import { ServerService } from '../server.service';
 
@@ -19,15 +19,15 @@ import { ServerService } from '../server.service';
 })
 export class LeaderboardComponent implements OnInit, OnChanges {
 
-  //@Input() room: Room;
+  // @Input() room: Room;
   @Input() room: number;
 
 
-  //dataSource = new MatTableDataSource(ALLBOARDS[room.id]);
-  //dataSource : MatTableDataSource<User>;
+  // dataSource = new MatTableDataSource(ALLBOARDS[room.id]);
+  // dataSource : MatTableDataSource<User>;
   dataSource : User[];
 
-  //displayedColumns = ['rank', 'name', 'score'];
+  // displayedColumns = ['rank', 'name', 'score'];
   columns = [
     { columnDef: 'rank',  header: 'Rank',  cell: (user: User) => `${user.rank}`  },
     { columnDef: 'name',  header: 'Name',  cell: (user: User) => `${user.name}`  },
@@ -77,18 +77,21 @@ export class LeaderboardComponent implements OnInit, OnChanges {
     this.dataSource = [];
 
     const index = currRooms.indexOf(thisRoom);
+    const sortedByRank = thisRoom['scores'][0]['LastDay'];
+    sortedByRank.sort( function(a, b) { return b[1] - a[1]; } );
+
     if (index > -1) {
 
       /*this.dataSource = thisRoom['lastDay'].map(person =>
                                 { 'rank': ?,
                                'name': person[0],
                                'score': person[1] });*/
- 
-      for (let i = 0; i < thisRoom['scores'][0]['LastDay'].length; i++) {
+
+      for (let i = 0; i < sortedByRank.length; i++) {
 
         this.dataSource[i] = { 'rank': i + 1,
-                               'name': thisRoom['scores'][0]['LastDay'][i][0],
-                               'score': thisRoom['scores'][0]['LastDay'][i][1] };
+                               'name': sortedByRank[i][0],
+                               'score': sortedByRank[i][1] };
       }
 
     }

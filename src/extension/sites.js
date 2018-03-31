@@ -154,17 +154,6 @@ function go () {
         History: tracked,
         LastSubmitTime: Date.now().toString()
         })+ '\f')
-
-      /*$.post('http://localhost:9999','\f' + JSON.stringify({ 
-        MessageType: 'SendDataRequest',
-        RoomId: allRooms[room].id.toString(),
-        UserId: name,
-        History: tracked,
-        LastSubmitTime: Date.now().toString()
-        })+ '\f', 
-        function(data, status){
-          alert("Data: " + data + "\nStatus: " + status);
-        });*/
     }
   }
 

@@ -76,20 +76,20 @@ export class TimetrackerService {
   getTrackingData(): Websites {
     // Todo: send the message _after_ fetching the slacker
     this.log(`fetched websites`);
-    // console.log('getTrackingData: ', this.getSites());
+    console.log('getTrackingData: ', this.getSites());
 
     const siteData = this.getSites();
     this.websitesData.tracked = [];
 
     for (const site in siteData) {
       if (site) {
-        this.websitesData.tracked.push({name: site, y: Math.floor(siteData[site] / 360)});
+        this.websitesData.tracked.push({name: site, y: siteData[site] / 360});
       }
     }
 
     this.websitesData.tracked.sort( function(a, b) { return b.y - a.y; } );
 
-    // console.log('getTrackingData this.websitesData', this.websitesData);
+    console.log('getTrackingData this.websitesData', this.websitesData);
 
     // local file version
     return this.websitesData;
