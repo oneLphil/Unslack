@@ -104,8 +104,8 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
   }
 
   changeRoomSettings() {
-    var ATB = this.websiteParser(this.changeRoomAddBlacklistField);
-    var RFB = this.websiteParser(this.changeRoomRemoveBlacklistField);
+    const ATB = this.websiteParser(this.changeRoomAddBlacklistField);
+    const RFB = this.websiteParser(this.changeRoomRemoveBlacklistField);
     const msg = {
       MessageType: 'ChangeRoomSettingsRequest',
       RoomId: this.changeRoomSettingsIDField,
