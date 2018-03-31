@@ -55,7 +55,7 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
       this.serverService.joinRoomRequest(msg).subscribe(
         data => {
           if (data['MessageType'] !== 'Error') {
-            this.serverService.addNewRoomToLocal(roomId, 'joined room');
+            this.serverService.addNewRoomToLocal(roomId, data['RoomName']);
             this.serverService.addRoomIdToNameToLocal(roomId, this.joinRoomUserNameField);
             this.errorMsgJoin = `Successfully Joined Room ${roomId}!`;
             this.rooms = this.roomService.getRooms();
@@ -158,4 +158,13 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
     // http://www.google.com
 
   // }
+  /**
+   * Updates the room to display for the drop down list of rooms.
+   */
+  updateRoom(room: Room) {
+    if (room) {
+      this.serverService.updateRoomMembersAndBlacklist(room.id);
+      this.serverService.updateRoomScores(room.id);
+    }
+  }
 }
