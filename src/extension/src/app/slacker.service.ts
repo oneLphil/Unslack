@@ -1,21 +1,8 @@
-/*
-SlackerServices provides a service to the Slacker components for slacker
-information retrieval, augmentation and management.
-
-functions:
-
-myUsage : UsageChart
-
-
-*/
-
 import { Injectable } from '@angular/core';
 import { Slacker } from './slacker';
 import { SLACKER } from './mock-slacker';
-
 import { MessageService } from './message.service';
 import { RoomService } from './room.service';
-
 
 
 @Injectable()

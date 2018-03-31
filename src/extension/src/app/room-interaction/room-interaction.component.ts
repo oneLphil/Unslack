@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { Room } from '../room';
 import { RoomService } from '../room.service';
 import { ServerService } from '../server.service';
@@ -10,8 +10,7 @@ import { SlackerService } from '../slacker.service';
   styleUrls: ['./room-interaction.component.css']
 })
 export class RoomInteractionComponent implements OnInit, OnChanges {
-
-  rooms: Room[] = this.roomService.getRooms();
+  @Input() rooms: Room[] = this.roomService.getRooms();
   createRoomNameField = '';
   createRoomUserNameField = '';
   joinRoomIDField = '';
@@ -40,7 +39,6 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    this.rooms = this.roomService.getRooms();
   }
 
   join() {
@@ -53,13 +51,14 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
     const roomId: number = parseInt(this.joinRoomIDField, 10);
 
     // check if user has already joined this room
-    if (this.slackerService.getSlackerName(roomId)) {
+    if (!this.slackerService.getSlackerName(roomId)) {
       this.serverService.joinRoomRequest(msg).subscribe(
         data => {
           if (data['MessageType'] !== 'Error') {
             this.serverService.addNewRoomToLocal(roomId, 'joined room');
             this.serverService.addRoomIdToNameToLocal(roomId, this.joinRoomUserNameField);
             this.errorMsgJoin = `Successfully Joined Room ${roomId}!`;
+            this.rooms = this.roomService.getRooms();
           } else {
             console.log(data);
             this.errorMsgJoin = data['ErrorMessage'];
@@ -91,6 +90,7 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
           // is retrieving and displaying the message
           this.createdRoomId = data['RoomId'];
           this.errorMsgCreate = 'Successfully Created a New Room!';
+          this.rooms = this.roomService.getRooms();
         } else {
           console.log('subscribe data: ', data);
           this.errorMsgCreate = data['ErrorMessage'];
@@ -118,6 +118,7 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
           this.errorMsgChangeRoomSettings = data['ErrorMessage'];
         } else {
           this.errorMsgChangeRoomSettings = `Succesfully changed room ${this.changeRoomSettingsIDField} settings!`;
+          this.rooms = this.roomService.getRooms();
         }
       },
       err => {

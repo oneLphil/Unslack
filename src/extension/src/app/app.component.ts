@@ -66,19 +66,12 @@ export class AppComponent implements OnInit {
    */
   updateRooms() {
     const rooms: Room[] = this.roomService.getRooms();
-    console.log('app component updateRooms() rooms:', rooms);
     for (const room of rooms) {
-      if (room != null) {
-        console.log('app component updateRooms() room:', room);
-        console.log('app component updateRooms() room id:', room.id);
+      if (room) {
         this.serverService.updateRoomMembersAndBlacklist(room.id);
         this.serverService.updateRoomScores(room.id);
-        console.log('called updates');
       }
     }
   }
-  /*load() {
-    location.reload();
-  }*/
 
 }
