@@ -8,14 +8,15 @@
     "idle",
     "tabs"],
   "background": {
-    "scripts": ["config.js", "sites.js", "tracker.js", "background.js"]
+    "scripts": ["./node_modules/jquery/dist/jquery.min.js", 
+      "config.js", "sites.js", "tracker.js", "background.js"]
   },
   "content_scripts": [
     {
       "matches": [
         "<all_urls>"
       ],
-      "js": ["./node_modules/jquery/dist/jquery.min.js"]
+      "js": ["./node_modules/jquery/dist/jquery.min.js", "background.js"]
     }
   ],
   "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self';",

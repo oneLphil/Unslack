@@ -58,7 +58,7 @@ export class AppComponent implements OnInit {
 
     // send and update periodically
     Observable.interval(30000).takeWhile(() => true).subscribe(() => this.updateRooms());
-    Observable.interval(60000).takeWhile(() => true).subscribe(() => this.serverService.sendDataRequestToAllRooms());
+    // Observable.interval(60000).takeWhile(() => true).subscribe(() => this.serverService.sendDataRequestToAllRooms());
   }
 
   /**

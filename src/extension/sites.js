@@ -18,7 +18,7 @@ function Sites(config) {
  */
 Object.defineProperty(Sites.prototype, "sites", {
   get: function() {
-    console.log("localStorage.sites", localStorage.sites);
+    // console.log("localStorage.sites", localStorage.sites);
     var s = JSON.parse(localStorage.sites);
     var sites = {}
     for (var site in s) {
@@ -91,3 +91,84 @@ Sites.prototype.clear = function() {
   localStorage.sites = JSON.stringify({});
   this._config.lastClearTime = new Date().getTime();
 };
+
+var i = 0;
+function go () {
+  console.log(i);
+  i++;
+
+  if (!localStorage.slackerRooms) {
+    localStorage.slackerRooms = JSON.stringify([]);
+  }
+  allRooms = JSON.parse(localStorage.slackerRooms);
+  
+  for (const room in allRooms) {
+    if (room) {
+      console.log('currRoom: ', room);
+      console.log('currRoomId: ', typeof(room));
+
+      name = JSON.parse(localStorage.slackerRoomIdToName)[allRooms[room].id.toString()];
+      if (typeof name === 'undefined') {
+        name = null;
+      }
+
+      s = JSON.parse(localStorage.sites);
+      sites = {};
+      for (site in s) {
+        if (s.hasOwnProperty(site) && !Config.prototype.isIgnoredSite(site)) {
+          sites[site] = s[site];
+        }
+      }
+
+      tracked = [];
+      for (const site in sites) {
+        if (site) {
+          tracked.push([site, Math.floor(sites[site])]);
+        }
+      }
+
+      console.log('sendDataToAllRooms', {
+        MessageType: 'SendDataRequest',
+        RoomId: allRooms[room].id.toString(),
+        UserId: name,
+        History: tracked,
+        LastSubmitTime: Date.now()
+      });
+
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", 'http://localhost:9999', true);
+
+      // xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+      xhr.onreadystatechange = function() {//Call a function when the state changes.
+          if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+              // Request finished. Do processing here.
+              console.log(xhr.status);
+          }
+      }
+
+      xhr.send('\f' + JSON.stringify({ 
+        MessageType: 'SendDataRequest',
+        RoomId: allRooms[room].id.toString(),
+        UserId: name,
+        History: tracked,
+        LastSubmitTime: Date.now().toString()
+        })+ '\f')
+
+      /*$.post('http://localhost:9999','\f' + JSON.stringify({ 
+        MessageType: 'SendDataRequest',
+        RoomId: allRooms[room].id.toString(),
+        UserId: name,
+        History: tracked,
+        LastSubmitTime: Date.now().toString()
+        })+ '\f', 
+        function(data, status){
+          alert("Data: " + data + "\nStatus: " + status);
+        });*/
+    }
+  }
+
+  
+  setTimeout(go, 10000); // callback
+}
+go();
