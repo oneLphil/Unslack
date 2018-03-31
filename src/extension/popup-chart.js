@@ -1,7 +1,7 @@
 var config = new Config();
 var gsites = new Sites(config);
 
-console.log(gsites.sites);
+// console.log(gsites.sites);
 
 //var sites = gsites.sites;
 var i = 0;
@@ -9,7 +9,7 @@ var sitesData = new Array();
 for (site in gsites.sites) {
     i++;
     sitesData.push([site, gsites.sites[site]]);
-    console.log(secondsToString(gsites.sites[site]))
+    // console.log(secondsToString(gsites.sites[site]))
     if (i === 15) { break; }
 }
 
