@@ -19,13 +19,13 @@ public class ClientConnection implements Runnable{
 	
 	@Override
 	public void run() {
-		System.out.println("thread start");
+		System.out.printf("T%d: thread start\n", Thread.currentThread().getId());
 		try {
 			readMessage();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		System.out.println("thread end");
+		System.out.printf("T%d: thread end\n", Thread.currentThread().getId());
 	}
 	
 	private void readMessage() throws IOException {
@@ -43,7 +43,7 @@ public class ClientConnection implements Runnable{
 		String message = "";
 		boolean reading = false;
 		
-		while(in.ready()) {
+		while(in.ready() || (message.equals("") && clientSocket.isConnected())) {
 			char tmp = (char) in.read();
 			
 			if(reading) {
@@ -57,7 +57,7 @@ public class ClientConnection implements Runnable{
 			}
 		}
 		
-		System.out.printf("mymessage: %s\n", message);
+		System.out.printf("T%d: mymessage: %s\n", Thread.currentThread().getId(), message);
 		
 		// handle the message execution
 		String responseMessage = MessageParser.handleMessage(message);
@@ -67,10 +67,14 @@ public class ClientConnection implements Runnable{
 		out.println();
 		out.flush();
 		out.println(responseMessage);
+		out.flush();
 		
-		System.out.println("client closed");
+		System.out.printf("T%d: myresponse: %s\n", Thread.currentThread().getId(), responseMessage);
+
+		System.out.printf("T%d: client closed\n", Thread.currentThread().getId());
 		out.close();
 		in.close();
+		//clientSocket.close();
 	}
 
 }

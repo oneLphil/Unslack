@@ -15,6 +15,7 @@ public class MessageJoinRoom implements IMessage {
 	// message parameters
 	int roomId;
 	String uId;
+	String roomName;
 
 	// error flags
 	boolean roomDNE;
@@ -62,6 +63,7 @@ public class MessageJoinRoom implements IMessage {
 		}
 		
 		r.addUser(uId);
+		roomName = r.getRoomName();
 		
 		try {
 			m.updateRoom(r);
@@ -77,7 +79,11 @@ public class MessageJoinRoom implements IMessage {
 
 	@Override
 	public String createResponseMessage() {
-		return GenericMessageGenerator.simpleResponseMessage(requestName);
+		//return GenericMessageGenerator.simpleResponseMessage(requestName);
+		JSONObject o = new JSONObject();
+		o.put("MessageType", responseName);
+		o.put("RoomName", roomName);
+		return o.toString();
 	}
 
 	@Override
