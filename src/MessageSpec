@@ -88,12 +88,13 @@ The send message is formatted as follows:
   {
     "MessageType":"JoinRoomRequest",
     "RoomId":<room id>,                                                 # string
-    "UserName":<user's name>                                              # string
+    "UserName":<user's name>                                            # string
   }
 
 The response message is formatted as follows:
   {
-    "MessageType":"JoinRoomResponse"
+    "MessageType":"JoinRoomResponse",
+    "RoomName":<room's name>						# string
   }
 
 === Send Browsing Data ===
