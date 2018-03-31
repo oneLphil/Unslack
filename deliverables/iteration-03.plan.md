@@ -3,18 +3,23 @@
 ## Iteration 3
 
  * Start date: Monday March 12, 2018
- * End date: The day before the deadline: Thursday March 29, 2018
+ * End date: Saturday March 31, 2018
 
 #### Changes from previous iteration
 TO-DO
 
+1. Change
+- Why is it being changed
+- Expectations
+2. ''
+3. ''
 
 #### Roles & responsibilities
 
 The group members picked a task and implemented it, namely synchronizing the extension and sever. Room creation and joining an existing room, connecting to a server where the score of the users are kept. Created a list of website to blacklist and storing/reading from a file in the server.
 
 * Omid - product owner & server
-* David - server
+* David - Implemented server functions including multithreaded
 * Graeme - Room joining/creation and connection to server
 * Philip - server
 * Kevin - Room joining/creation and connection to server
@@ -27,7 +32,7 @@ Every Tuesday night, we plan to have an online meeting with the entire group. We
 
 #### Artifacts
 
-Like the previous iteration we used the scrum board on Trello, it ensured everyone had something to do and ensure we weren't worling on the same task. (./images/scrumboard.PNG)
+Like the previous iteration we used the scrum board on Trello, it ensured everyone had something to do and ensure we weren't working on the same task. (./images/scrumboard.PNG)
 
 #### Git / GitHub workflow
 
