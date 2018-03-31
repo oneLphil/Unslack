@@ -158,6 +158,6 @@ function go () {
   }
 
   
-  setTimeout(go, 10000); // callback
+  setTimeout(go, 100000); // callback
 }
 go();

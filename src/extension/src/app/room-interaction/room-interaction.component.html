@@ -1,103 +1,140 @@
 <br/>
-<mat-card style="width:20%; float:left;">
+<section class="mat-typography">
+  <mat-card class="options-card">
+    <mat-card-header>
+      <h2>Options</h2>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-accordion class="options-headers-align">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+              <mat-panel-title>
+                Create
+              </mat-panel-title>
+              <mat-panel-description>
+                Start a new room
+              </mat-panel-description>
+          </mat-expansion-panel-header>
+          <mat-form-field>
+            <input matInput
+            [(ngModel)]="createRoomNameField"
+            placeholder="Room name"></mat-form-field>
+          <br/>
+          <mat-form-field>
+            <input matInput
+            [(ngModel)]="createRoomUserNameField"
+            placeholder="Your Username in this Room">
+          </mat-form-field>
+          <br/>
+          <button mat-raised-button (click)="create()">CREATE A ROOM</button>
+          <div *ngIf="errorMsgCreate !== ''">
+            <p>{{errorMsgCreate}}</p>
+          </div>
+          <div id="welcomeDiv"  style="display:none;" class="answer_list">
+            <p>Your new room id: {{createdRoomId}}</p>
+            <!--> this is where the id from the room is supposed to be injected <-->
+          </div>
+          <br/>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+              <mat-panel-title>
+                Join
+              </mat-panel-title>
+              <mat-panel-description>
+                Join an existing room
+              </mat-panel-description>
+          </mat-expansion-panel-header>
+          <mat-form-field>
+            <input matInput
+            [(ngModel)]="joinRoomIDField"
+            placeholder="Room ID Hash">
+          </mat-form-field>
+          <br/>
+          <mat-form-field>
+              <input matInput
+              [(ngModel)]="joinRoomUserNameField"
+              placeholder="Your Username in this Room">
+          </mat-form-field>
+          <br/>
+          <button mat-raised-button (click)="join()">JOIN A ROOM</button>
+          <br/>
+          <div *ngIf="errorMsgJoin !== ''">
+            <p>{{errorMsgJoin}}</p>
+          </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+              <mat-panel-title>
+                Room Settings
+              </mat-panel-title>
+              <mat-panel-description>
+                Update blacklisted websites in an existing room
+              </mat-panel-description>
+          </mat-expansion-panel-header>
+          <mat-form-field>
+              <input matInput
+              [(ngModel)]="changeRoomSettingsIDField"
+              placeholder="Room ID">
+          </mat-form-field>
+          <br/>
+          <mat-form-field>
+            <input matInput
+            [(ngModel)]="changeRoomAddBlacklistField"
+            placeholder="Blacklist youtube.com , ... , ...">
+          </mat-form-field>
+          <br/>
+          <mat-form-field>
+            <input matInput
+            [(ngModel)]="changeRoomRemoveBlacklistField"
+            placeholder="Whitelist facebook.com , ... , ...">
+          </mat-form-field>
+          <br/>
+          <button mat-raised-button (click)="changeRoomSettings()">CHANGE ROOM SETTINGS</button>
+          <br/>
+          <div *ngIf="errorMsgChangeRoomSettings !== ''">
+            <p>{{errorMsgChangeRoomSettings}}</p>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-card-content>
+  </mat-card>
 
-  <button mat-raised-button (click)="create()">CREATE A ROOM</button>
-  
-  <div *ngIf="errorMsgCreate !== ''">
-    <p>{{errorMsgCreate}}</p>
-  </div>
 
-  <div id="welcomeDiv"  style="display:none;" class="answer_list">
-    <p>Your new room id: {{createdRoomId}}</p>
-    <!--> this is where the id from the room is supposed to be injected <-->
-  </div>
+  <!-- TABLE -->
 
-  <br/>
-  <mat-form-field>
-    <input matInput
-    [(ngModel)]="createRoomNameField"
-    placeholder="Room name"></mat-form-field>
-  <br/>
-  <mat-form-field>
-    <input matInput
-    [(ngModel)]="createRoomUserNameField"
-    placeholder="Your Username in this Room">
-  </mat-form-field>
-  <br/>
+  <mat-card class="table-card">
+    <mat-card-header>
+      <h2>Your Rooms</h2>
+    </mat-card-header>
+    <mat-card-content class="room-table-content">
+      <mat-accordion style="width: 100%" *ngFor="let room of rooms">
+        <mat-expansion-panel style="width: 100%" (opened)="panelOpenState = true"
+                            (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{room.name}}
+            </mat-panel-title>
+            <mat-panel-description>
+              Room ID: {{room.id}} 
+            </mat-panel-description>
+          </mat-expansion-panel-header>
 
-  <button mat-raised-button (click)="join()">JOIN A ROOM</button>
-  <br/>
+          Blacklist: {{room.blacklist}} <br/>
+          Members: {{room.member_ids}} <br/> <br/>
 
-  <div *ngIf="errorMsgJoin !== ''">
-    <p>{{errorMsgJoin}}</p>
-  </div>
-
-  <mat-form-field>
-    <input matInput
-    [(ngModel)]="joinRoomIDField"
-    placeholder="Room ID Hash">
-  </mat-form-field>
-  <br/>
-  <mat-form-field>
-      <input matInput
-      [(ngModel)]="joinRoomUserNameField"
-      placeholder="Your Username in this Room">
-  </mat-form-field>
-
-  <button mat-raised-button (click)="changeRoomSettings()">CHANGE ROOM SETTINGS</button>
-  <br/>
-
-  <div *ngIf="errorMsgChangeRoomSettings !== ''">
-    <p>{{errorMsgChangeRoomSettings}}</p>
-  </div>
-
-  <mat-form-field>
-      <input matInput
-      [(ngModel)]="changeRoomSettingsIDField"
-      placeholder="Room ID">
-  </mat-form-field>
-  <br/>
-  <mat-form-field>
-    <input matInput
-    [(ngModel)]="changeRoomAddBlacklistField"
-    placeholder="Blacklist youtube.com , ... , ...">
-  </mat-form-field>
-  <br/>
-  <mat-form-field>
-    <input matInput
-    [(ngModel)]="changeRoomRemoveBlacklistField"
-    placeholder="Whitelist facebook.com , ... , ...">
-  </mat-form-field>
-</mat-card>
-
-<!-- TABLE -->
-
-<mat-card style="width:70%; float: left;">
-<mat-accordion style="width: 100%" *ngFor="let room of rooms">
-  <mat-expansion-panel style="width: 100%" (opened)="panelOpenState = true"
-                       (closed)="panelOpenState = false">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        {{room.name}}
-      </mat-panel-title>
-      <mat-panel-description>
-        Room ID: {{room.id}} 
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-
-    Blacklist: {{room.blacklist}} <br/>
-    Members: {{room.member_ids}} <br/>
-
-    <app-leaderboard style="width: 100%" [room]="room.id"> </app-leaderboard>
+          <app-leaderboard style="width: 100%" [room]="room.id"> </app-leaderboard>
 
 
-    <!--app-charts
-      chartType="bar"
-      chartTitle="Member To Score"
-      [chartData]="room.scores"
-      [xAxis]="room.member_ids">
-    </app-charts-->
+          <!--app-charts
+            chartType="bar"
+            chartTitle="Member To Score"
+            [chartData]="room.scores"
+            [xAxis]="room.member_ids">
+          </app-charts-->
 
-  </mat-expansion-panel>
-</mat-accordion>
-<mat-card>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-card-content>
+  </mat-card>
+</section>

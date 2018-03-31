@@ -1,0 +1,28 @@
+.options-headers-align .mat-expansion-panel-header-title,
+.example-headers-align, .mat-expansion-panel-header-description {
+    flex-basis: 0;
+}
+
+.options-headers-align .mat-expansion-panel-header-description {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.options-card {
+    width:30%; 
+    float:left;
+    margin-right:30px;
+}
+
+.options-table-content {
+    background-color: gainsboro;
+}
+
+.table-card {
+    width: 60%; 
+    float: left;
+}
+
+.room-table-content {
+    background-color: gainsboro;
+}

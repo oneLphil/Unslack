@@ -34,11 +34,11 @@ export class AppComponent implements OnInit {
         label: 'My Slacker Stats',
         link: './slacker',
         index: 1
-      }, {
+      }/*, {
         label: 'Rooms',
         link: './room',
         index: 2
-      }
+      }*/
     ];
     if (!localStorage.slackerRooms) {
       localStorage.slackerRooms = JSON.stringify([]);
