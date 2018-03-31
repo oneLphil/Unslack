@@ -22,7 +22,11 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
   changeRoomAddBlacklistField = ''; // comma separated
   changeRoomRemoveBlacklistField = ''; // comma separated
   createdRoomId = '';
-//  createRoomIdMessage = 'Your new room id: ';
+
+  // Error Messages
+  errorMsgCreate = '';
+  errorMsgJoin = '';
+  errorMsgChangeRoomSettings = '';
 
   panelOpenState = false;
 
@@ -55,14 +59,17 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
           if (data['MessageType'] !== 'Error') {
             this.serverService.addNewRoomToLocal(roomId, 'joined room');
             this.serverService.addRoomIdToNameToLocal(roomId, this.joinRoomUserNameField);
+            this.errorMsgJoin = `Successfully Joined Room ${roomId}!`;
           } else {
             console.log(data);
+            this.errorMsgJoin = data['ErrorMessage'];
           }
         },
-        err => console.log(err)
+        err => alert(JSON.stringify(err))
       );
     } else {
       console.log('Error: Already joined room:', roomId);
+      this.errorMsgJoin = `Error: Already joined room ${roomId}`;
     }
   }
 
@@ -77,17 +84,19 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
     };
     const subscriber = this.serverService.createRoomRequest(msg).subscribe(
       data => {
-        if (!(data['MessageType'] === 'Error')) {
+        if (data['MessageType'] !== 'Error') {
           this.serverService.addNewRoomToLocal(data['RoomId'], this.createRoomNameField);
           this.serverService.addRoomIdToNameToLocal(data['RoomId'], this.createRoomUserNameField);
           // This is the correct way to set the string but can't tell if server
           // is retrieving and displaying the message
           this.createdRoomId = data['RoomId'];
+          this.errorMsgCreate = 'Successfully Created a New Room!';
         } else {
           console.log('subscribe data: ', data);
+          this.errorMsgCreate = data['ErrorMessage'];
         }
       },
-      err => console.log('err in create: ', err)
+      err => alert(JSON.stringify(err))
     );
     console.log('create subscriber: ', subscriber);
     document.getElementById('welcomeDiv').style.display = 'inline-block';
@@ -103,7 +112,18 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
       AddToBlacklist: ATB,
       RemoveFromBlacklist: RFB
     };
-    this.serverService.changeRoomSettingsRequest(msg).subscribe();
+    this.serverService.changeRoomSettingsRequest(msg).subscribe(
+      data => {
+        if (data['MessageType'] === 'Error') {
+          this.errorMsgChangeRoomSettings = data['ErrorMessage'];
+        } else {
+          this.errorMsgChangeRoomSettings = `Succesfully changed room ${this.changeRoomSettingsIDField} settings!`;
+        }
+      },
+      err => {
+        alert(JSON.stringify(err));
+      }
+    );
   }
 
   // Parse blacklisted websites from HTML input

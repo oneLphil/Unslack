@@ -14,7 +14,7 @@ const httpOptions = {
 
 @Injectable()
 export class ServerService {
-  serverUrl = 'http://localhost:9999';
+  serverUrl = 'http://192.168.2.183:9999'; //'http://localhost:9999';
   constructor(
     private messageService: MessageService,
     private http: HttpClient,
@@ -239,21 +239,24 @@ export class ServerService {
     this.getRoomSettingsRequest(roomId).subscribe(
       res => {
         // console.log('updateRoomMembersAndBlacklist: ', localStorage.slackerRooms);
-        console.log('getRoomSettingsRequest Response: ', res);
-        if (res != null) {
-          const localRooms: Room[] = JSON.parse(localStorage.slackerRooms);
-          const updatedRoom: Room = localRooms.find(room => room.id === roomId);
-          const index = localRooms.indexOf(updatedRoom);
-          if (index > -1) {
-            updatedRoom['blacklist'] = res['WebsiteSettings'];
-            updatedRoom['member_ids'] = res['Users'];
-            localRooms.splice(index, 1, updatedRoom);
-            // console.log('updateRoomMembersAndBlacklist after splicing:', JSON.stringify(localRooms));
-            localStorage.slackerRooms = JSON.stringify(localRooms);
+        if (res) {
+          if (res['MessageType'] !== 'Error') {
+            const localRooms: Room[] = JSON.parse(localStorage.slackerRooms);
+            const updatedRoom: Room = localRooms.find(room => room.id === roomId);
+            const index = localRooms.indexOf(updatedRoom);
+            if (index > -1) {
+              updatedRoom['blacklist'] = res['WebsiteSettings'];
+              updatedRoom['member_ids'] = res['Users'];
+              localRooms.splice(index, 1, updatedRoom);
+              localStorage.slackerRooms = JSON.stringify(localRooms);
+            }
+            console.log('getRoomSettingsRequest Response: ', res);
+          } else {
+            console.log('getRoomSettingsRequest Error Message: ', res);
           }
           console.log('updateRoomMembersAndBlacklist roomService.getRooms(): ', this.roomService.getRooms());
         } else {
-          console.log('getRoomSettingsRequest returned null: ', roomId);
+          console.log('getRoomSettingsRequest returned null for room id: ', roomId);
         }
       },
       err => console.log(err)
@@ -266,20 +269,22 @@ export class ServerService {
   updateRoomScores(roomId: number): void {
     this.getLeaderboardRequest(roomId).subscribe(
       res => {
-        // console.log('updateRoomScores: ', localStorage.slackerRooms);
-        console.log(res);
-        if (res != null) {
-          const localRooms: Room[] = JSON.parse(localStorage.slackerRooms);
-          const updatedRoom = localRooms.find(room => room.id === roomId);
-          const index = localRooms.indexOf(updatedRoom);
-          if (index > -1) {
-            updatedRoom['scores'] =
-              [{'LastDay' : res['LastDay']},
-              {'LastWeek' : res['LastWeek']},
-              {'LastMonth' : res['LastMonth']}];
-            localRooms.splice(index, 1, updatedRoom);
-            console.log('updateRoomScores after splicing:', JSON.stringify(localRooms));
-            localStorage.slackerRooms = JSON.stringify(localRooms);
+        if (res) {
+          if (res['MessageType'] !== 'Error') {
+            const localRooms: Room[] = JSON.parse(localStorage.slackerRooms);
+            const updatedRoom = localRooms.find(room => room.id === roomId);
+            const index = localRooms.indexOf(updatedRoom);
+            if (index > -1) {
+              updatedRoom['scores'] =
+                [{'LastDay' : res['LastDay']},
+                {'LastWeek' : res['LastWeek']},
+                {'LastMonth' : res['LastMonth']}];
+              localRooms.splice(index, 1, updatedRoom);
+              localStorage.slackerRooms = JSON.stringify(localRooms);
+              console.log('updateRoomScores after splicing:', JSON.stringify(localRooms));
+            }
+          } else {
+            console.log('updateRoomScores Error Message', res);
           }
         } else {
           console.log('getLeaderboardRequest returned null: ', roomId);
