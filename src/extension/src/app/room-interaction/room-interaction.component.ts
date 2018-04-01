@@ -105,7 +105,7 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
     if (this.createRoomUserNameField === '') {
       this.errorMsgCreate = 'Please enter a user name.';
       return;
-    } else if (this.createRoomNameField === '' || this.createRoomNameField.match(/^[0-9]+$/gi) === null) {
+    } else if (this.createRoomNameField === '') {
       this.errorMsgCreate = 'Please enter a valid room id.';
       return;
     } else {
