@@ -5,10 +5,10 @@
  > _Suggestion:_ Have your review meeting a day or two before the due date. This way you will have some time to go over (and edit) this document, and all team members should have a chance to make their contribution.
 
 
-## Iteration XX - Review & Retrospect
+## Iteration 3 - Review & Retrospect
 
- * When: FILL IN THE DATE WHEN YOU ACTUALLY HAD YOUR REVIEW MEETING
- * Where: PHYSICAL LOCATION AND/OR ONLINE
+ * When: Saturday March 31, 2018
+ * Where: Bahen Centre
 
 ## Process - Reflection
 
@@ -48,6 +48,12 @@ List any process-related changes you are planning to make (if there are any)
  * From most to least important.
  * Refer/link to artifact(s) that show that a goal/task was met/completed.
  * If a goal/task was not part of the original iteration plan, please mention it.
+
+FROM plan:
+
+##### Synchronize the extension and the server
+* After finishing the chrome extension and the server code, we will synchronize the two together so data can be saved and read from a file.
+* Write test cases and test that the extension works and is able to communicate with the server.
 
 #### Goals and/or tasks that were planned but not met/completed:
 
