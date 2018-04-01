@@ -106,7 +106,9 @@
   <mat-card class="table-card">
     <mat-card-header>
       <h2>Your Rooms</h2>
+      <button mat-raised-button (click)="sync()">Sync</button>
     </mat-card-header>
+    
     <mat-card-content class="room-table-content">
       <mat-accordion style="width: 100%" *ngFor="let room of rooms">
         <mat-expansion-panel style="width: 100%" (opened)="panelOpenState = true"

@@ -3,6 +3,9 @@ import { Room } from '../room';
 import { RoomService } from '../room.service';
 import { ServerService } from '../server.service';
 import { SlackerService } from '../slacker.service';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/interval';
+import 'rxjs/add/operator/takeWhile';
 
 @Component({
   selector: 'app-room-interaction',
@@ -36,6 +39,11 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
   ) { }
 
   ngOnInit() {
+    Observable.interval(30000).takeWhile(() => true).subscribe(
+      () => {
+        this.rooms = this.roomService.getRooms();
+      }
+    );
   }
 
   ngOnChanges() {
@@ -161,10 +169,7 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
   /**
    * Updates the room to display for the drop down list of rooms.
    */
-  updateRoom(room: Room) {
-    if (room) {
-      this.serverService.updateRoomMembersAndBlacklist(room.id);
-      this.serverService.updateRoomScores(room.id);
-    }
+  sync() {
+    this.rooms = this.roomService.getRooms();
   }
 }
