@@ -5,12 +5,12 @@
  * Start date: Monday March 12, 2018
  * End date: Saturday March 31, 2018
 
+## Process
+
 #### Changes from previous iteration
 TO-DO
 
-1. Change
-- Why is it being changed
-- Expectations
+* Added more categories to the scrum board. We are making the change because it lets us track and document bug fixes in addition to features. This will give us a more accurate picture of how much work is left to be done on the project.
 2. ''
 3. ''
 
@@ -48,7 +48,7 @@ In-Person Meeting
 
 #### Artifacts
 
-Like the previous iteration we used the scrum board on Trello, it ensured everyone had something to do and ensure we weren't working on the same task. (./images/scrumboard.PNG)
+Like the previous iteration we used the [scrum board on Trello](./images/scrumboard2.PNG), it ensured everyone had something to do and ensure we weren't working on the same task.
 
 #### Git / GitHub workflow
 
