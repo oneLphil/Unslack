@@ -39,11 +39,6 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
   ) { }
 
   ngOnInit() {
-    Observable.interval(30000).takeWhile(() => true).subscribe(
-      () => {
-        this.rooms = this.roomService.getRooms();
-      }
-    );
   }
 
   ngOnChanges() {
