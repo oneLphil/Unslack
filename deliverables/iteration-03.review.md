@@ -18,11 +18,14 @@
 
 List process-related (i.e. team organization) decisions that, in retrospect, turned out to be successful.
 
-
  * 2 - 4 decisions.
  * Ordered from most to least important.
  * Explain why (i.e. give a supporting argument) you consider a decision to be successful.
  * Feel free to refer/link to process artifact(s).
+ 
+ In retrospect, the most important decision that turned out to be the most successful would be the use of the Trello Board to handle all incoming issues and tasks to be done for the week. We considered this decision to be successful because it enabled us to have both a high and low level perspective of how components of the chrome extension were coming together. Bug trackers were especially important for the server and extension teams to debug.
+ 
+ Another important decision that turned out well was the decision to use a feature branching workflow on the remote repository. This enabled us to see what the other members were currently working on directly in other branches by simply using git checkout and communicate any issues through the Trello board or in person. 
 
 #### Decisions that did not turn out as well as we hoped
 
