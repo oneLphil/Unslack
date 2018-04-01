@@ -288,7 +288,7 @@ export const DATA2: User[] = [
     }
   }
 ]
-*/
+
 
 export const DATA: User[] = [
   {
@@ -332,3 +332,4 @@ export const DATA2: User[] = [
 ];
 
 export const ALLBOARDS: User [][] = [DATA, DATA2, DATA, DATA2, DATA, DATA2, DATA, DATA2, DATA, DATA2, DATA, DATA2];
+*/

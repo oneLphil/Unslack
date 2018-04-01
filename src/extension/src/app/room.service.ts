@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { Room } from './room';
-import { ROOMS } from './mock-rooms';
+// import { ROOMS } from './mock-rooms';
 
 // need this for HttpClient.get
 import { Observable } from 'rxjs/Observable';
@@ -56,7 +56,7 @@ export class RoomService {
   }
 
 
-//=============================================================Future
+// =============================================================Future
   /*
   getRooms(): Observable<Room[]> {
     this.messageService.add('RoomService: fetched rooms');

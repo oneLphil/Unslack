@@ -1,10 +1,10 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges, SimpleChange, ViewChild } from '@angular/core';
 import { LeaderboardService } from '../leaderboard.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import {DataSource} from '@angular/cdk/collections';
 import { User } from './user.model';
-import {MatTableDataSource} from '@angular/material';
+import {MatTableDataSource, MatSort} from '@angular/material';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 // import { DATA } from './userdata';
@@ -25,24 +25,25 @@ export class LeaderboardComponent implements OnInit, OnChanges {
 
   // dataSource = new MatTableDataSource(ALLBOARDS[room.id]);
   // dataSource : MatTableDataSource<User>;
-  dataSource : User[];
+  dataSource: User[];
 
   // displayedColumns = ['rank', 'name', 'score'];
   columns = [
-    { columnDef: 'rank',  header: 'Rank',  cell: (user: User) => `${user.rank}`  },
+    // { columnDef: 'rank',  header: 'Daily Rank',  cell: (user: User) => `${user.rank}`  },
     { columnDef: 'name',  header: 'Name',  cell: (user: User) => `${user.name}`  },
-    { columnDef: 'score', header: 'Score', cell: (user: User) => `${user.score}` }
+    { columnDef: 'dailyScore', header: 'Daily Score', cell: (user: User) => `${user.dailyScore}` },
+    { columnDef: 'weeklyScore', header: 'Weekly Score', cell: (user: User) => `${user.weeklyScore}` },
+    { columnDef: 'monthlyScore', header: 'Monthly Score', cell: (user: User) => `${user.monthlyScore}` }
   ];
-
 
   constructor(private serverService: ServerService) {
 
   }
 
-  ngOnChanges(changes: SimpleChanges){
+  ngOnChanges(changes: SimpleChanges) {
     const room: SimpleChange = changes.room;
     this.room = room.currentValue;
-    //this.dataSource = ALLBOARDS[this.room-1];
+    // this.dataSource = ALLBOARDS[this.room-1];
     this.getData();
   }
 
@@ -77,8 +78,22 @@ export class LeaderboardComponent implements OnInit, OnChanges {
     this.dataSource = [];
 
     const index = currRooms.indexOf(thisRoom);
-    const sortedByRank = thisRoom['scores'][0]['LastDay'];
-    sortedByRank.sort( function(a, b) { return b[1] - a[1]; } );
+    const sortedByRank = thisRoom['scores'];
+
+
+    console.log('HELLLLLPPPP', sortedByRank);
+
+    // const sortedByRank = [];
+    // for (let i = 0; i < sortedByRankObj.length; i++) {
+    //   sortedByRank.push(sortedByRankObj[i]);
+    // }
+
+    // console.log('HELLLLLPPPP', sortedByRank);
+    // const weeklyScore = thisRoom['scores'][0]['LastWeek'];
+    // const monthlyScore = thisRoom['scores'][0]['LastMonth'];
+    // sortedByRank.sort( function(a, b) { return b[0]['LastDay'][1] - a[0]['LastDay'][1]; } );
+
+    // console.log('HELLLLLPPPP', sortedByRank);
 
     if (index > -1) {
 
@@ -87,11 +102,12 @@ export class LeaderboardComponent implements OnInit, OnChanges {
                                'name': person[0],
                                'score': person[1] });*/
 
-      for (let i = 0; i < sortedByRank.length; i++) {
-
-        this.dataSource[i] = { 'rank': i + 1,
-                               'name': sortedByRank[i][0],
-                               'score': sortedByRank[i][1] };
+      for (let i = 0; i < sortedByRank[0]['LastDay'].length; i++) {
+        this.dataSource[i] = { // 'rank': i + 1,
+                               'name': sortedByRank[0]['LastDay'][i][0],
+                               'dailyScore': sortedByRank[0]['LastDay'][i][1],
+                               'weeklyScore': sortedByRank[1]['LastWeek'][i][1],
+                               'monthlyScore': sortedByRank[2]['LastMonth'][i][1]};
       }
 
     }

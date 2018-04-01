@@ -14,7 +14,7 @@ const httpOptions = {
 
 @Injectable()
 export class ServerService {
-  serverUrl = 'http://100.64.196.129:9999'; //'http://localhost:9999';
+  serverUrl = 'http://100.64.196.129:9999'; // 'http://localhost:9999';
   constructor(
     private messageService: MessageService,
     private http: HttpClient,
@@ -281,7 +281,7 @@ export class ServerService {
                 {'LastMonth' : res['LastMonth']}];
               localRooms.splice(index, 1, updatedRoom);
               localStorage.slackerRooms = JSON.stringify(localRooms);
-              //console.log('updateRoomScores after splicing:', JSON.stringify(localRooms));
+              // console.log('updateRoomScores after splicing:', JSON.stringify(localRooms));
             }
           } else {
             console.log('updateRoomScores Error Message', res);

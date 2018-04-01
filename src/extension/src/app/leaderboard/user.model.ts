@@ -6,9 +6,11 @@
 import { Slacker } from '../slacker';
 
 export interface User {
-    rank: number;
+    // rank: number;
     name: string;
-    score: number;
+    dailyScore: number;
+    weeklyScore: number;
+    monthlyScore: number;
 }
 
 /*export interface User {

@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Room } from '../room';
 import { RoomService } from '../room.service';
-import { ALLBOARDS } from '../leaderboard/userdata';
+// import { ALLBOARDS } from '../leaderboard/userdata';
 import { User } from '../leaderboard/user.model';
 import { RoomDetailComponent } from '../room-detail/room-detail.component';
 
 @Component({
   selector: 'app-room',
   templateUrl: './room.component.html',
-  styleUrls: ['./room.component.css']//,
+  styleUrls: ['./room.component.css']// ,
 })
 
 
@@ -16,7 +16,7 @@ export class RoomComponent implements OnInit {
 
   rooms: Room[] = this.roomService.getRooms();
   selectedRoom: Room;
-  leaderboards = ALLBOARDS;
+  // leaderboards = ALLBOARDS;
   selectedLeaderboard: User[];
 
   /* roomService is a singleton instance of RoomService
@@ -33,7 +33,7 @@ export class RoomComponent implements OnInit {
 
   onSelect(room: Room): void {
     this.selectedRoom = room;
-    this.selectedLeaderboard = this.leaderboards[room.id];
+    // this.selectedLeaderboard = this.leaderboards[room.id];
   }
 
   /* Subscribe is needed to do async; wait until server responds
