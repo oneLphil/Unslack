@@ -76,7 +76,7 @@ export class TimetrackerService {
   getTrackingData(): Websites {
     // Todo: send the message _after_ fetching the slacker
     this.log(`fetched websites`);
-    console.log('getTrackingData: ', this.getSites());
+    // console.log('getTrackingData: ', this.getSites());
 
     const siteData = this.getSites();
     this.websitesData.tracked = [];
@@ -89,19 +89,38 @@ export class TimetrackerService {
 
     this.websitesData.tracked.sort( function(a, b) { return b.y - a.y; } );
 
-    console.log('getTrackingData this.websitesData', this.websitesData);
+    // console.log('getTrackingData this.websitesData', this.websitesData);
 
     // local file version
     return this.websitesData;
 
   }
 
-  getTrackingDataAsList(): any[] {
+  getSitesForScores(): any {
+    // console.log('getSites:', localStorage.sites);
+    const s = JSON.parse(localStorage.sites);
+    const lastS = JSON.parse(localStorage.lastSentSites);
+    const sites = {};
+    let secSpent = 0;
+    for (const site in s) {
+      if (s.hasOwnProperty(site) && !this.isIgnoredSite(site)) {
+        if (lastS.hasOwnProperty(site)) {
+          secSpent = s[site] - lastS[site];
+        } else {
+          secSpent = s[site];
+        }
+        sites[site] = secSpent;
+      }
+    }
+    return sites;
+  }
+
+  getTrackingDataAsListForScores(): any[] {
     // Todo: send the message _after_ fetching the slacker
     this.log(`fetched websites`);
     // console.log('getTrackingData: ', this.getSites());
 
-    const siteData = this.getSites();
+    const siteData = this.getSitesForScores();
     this.websitesData.tracked = [];
 
     for (const site in siteData) {

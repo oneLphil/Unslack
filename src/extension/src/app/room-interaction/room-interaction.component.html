@@ -28,9 +28,15 @@
           <br/>
           <button mat-raised-button (click)="create()">CREATE A ROOM</button>
           <div *ngIf="errorMsgCreate !== ''">
-            <p>{{errorMsgCreate}}</p>
+            <br/>
+            <h4 class="error-msg">{{errorMsgCreate}}</h4>
+          </div>
+          <div *ngIf="successMsgCreate !== ''">
+            <br/>
+            <h4>{{successMsgCreate}}</h4>
           </div>
           <div id="welcomeDiv"  style="display:none;" class="answer_list">
+            <br/>
             <p>Your new room id: {{createdRoomId}}</p>
             <!--> this is where the id from the room is supposed to be injected <-->
           </div>
@@ -60,7 +66,12 @@
           <button mat-raised-button (click)="join()">JOIN A ROOM</button>
           <br/>
           <div *ngIf="errorMsgJoin !== ''">
-            <p>{{errorMsgJoin}}</p>
+            <br/>
+            <h4 class="error-msg">{{errorMsgJoin}}</h4>
+          </div>
+          <div *ngIf="successMsgJoin !== ''">
+            <br/>
+            <h4>{{successMsgJoin}}</h4>
           </div>
         </mat-expansion-panel>
         <mat-expansion-panel>
@@ -81,19 +92,24 @@
           <mat-form-field>
             <input matInput
             [(ngModel)]="changeRoomAddBlacklistField"
-            placeholder="Blacklist youtube.com , ... , ...">
+            placeholder="Blacklist www.youtube.com , ...">
           </mat-form-field>
           <br/>
           <mat-form-field>
             <input matInput
             [(ngModel)]="changeRoomRemoveBlacklistField"
-            placeholder="Whitelist facebook.com , ... , ...">
+            placeholder="Remove from blacklist www.facebook.com , ...">
           </mat-form-field>
           <br/>
           <button mat-raised-button (click)="changeRoomSettings()">CHANGE ROOM SETTINGS</button>
           <br/>
           <div *ngIf="errorMsgChangeRoomSettings !== ''">
-            <p>{{errorMsgChangeRoomSettings}}</p>
+            <br/>
+            <h4 class="error-msg">{{errorMsgChangeRoomSettings}}</h4>
+          </div>
+          <div *ngIf="successMsgChangeRoomSettings !== ''">
+            <br/>
+            <h4>{{successMsgChangeRoomSettings}}</h4>
           </div>
         </mat-expansion-panel>
       </mat-accordion>
@@ -106,7 +122,7 @@
   <mat-card class="table-card">
     <mat-card-header>
       <h2>Your Rooms</h2>
-      <button mat-raised-button (click)="sync()">Sync</button>
+      <button mat-raised-button class="sync-button" (click)="sync()">Sync</button>
     </mat-card-header>
     
     <mat-card-content class="room-table-content">

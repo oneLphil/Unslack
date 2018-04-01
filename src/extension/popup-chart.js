@@ -15,11 +15,11 @@ for (site in gsites.sites) {
 
 Highcharts.chart('website-chart-container', {
     chart: {
-        type: 'pie'/*,
+        type: 'pie',
         options3d: {
             enabled: true,
             alpha: 45
-        }*/
+        }
     },
     title: {
         text: 'Website usage time'
@@ -27,12 +27,21 @@ Highcharts.chart('website-chart-container', {
     subtitle: {
         text: 'Top 15 websites visited'
     },
-    /*plotOptions: {
+    plotOptions: {
         pie: {
-            innerSize: 100,
+            center: [270, 100],
+            innerSize: 50,
             depth: 45
+        },
+        series: {
+            dataLabels: {
+                enabled: true,
+                style: {
+                    fontSize: '10px'
+                }
+            }
         }
-    },*/
+    },
     tooltip: {
         formatter: function () {
             return 'Time spent:' + secondsToString(this.y);
@@ -40,16 +49,6 @@ Highcharts.chart('website-chart-container', {
     },
     series: [{
         name: 'Time',
-        data: sitesData, /*[
-            ['Bananas', 8],
-            ['Kiwi', 3],
-            ['Mixed nuts', 1],
-            ['Oranges', 6],
-            ['Apples', 8],
-            ['Pears', 4],
-            ['Clementines', 4],
-            ['Reddish (bag)', 1],
-            ['Grapes (bunch)', 1]
-        ]*/
+        data: sitesData,
     }]
 });

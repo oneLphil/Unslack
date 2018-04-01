@@ -11,7 +11,7 @@
 .options-card {
     width:30%; 
     float:left;
-    margin-right:30px;
+    margin-right:20px;
 }
 
 .options-table-content {
@@ -25,4 +25,16 @@
 
 .room-table-content {
     background-color: gainsboro;
+}
+
+.sync-button {
+    max-height: 35px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.error-msg {
+    color: red;
 }

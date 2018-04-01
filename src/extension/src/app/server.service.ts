@@ -14,7 +14,7 @@ const httpOptions = {
 
 @Injectable()
 export class ServerService {
-  serverUrl = 'http://192.168.2.183:9999'; //'http://localhost:9999';
+  serverUrl = 'http://100.64.196.129:9999'; //'http://localhost:9999';
   constructor(
     private messageService: MessageService,
     private http: HttpClient,
@@ -44,8 +44,8 @@ export class ServerService {
 
   createRoomRequest(msg: any): Observable<Object> {
     // this.sendDataRequestToAllRooms();
-    console.log('creatingRooms!');
-    console.log('createRoomRequest: ', JSON.stringify(msg));
+    // console.log('creatingRooms!');
+    // console.log('createRoomRequest: ', JSON.stringify(msg));
     const ob = this.http.post(this.serverUrl, '\f' + JSON.stringify(msg) + '\f', httpOptions);
     console.log('createRoomRequest observer: ', ob.map((res: Response) => console.log(res.json())));
     return ob;
@@ -104,23 +104,23 @@ export class ServerService {
     // console.log('allRooms: ', allRooms);
     for (const room in allRooms) {
       if (room) {
-        console.log('currRoom: ', room);
-        console.log('currRoomId: ', typeof(room));
+        // console.log('currRoom: ', room);
+        // console.log('currRoomId: ', typeof(room));
         console.log('sendDataToAllRooms', {
           MessageType: 'SendDataRequest',
           RoomId: allRooms[room].id.toString(),
           UserId: this.slackerService.getSlackerName(allRooms[room].id),
-          History: this.timetrackerService.getTrackingDataAsList(),
+          History: this.timetrackerService.getTrackingDataAsListForScores(),
           LastSubmitTime: Date.now()
         });
         this.sendDataRequest({
           MessageType: 'SendDataRequest',
           RoomId: allRooms[room].id.toString(),
           UserId: this.slackerService.getSlackerName(allRooms[room].id),
-          History: this.timetrackerService.getTrackingDataAsList(),
+          History: this.timetrackerService.getTrackingDataAsListForScores(),
           LastSubmitTime: Date.now().toString()
         }).subscribe(
-          res => {console.log(res); },
+          // res => {console.log(res); },
           err => console.log('sendDataRequestToAllRooms Error: ', err)
         );
       }
@@ -281,7 +281,7 @@ export class ServerService {
                 {'LastMonth' : res['LastMonth']}];
               localRooms.splice(index, 1, updatedRoom);
               localStorage.slackerRooms = JSON.stringify(localRooms);
-              console.log('updateRoomScores after splicing:', JSON.stringify(localRooms));
+              //console.log('updateRoomScores after splicing:', JSON.stringify(localRooms));
             }
           } else {
             console.log('updateRoomScores Error Message', res);

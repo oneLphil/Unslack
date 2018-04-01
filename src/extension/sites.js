@@ -8,6 +8,9 @@ function Sites(config) {
   if (!localStorage.sites) {
     localStorage.sites = JSON.stringify({});
   }
+  if (!localStorage.lastSentSites) {
+    localStorage.lastSentSites = localStorage.sites;
+  }
   this._currentSite = null;
   this._siteRegexp = /^(\w+:\/\/[^\/]+).*$/;
   this._startTime = null;
@@ -49,9 +52,9 @@ Sites.prototype._updateTime = function() {
     return;
   }
   var delta = new Date() - this._startTime;
-  console.log("Site: " + this._currentSite + " Delta = " + delta/1000);
+  // console.log("Site: " + this._currentSite + " Delta = " + delta/1000);
   if (delta/1000/60 > 2*this._config.updateTimePeriodMinutes) {
-    console.log("Delta of " + delta/1000 + " seconds too long; ignored.");
+    // console.log("Delta of " + delta/1000 + " seconds too long; ignored.");
     return;
   }
   var sites = this.sites;
@@ -67,7 +70,7 @@ Sites.prototype._updateTime = function() {
  * Provide url=null if Chrome is out of focus.
  */
 Sites.prototype.setCurrentFocus = function(url) {
-  console.log("setCurrentFocus: " + url);
+  // console.log("setCurrentFocus: " + url);
   this._updateTime();
   if (url == null) {
     this._currentSite = null;
@@ -104,8 +107,8 @@ function go () {
   
   for (const room in allRooms) {
     if (room) {
-      console.log('currRoom: ', room);
-      console.log('currRoomId: ', typeof(room));
+      // console.log('currRoom: ', room);
+      // console.log('currRoomId: ', typeof(room));
 
       name = JSON.parse(localStorage.slackerRoomIdToName)[allRooms[room].id.toString()];
       if (typeof name === 'undefined') {
@@ -113,10 +116,17 @@ function go () {
       }
 
       s = JSON.parse(localStorage.sites);
+      lastS = JSON.parse(localStorage.lastSentSites);
       sites = {};
       for (site in s) {
-        if (s.hasOwnProperty(site) && !Config.prototype.isIgnoredSite(site)) {
-          sites[site] = s[site];
+        secSpent = 0;
+        if (s.hasOwnProperty(site) & !Config.prototype.isIgnoredSite(site)) {
+          if (lastS.hasOwnProperty(site)){
+            secSpent = s[site] - lastS[site];
+          } else {
+            secSpent = s[site];
+          }
+          sites[site] = secSpent;
         }
       }
 
@@ -141,10 +151,11 @@ function go () {
       // xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
       xhr.onreadystatechange = function() {//Call a function when the state changes.
-          if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
-              // Request finished. Do processing here.
-              console.log(xhr.status);
-          }
+        if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+            // Request finished. Do processing here.
+            console.log(xhr.status);
+            localStorage.lastSentSites = localStorage.sites;
+        }
       }
 
       xhr.send('\f' + JSON.stringify({ 
@@ -158,6 +169,6 @@ function go () {
   }
 
   
-  setTimeout(go, 100000); // callback
+  setTimeout(go, 10000); // callback
 }
 go();

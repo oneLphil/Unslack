@@ -1,4 +1,5 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Room } from '../room';
 import { RoomService } from '../room.service';
 import { ServerService } from '../server.service';
@@ -25,6 +26,11 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
   changeRoomRemoveBlacklistField = ''; // comma separated
   createdRoomId = '';
 
+  // Success messages
+  successMsgCreate = '';
+  successMsgJoin = '';
+  successMsgChangeRoomSettings = '';
+
   // Error Messages
   errorMsgCreate = '';
   errorMsgJoin = '';
@@ -50,6 +56,17 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
   }
 
   join() {
+    this.successMsgJoin = '';
+    if (this.joinRoomIDField === '' || this.joinRoomIDField.match(/^[0-9]+$/gi) === null) {
+      this.errorMsgJoin = 'Please enter a valid room id.';
+      return;
+    } else if (this.joinRoomUserNameField === '') {
+      this.errorMsgJoin = 'Please enter a user id.';
+      return;
+    } else {
+      this.errorMsgJoin = '';
+    }
+
     const msg = {
       MessageType: 'JoinRoomRequest',
       RoomId: this.joinRoomIDField,
@@ -65,17 +82,17 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
           if (data['MessageType'] !== 'Error') {
             this.serverService.addNewRoomToLocal(roomId, data['RoomName']);
             this.serverService.addRoomIdToNameToLocal(roomId, this.joinRoomUserNameField);
-            this.errorMsgJoin = `Successfully Joined Room ${roomId}!`;
+            this.successMsgJoin = `Successfully Joined Room ${roomId}!`;
             this.rooms = this.roomService.getRooms();
           } else {
-            console.log(data);
+            // console.log(data);
             this.errorMsgJoin = data['ErrorMessage'];
           }
         },
         err => alert(JSON.stringify(err))
       );
     } else {
-      console.log('Error: Already joined room:', roomId);
+      // console.log('Error: Already joined room:', roomId);
       this.errorMsgJoin = `Error: Already joined room ${roomId}`;
     }
   }
@@ -84,6 +101,17 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
    * Upon receipt of a new room id hash, create a new room and save it in the LocalStorage
    */
   create() {
+    this.successMsgCreate = '';
+    if (this.createRoomUserNameField === '') {
+      this.errorMsgCreate = 'Please enter a user name.';
+      return;
+    } else if (this.createRoomNameField === '' || this.createRoomNameField.match(/^[0-9]+$/gi) === null) {
+      this.errorMsgCreate = 'Please enter a valid room id.';
+      return;
+    } else {
+      this.errorMsgCreate = '';
+    }
+
     const msg = {
       MessageType: 'CreateRoomRequest',
       UserName: this.createRoomUserNameField,
@@ -97,23 +125,57 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
           // This is the correct way to set the string but can't tell if server
           // is retrieving and displaying the message
           this.createdRoomId = data['RoomId'];
-          this.errorMsgCreate = 'Successfully Created a New Room!';
+          this.successMsgCreate = 'Successfully Created a New Room!';
           this.rooms = this.roomService.getRooms();
         } else {
-          console.log('subscribe data: ', data);
+          // console.log('subscribe data: ', data);
           this.errorMsgCreate = data['ErrorMessage'];
         }
       },
       err => alert(JSON.stringify(err))
     );
-    console.log('create subscriber: ', subscriber);
+    // console.log('create subscriber: ', subscriber);
     document.getElementById('welcomeDiv').style.display = 'inline-block';
 
   }
 
   changeRoomSettings() {
+    this.successMsgChangeRoomSettings = '';
+    if (this.changeRoomSettingsIDField === '' || this.changeRoomSettingsIDField.match(/^[0-9]+$/gi) === null) {
+      this.errorMsgChangeRoomSettings = 'Please enter a valid room id.';
+      return;
+    }
+
     const ATB = this.websiteParser(this.changeRoomAddBlacklistField);
     const RFB = this.websiteParser(this.changeRoomRemoveBlacklistField);
+
+    if (ATB.length === 0 && RFB.length === 0) {
+      this.errorMsgChangeRoomSettings = 'No sites were entered.';
+      return;
+    }
+
+    for (const blacklistedSite of ATB) {
+      if (blacklistedSite) {
+        if (blacklistedSite.match(/https:\/\/www\..+\.[a-z]{2,}/gi) === null) {
+          this.errorMsgChangeRoomSettings = 'Please include www. before each blacklisted website, ' +
+          'do not include https://, and include the top level domain (e.g. .com, .edu...)';
+          return;
+        }
+      }
+    }
+
+    for (const removeListedSite of ATB) {
+      if (removeListedSite) {
+        if (removeListedSite.match(/https:\/\/www\..+\.[a-z]{2,}/gi) === null) {
+          this.errorMsgChangeRoomSettings = 'Please include www. before each blacklist removed website, ' +
+          'do not include https://, and include the top level domain (e.g. .com, .edu...)';
+          return;
+        }
+      }
+    }
+
+    this.errorMsgChangeRoomSettings = '';
+
     const msg = {
       MessageType: 'ChangeRoomSettingsRequest',
       RoomId: this.changeRoomSettingsIDField,
@@ -125,7 +187,7 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
         if (data['MessageType'] === 'Error') {
           this.errorMsgChangeRoomSettings = data['ErrorMessage'];
         } else {
-          this.errorMsgChangeRoomSettings = `Succesfully changed room ${this.changeRoomSettingsIDField} settings!`;
+          this.successMsgChangeRoomSettings = `Succesfully changed room ${this.changeRoomSettingsIDField} settings!`;
           this.rooms = this.roomService.getRooms();
         }
       },
@@ -138,6 +200,10 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
   // Parse blacklisted websites from HTML input
   // 'websites' is passed as a comma separated string: "youtube.com, facebook.com"
   websiteParser (websites) {
+
+    if (websites === '') {
+      return [];
+    }
     // Base string from HTML
     let sitesArray = new Array();
     let sitesTrimmed = '';
@@ -146,7 +212,7 @@ export class RoomInteractionComponent implements OnInit, OnChanges {
     let i = 0;
     const prefix = 'https://';
     // Fix the formatting of the passed websites
-    console.log(sitesArray);
+    // console.log(sitesArray);
     for (i = 0; i < sitesArray.length; i++) {
       const first = sitesArray[i].substring(0, 7); // get first 8char substring
       if (first === prefix) { // If substring == "https://"
