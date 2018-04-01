@@ -59,8 +59,19 @@ Each team will get its own main branch. Whenever we start working on a new featu
 #### Goals and tasks
 
 ##### Synchronize the extension and the server
-* After finishing the chrome extension and the server code, we will synchronize the two together so data can be saved and read from a file.
+* We will implement network communications between the extension and the server.
 * Write test cases and test that the extension works and is able to communicate with the server.
+
+##### Fix all bugs on the Trello board
+* Fix errors in the server and extension ends as they appear
+
+##### Implement all missing correct functionality
+* Display scoring system via a leaderboard table UI
+* Send the required data from the extension to the server
+* Room Joining/Creation
+* Website Blacklisting/Parsing
+
+##### Clean up the UI for a fresher, cleaner design
 
 #### Artifacts
 
