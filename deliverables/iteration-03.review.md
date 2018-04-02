@@ -62,7 +62,12 @@ Also the video is evidence of it working.
 ##### Fix all bugs on the Trello board
 - See [Trello Board](https://github.com/csc301-winter-2018/project-team-02/blob/master/deliverables/images/scrumboard2.PNG)
 
-##### Implement all missing correct functionality
+##### Implement some of the missing correct functionality (see [video](https://www.youtube.com/watch?v=rXU4REQCgYw))
+* Display scoring system via a leaderboard table UI
+* Send the required data from the extension to the server
+* Room Joining/Creation
+* Website Blacklisting/Parsing
+
 ##### Clean up the UI for a fresher, cleaner design
 See the most up to date code for [master](https://github.com/csc301-winter-2018/project-team-02/tree/master) and [video](https://www.youtube.com/watch?v=rXU4REQCgYw).
 
