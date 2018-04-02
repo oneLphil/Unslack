@@ -20,12 +20,6 @@ This iteration went by very quickly and in terms of the goals we wanted to accom
 3. As mentioned in the introduction, the [message specification](https://github.com/csc301-winter-2018/project-team-02/blob/master/src/MessageSpec) was a good process decision for our team. It allowed all members to be able to know exactly what messages and responses were expected. 
 
 #### Decisions that did not turn out as well as we hoped
-
-List process-related (i.e. team organization) decisions that, in retrospect, were not as successful as you thought they would be.
-
- * 2 - 4 decisions.
- * Ordered from most to least important.
- * Feel free to refer/link to process artifact(s).
  
 1. One aspect of our task delivery proccess that had room for improvement was the specificity of some tasks in the Trello board. In the beginning of the iteration, we were placing broader tasks into the board for team members to pick up. This caused some overlap or redundancies in the front end components that could have been more efficiently tackled. The bug tracking tasks were very useful, but we began to create more specific tasks a little too late to get all the benefits of it.
   
