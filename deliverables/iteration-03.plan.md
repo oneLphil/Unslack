@@ -68,6 +68,7 @@ Each team will get its own main branch. Whenever we start working on a new featu
 * Room Joining/Creation
 * Website Blacklisting/Parsing
 * Add resetting of browser data
+* Come up with a fair scoring method
 
 ##### Clean up the UI for a fresher, cleaner design
 * Add more data visualization
