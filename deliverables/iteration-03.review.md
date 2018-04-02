@@ -12,7 +12,9 @@
 
 ## Process - Reflection
 
-(Optional) Short introduction
+Short introduction
+
+This iteration went by very quickly and in terms of the goals we wanted to accomplish, we were quite successful. The team is quite responsive and willing to work together on challenges. We felt that the process we had going for the previous iteration worked well for us, so we continued to work in a similar style, with a few process enhancements to increase efficiency.
 
 #### Decisions that turned out well
 
@@ -46,6 +48,7 @@ List any process-related changes you are planning to make (if there are any)
  * Explain why you are making a change.
 
 
+
 ## Product - Review
 
 #### Goals and/or tasks that were met/completed:
@@ -54,19 +57,11 @@ List any process-related changes you are planning to make (if there are any)
  * Refer/link to artifact(s) that show that a goal/task was met/completed.
  * If a goal/task was not part of the original iteration plan, please mention it.
 
+FROM plan:
+
 ##### Synchronize the extension and the server
-* Implemented [network communications](../src/extension/src/app/server.service.ts) between the extension and the server.
+* After finishing the chrome extension and the server code, we will synchronize the two together so data can be saved and read from a file.
 * Write test cases and test that the extension works and is able to communicate with the server.
-
-##### Fix all [bugs](./images/bugs.PNG) on the Trello board
-
-##### Implement all missing correct functionality
-* Display scoring system via a leaderboard table UI
-* Send the required data from the extension to the server
-* Room Joining/Creation
-* Website Blacklisting/Parsing
-
-##### Clean up the UI for a fresher, cleaner [design](./images/after.PNG)
 
 #### Goals and/or tasks that were planned but not met/completed:
 
