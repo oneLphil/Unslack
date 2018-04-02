@@ -12,13 +12,6 @@
 This iteration went by very quickly and in terms of the goals we wanted to accomplish, we were quite successful. The team is quite responsive and willing to work together on challenges. We felt that the process we had going for the previous iteration worked well for us, so we continued to work in a similar style, with a few process enhancements to increase efficiency. This iteration's main goal was to connect our backend server to our front-end application, which was successfully implemented largely because of the work done in the [message spec document](https://github.com/csc301-winter-2018/project-team-02/blob/master/src/MessageSpec) which facillitated a smooth integration of the work done by the 2 sub teams.
 
 #### Decisions that turned out well
-
-List process-related (i.e. team organization) decisions that, in retrospect, turned out to be successful.
-
- * 2 - 4 decisions.
- * Ordered from most to least important.
- * Explain why (i.e. give a supporting argument) you consider a decision to be successful.
- * Feel free to refer/link to process artifact(s).
  
 1. In retrospect, the most important decision that turned out to be the most successful would be the use of the Trello Board to handle all incoming issues and tasks to be done for the week. We considered this decision to be successful because it enabled us to have both a high and low level perspective of how components of the chrome extension were coming together. Bug trackers were especially important for the server and extension teams to debug.
  
