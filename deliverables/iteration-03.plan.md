@@ -8,11 +8,8 @@
 ## Process
 
 #### Changes from previous iteration
-TO-DO
 
 * Added more categories to the scrum board. We are making the change because it lets us track and document bug fixes in addition to features. This will give us a more accurate picture of how much work is left to be done on the project.
-2. ''
-3. ''
 
 #### Roles & responsibilities
 
