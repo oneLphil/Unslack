@@ -67,8 +67,10 @@ Each team will get its own main branch. Whenever we start working on a new featu
 * Send the required data from the extension to the server
 * Room Joining/Creation
 * Website Blacklisting/Parsing
+* Add resetting of browser data
 
 ##### Clean up the UI for a fresher, cleaner design
+* Add more data visualization
 
 #### Artifacts
 
