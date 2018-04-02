@@ -25,13 +25,6 @@ This iteration went by very quickly and in terms of the goals we wanted to accom
   
 2. The decision to not have the server and front-end/extension sub teams have a co-working session did impact the time spent to solve issues that were backend-frontend integration related. Both teams were very quick to respond via our messaging platform, however we believe that issues could have been solved even faster if we were able to work together in person. 
 
-#### Planned changes
-
-List any process-related changes you are planning to make (if there are any)
-
- * Ordered from most to least important.
- * Explain why you are making a change.
-
 ## Product - Review
 
 #### Goals and/or tasks that were met/completed:
