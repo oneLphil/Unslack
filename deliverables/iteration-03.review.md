@@ -81,7 +81,6 @@ See the most up to date code for [master](https://github.com/csc301-winter-2018/
 -|----|---------------------|
 -|Add resetting of browser data|It would have been a nice extra feature to offer, however it was not crucial for our product.|
 -|Add more data visualization|Not enough time to implement because we wanted to ensure that our server integration was working with as little bugs as possible|
- 
 -|Scoring fairness|Although we have a scoring system working at the moment, it can still be improved in terms of differentiating browsing time with idle time and preventing players from gaming the system. We could not implement a better scoring scheme because we simply did not have enough time to do it|
 
 
