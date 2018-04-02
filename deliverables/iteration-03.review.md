@@ -94,4 +94,7 @@ Going into the next iteration, our main insights are:
  * These concepts should help you decide on where to focus your efforts.
  * Can be related to product and/or process.
  
- 
+For the demo, we need to plan typical use cases to show off. In particular we
+should show how one person can influence the data collected for another person
+in the same group. For example, a user can add a site to the room's blacklist, and then
+the other user must be able to see and be affected by the change.
