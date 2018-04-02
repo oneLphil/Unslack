@@ -14,7 +14,7 @@
 
 Short introduction
 
-This iteration went by very quickly and in terms of the goals we wanted to accomplish, we were quite successful. The team is quite responsive and willing to work together on challenges. We felt that the process we had going for the previous iteration worked well for us, so we continued to work in a similar style, with a few process enhancements to increase efficiency.
+This iteration went by very quickly and in terms of the goals we wanted to accomplish, we were quite successful. The team is quite responsive and willing to work together on challenges. We felt that the process we had going for the previous iteration worked well for us, so we continued to work in a similar style, with a few process enhancements to increase efficiency. This iteration's main goal was to connect our backend server to our front-end application, which was successfully implemented largely because of the work done in the [message spec document](https://github.com/csc301-winter-2018/project-team-02/blob/master/src/MessageSpec) which facillitated a smooth integration of the work done by the 2 sub teams.
 
 #### Decisions that turned out well
 
