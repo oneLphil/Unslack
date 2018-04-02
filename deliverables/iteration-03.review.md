@@ -29,10 +29,6 @@ This iteration went by very quickly and in terms of the goals we wanted to accom
 
 #### Goals and/or tasks that were met/completed:
 
- * From most to least important.
- * Refer/link to artifact(s) that show that a goal/task was met/completed.
- * If a goal/task was not part of the original iteration plan, please mention it.
-
 From the plan.md:
 
 ##### Synchronize the extension and the server
@@ -52,10 +48,6 @@ Also the video is evidence of it working.
 See the most up to date code for [master](https://github.com/csc301-winter-2018/project-team-02/tree/master) and [video](https://www.youtube.com/watch?v=rXU4REQCgYw).
 
 #### Goals and/or tasks that were planned but not met/completed:
-
- * From most to least important.
- * For each goal/task, explain why it was not met/completed.      
-   e.g. Did you change your mind, or did you just not get to it yet?
  
 |Planned goal|Reason for incompletion|
 |------------|---------------------|
@@ -68,12 +60,6 @@ See the most up to date code for [master](https://github.com/csc301-winter-2018/
 
 Going into the next iteration, our main insights are:
 
- * 2 - 4 items
- * Short (no more than one short paragraph per item)
- * High-level concepts that should guide your work for the next iteration.
- * These concepts should help you decide on where to focus your efforts.
- * Can be related to product and/or process.
- 
 For the demo, we need to plan typical use cases to show off. In particular we
 should show how one person can influence the data collected for another person
 in the same group. For example, a user can add a site to the room's blacklist, and then
