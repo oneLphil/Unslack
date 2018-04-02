@@ -77,7 +77,7 @@ See the most up to date code for [master](https://github.com/csc301-winter-2018/
  * For each goal/task, explain why it was not met/completed.      
    e.g. Did you change your mind, or did you just not get to it yet?
  
-|Planned goal|Reason for no completion|
+|Planned goal|Reason for incompletion|
 |----|---------------------|
 |Add resetting of browser data|It would have been a nice extra feature to offer, however it was not crucial for our product.|
 |Add more data visualization|Not enough time to implement because we wanted to ensure that our server integration was working with as little bugs as possible|
